@@ -183,6 +183,34 @@ function setLanguage(language) {
     }
 }
 
+function showDictationTopics() {
+    const t = translations[currentLanguage];
+    const lesson = document.getElementById("lesson");
+
+    lesson.dataset.type = "dictation";
+
+    let html = `
+        <h2>🎧 ${t.dictation}</h2>
+        <h3>Choose a topic</h3>
+        <div class="topic-list">
+    `;
+
+    dictationTopics.forEach(topic => {
+        html += `
+            <button onclick="selectDictationTopic('${topic.id}')">
+                🇫🇮 ${topic.fi}<br>
+                🇬🇧 ${topic.en}<br>
+                🇻🇳 ${topic.vi}
+            </button>
+        `;
+    });
+
+    html += `</div>`;
+
+    lesson.innerHTML = html;
+    lesson.scrollIntoView({ behavior: "smooth" });
+}
+
 function showDictation() {
     const t = translations[currentLanguage];
     const lesson = document.getElementById("lesson");
