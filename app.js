@@ -79,9 +79,12 @@ const translations = {
         vietnamese: "Vietnam"
     }
 };
-
 let currentLanguage = "en";
 let currentLesson = 0;
+
+let selectedTopic = null;
+let selectedLevel = null;
+let activeLessons = [];
 
 const dictationTopics = [
     { id: "greetings", fi: "Tervehdykset", en: "Greetings", vi: "Chào hỏi" },
