@@ -83,28 +83,61 @@ const translations = {
 let currentLanguage = "en";
 let currentLesson = 0;
 
+const dictationTopics = [
+    { id: "greetings", fi: "Tervehdykset", en: "Greetings", vi: "Chào hỏi" },
+    { id: "family", fi: "Perhe", en: "Family", vi: "Gia đình" },
+    { id: "home", fi: "Koti", en: "Home", vi: "Nhà cửa" },
+    { id: "food", fi: "Ruoka", en: "Food", vi: "Thức ăn" },
+    { id: "work", fi: "Työ ja ammatti", en: "Work and profession", vi: "Công việc" },
+    { id: "daily", fi: "Arkipäivä", en: "Daily life", vi: "Sinh hoạt hằng ngày" },
+    { id: "weather", fi: "Sää", en: "Weather", vi: "Thời tiết" },
+    { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" }
+];
+
+
+const dictationTopics = [
+    { id: "greetings", fi: "Tervehdykset", en: "Greetings", vi: "Chào hỏi" },
+    { id: "family", fi: "Perhe", en: "Family", vi: "Gia đình" },
+    { id: "home", fi: "Koti", en: "Home", vi: "Nhà cửa" },
+    { id: "food", fi: "Ruoka", en: "Food", vi: "Thức ăn" },
+    { id: "work", fi: "Työ ja ammatti", en: "Work and profession", vi: "Công việc" },
+    { id: "daily", fi: "Arkipäivä", en: "Daily life", vi: "Sinh hoạt hằng ngày" },
+    { id: "weather", fi: "Sää", en: "Weather", vi: "Thời tiết" },
+    { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" }
+];
+
 const dictationLessons = [
     {
+        topic: "home",
+        level: "A1.1",
         fi: "Minä asun Porissa.",
         en: "I live in Pori.",
         vi: "Tôi sống ở Pori."
     },
     {
+        topic: "weather",
+        level: "A1.1",
         fi: "Tänään on kylmä sää.",
         en: "Today the weather is cold.",
         vi: "Hôm nay thời tiết lạnh."
     },
     {
+        topic: "daily",
+        level: "A1.2",
         fi: "Minä opiskelen suomea joka päivä.",
         en: "I study Finnish every day.",
         vi: "Tôi học tiếng Phần Lan mỗi ngày."
     },
     {
+        topic: "family",
+        level: "A1.1",
         fi: "Perheeni asuu Suomessa.",
         en: "My family lives in Finland.",
         vi: "Gia đình tôi sống ở Phần Lan."
     },
     {
+        topic: "daily",
+        level: "A1.1",
         fi: "Minä menen aamulla kouluun.",
         en: "I go to school in the morning.",
         vi: "Tôi đi học vào buổi sáng."
