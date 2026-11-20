@@ -132,6 +132,7 @@ let selectedLevel = null;
 let activeLessons = [];
 let currentLesson = 0;
 let answerChecked = false;
+let dictationAttempts = 0;
 let selectedVocabularyTopic = null;
 let selectedVocabularyLevel = null;
 let activeVocabularyWords = [];
@@ -949,7 +950,8 @@ function showDictation() {
     }
 
     currentScreen = "exercise";
-    answerChecked = false;
+    answerChecked = false;
+    dictationAttempts = 0;
 
     const t = translations[currentLanguage];
     const lesson = getElement("lesson");
@@ -1142,7 +1144,29 @@ function checkAnswer() {
         <p>${getText("tryAgain")}</p>
     `;
 
+    dictationAttempts++;
+
+if (dictationAttempts < 3) {
+    result.innerHTML += `
+        <p>⚠️ Lần thử ${dictationAttempts}/3. Yritä uudelleen!</p>
+    `;
+
     getElement("next-button").disabled = true;
+} else {
+    answerChecked = true;
+
+    result.innerHTML += `
+        <hr>
+        <h3>📖 Đáp án đúng</h3>
+        <p><strong>🇫🇮 ${escapeHTML(current.fi)}</strong></p>
+        <p>🇬🇧 ${escapeHTML(current.en)}</p>
+        <p>🇻🇳 ${escapeHTML(current.vi)}</p>
+        <p>Đã hết 3 lần thử. Bạn có thể chuyển sang câu tiếp theo.</p>
+    `;
+
+    getElement("next-button").disabled = false;
+    getElement("check-button").disabled = true;
+}
 }
 
 
