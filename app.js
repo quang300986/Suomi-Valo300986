@@ -1458,7 +1458,6 @@ window.showCompleted = showCompleted;
 window.speakFinnish = speakFinnish;
 window.checkAnswer = checkAnswer;
 window.nextLesson = nextLesson;
-
 window.showVocabularyTopics = showVocabularyTopics;
 window.selectVocabularyTopic = selectVocabularyTopic;
 window.showVocabularyLevels = showVocabularyLevels;
