@@ -145,3 +145,22 @@ button {
         font-size: 12px;
     }
 }
+
+.word-correct {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.word-wrong {
+    color: #dc2626;
+    text-decoration: underline;
+    text-decoration-color: #dc2626;
+    text-decoration-thickness: 2px;
+    font-weight: bold;
+}
+
+.masked-answer {
+    font-size: 22px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
