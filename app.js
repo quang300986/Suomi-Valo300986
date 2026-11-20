@@ -743,6 +743,7 @@ function showDictation() {
 
 /* 12. FINNISH SPEECH */
 
+
 function speakFinnish() {
     const current = activeLessons[currentLesson];
 
@@ -753,23 +754,19 @@ function speakFinnish() {
         return;
     }
 
+    const voices = window.speechSynthesis.getVoices();
+    const satuVoice = voices.find(voice => voice.name === "Satu");
+
     window.speechSynthesis.cancel();
 
     const speech = new SpeechSynthesisUtterance(current.fi);
+
     speech.lang = "fi-FI";
-    speech.rate = 0.8;
+    speech.rate = 0.85;
     speech.pitch = 1;
 
-    const voices = window.speechSynthesis.getVoices();
-
-    const finnishVoice = voices.find(voice =>
-        voice.lang.toLowerCase() === "fi-fi"
-    ) || voices.find(voice =>
-        voice.lang.toLowerCase().startsWith("fi")
-    );
-
-    if (finnishVoice) {
-        speech.voice = finnishVoice;
+    if (satuVoice) {
+        speech.voice = satuVoice;
     }
 
     window.speechSynthesis.speak(speech);
