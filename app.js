@@ -275,7 +275,7 @@ function showDictation() {
 
     lesson.innerHTML = `
         <h2>🎧 ${t.dictation}</h2>
-        <p>${t.exercise} ${currentLesson + 1} / ${dictationLessons.length}</p>
+        <p>${t.exercise} ${currentLesson + 1} / ${activeLessons.length}</p>
 
         <button onclick="speakFinnish()">🔊 ${t.listen}</button>
 
