@@ -241,6 +241,32 @@ function showDictationLevels() {
     lesson.scrollIntoView({ behavior: "smooth" });
 }
 
+function showDictationLevels() {
+    const lesson = document.getElementById("lesson");
+
+    lesson.innerHTML = `
+        <h2>🎧 Choose your level</h2>
+
+        <button onclick="selectDictationLevel('A1.1')">
+            A1.1 – Beginner
+        </button>
+
+        <button onclick="selectDictationLevel('A1.2')">
+            A1.2 – Elementary
+        </button>
+
+        <button onclick="selectDictationLevel('A2')">
+            A2 – Pre-intermediate
+        </button>
+
+        <button onclick="showDictationTopics()">
+            ← Back to topics
+        </button>
+    `;
+
+    lesson.scrollIntoView({ behavior: "smooth" });
+}
+
 function showDictation() {
     const t = translations[currentLanguage];
     const lesson = document.getElementById("lesson");
