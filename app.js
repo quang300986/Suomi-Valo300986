@@ -147,18 +147,6 @@ function setLanguage(language) {
     }
 }
 
-function speakFinnish() {
-    const speech = new SpeechSynthesisUtterance(
-        dictationLessons[currentLesson].fi
-    );
-
-    speech.lang = "fi-FI";
-    speech.rate = 0.8;
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speech);
-}
-
 function showDictation() {
     const t = translations[currentLanguage];
     const lesson = document.getElementById("lesson");
