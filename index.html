@@ -1,63 +1,69 @@
 
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2457a7">
+    <meta name="theme-color" content="#174A91">
     <title>Suomi Valo300986</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>🇫🇮 Suomi ♡</h1>
-        <p>Valo300986</p>
-        <p>Học tiếng Phần Lan mỗi ngày</p>
-    </header>
+<header>
+    <h1>🇫🇮 Suomi ♡</h1>
+    <h3>Valo300986</h3>
+    <p>Learn Finnish Every Day</p>
 
-    <main>
-        <h2>Tervetuloa!</h2>
-        <p>Chào mừng bạn đến với ứng dụng học tiếng Phần Lan.</p>
+    <div class="language-switch">
+        <button onclick="setLanguage('fi')">🇫🇮 FI</button>
+        <button onclick="setLanguage('en')">🇬🇧 EN</button>
+        <button onclick="setLanguage('vi')">🇻🇳 VI</button>
+    </div>
+</header>
 
-        <section class="menu">
-            <button onclick="openLesson('dictation')">
-                🎧 Daily Dictation
-                <small>Nghe và viết</small>
-            </button>
+<main>
+    <h2 id="welcome">Welcome!</h2>
+    <p id="subtitle">Choose your learning activity.</p>
 
-            <button onclick="openLesson('vocabulary')">
-                📚 Vocabulary
-                <small>Học từ vựng</small>
-            </button>
+    <section class="menu">
+        <button onclick="openLesson('dictation')">
+            🎧 <span id="menu-dictation">Daily Dictation</span>
+            <small id="desc-dictation">Listen and Write</small>
+        </button>
 
-            <button onclick="openLesson('grammar')">
-                ✏️ Grammar
-                <small>Học ngữ pháp</small>
-            </button>
+        <button onclick="openLesson('vocabulary')">
+            📚 <span id="menu-vocabulary">Vocabulary</span>
+            <small id="desc-vocabulary">Learn New Words</small>
+        </button>
 
-            <button onclick="openLesson('listening')">
-                🔊 Listening
-                <small>Luyện nghe</small>
-            </button>
+        <button onclick="openLesson('grammar')">
+            ✏️ <span id="menu-grammar">Grammar</span>
+            <small id="desc-grammar">Learn Finnish Grammar</small>
+        </button>
 
-            <button onclick="openLesson('yki')">
-                🎓 YKI Preparation
-                <small>Luyện thi YKI</small>
-            </button>
-        </section>
+        <button onclick="openLesson('listening')">
+            🔊 <span id="menu-listening">Listening & Speaking</span>
+            <small id="desc-listening">Improve Your Skills</small>
+        </button>
 
-        <section id="lesson">
-            <h2>🇫🇮 Aloitetaan!</h2>
-            <p>Chọn một bài học để bắt đầu.</p>
-        </section>
-    </main>
+        <button onclick="openLesson('yki')">
+            🎓 <span id="menu-yki">YKI Preparation</span>
+            <small id="desc-yki">Prepare for YKI</small>
+        </button>
+    </section>
 
-    <footer>
-        <p>Suomi ♡ Valo300986</p>
-        <p>Learn Finnish every day!</p>
-    </footer>
+    <section id="lesson">
+        <h2>🇫🇮 Aloitetaan!</h2>
+        <p>Choose a lesson to start.</p>
+    </section>
+</main>
 
-    <script src="app.js"></script>
+<footer>
+    <p>Suomi ♡ Valo300986</p>
+    <p>Finnish • English • Vietnamese</p>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
