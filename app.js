@@ -451,3 +451,5 @@ function openLesson(name) {
 
     lesson.scrollIntoView({ behavior: "smooth" });
 }
+window.setLanguage = setLanguage;
+window.openLesson = openLesson;
