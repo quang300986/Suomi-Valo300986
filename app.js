@@ -276,10 +276,10 @@ function nextLesson() {
 }
 
 function openLesson(name) {
-    if (name === "dictation") {
-        showDictation();
-        return;
-    }
+   if (name === "dictation") {
+    showDictationTopics();
+    return;
+}
 
     const t = translations[currentLanguage];
 
