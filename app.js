@@ -153,221 +153,319 @@ const dictationTopics = [
    topic, level, fi, en, vi
 */
 
+
 const dictationLessons = [
 
-    // GREETINGS
+    // =================================
+    // 1. GREETINGS — CHÀO HỎI
+    // =================================
 
-    {
-        topic: "greetings", level: "A1.1",
-        fi: "Hei! Mitä kuuluu?",
-        en: "Hi! How are you?",
-        vi: "Xin chào! Bạn khỏe không?"
-    },
-    {
-        topic: "greetings", level: "A1.1",
-        fi: "Hyvää huomenta!",
-        en: "Good morning!",
-        vi: "Chào buổi sáng!"
-    },
-    {
-        topic: "greetings", level: "A1.1",
-        fi: "Minun nimeni on Anna.",
-        en: "My name is Anna.",
-        vi: "Tên tôi là Anna."
-    },
+    ["greetings","A1.1","Hei! Mitä kuuluu?","Hi! How are you?","Xin chào! Bạn khỏe không?"],
+    ["greetings","A1.1","Hyvää huomenta!","Good morning!","Chào buổi sáng!"],
+    ["greetings","A1.1","Hyvää iltaa!","Good evening!","Chào buổi tối!"],
+    ["greetings","A1.1","Minun nimeni on Anna.","My name is Anna.","Tên tôi là Anna."],
+    ["greetings","A1.1","Mikä sinun nimesi on?","What is your name?","Tên bạn là gì?"],
+    ["greetings","A1.1","Minä olen Vietnamista.","I am from Vietnam.","Tôi đến từ Việt Nam."],
+    ["greetings","A1.1","Asun Porissa.","I live in Pori.","Tôi sống ở Pori."],
+    ["greetings","A1.1","Hauska tutustua!","Nice to meet you!","Rất vui được làm quen!"],
+    ["greetings","A1.1","Kiitos, hyvää kuuluu.","Thanks, I am fine.","Cảm ơn, tôi khỏe."],
+    ["greetings","A1.1","Näkemiin! Hyvää päivänjatkoa!","Goodbye! Have a nice day!","Tạm biệt! Chúc bạn một ngày tốt lành!"],
 
-    {
-        topic: "greetings", level: "A1.2",
-        fi: "Hauska tutustua sinuun.",
-        en: "Nice to meet you.",
-        vi: "Rất vui được làm quen với bạn."
-    },
-    {
-        topic: "greetings", level: "A1.2",
-        fi: "Mistä sinä olet kotoisin?",
-        en: "Where are you from?",
-        vi: "Bạn đến từ đâu?"
-    },
-    {
-        topic: "greetings", level: "A1.2",
-        fi: "Olen kotoisin Vietnamista.",
-        en: "I am from Vietnam.",
-        vi: "Tôi đến từ Việt Nam."
-    },
+    ["greetings","A1.2","Mitä sinä teet työksesi?","What do you do for a living?","Bạn làm nghề gì?"],
+    ["greetings","A1.2","Opiskelen suomen kieltä.","I study Finnish.","Tôi học tiếng Phần Lan."],
+    ["greetings","A1.2","Kuinka kauan olet asunut Suomessa?","How long have you lived in Finland?","Bạn đã sống ở Phần Lan bao lâu rồi?"],
+    ["greetings","A1.2","Olen asunut täällä yhden vuoden.","I have lived here for one year.","Tôi đã sống ở đây một năm."],
+    ["greetings","A1.2","Mitä kieliä sinä puhut?","What languages do you speak?","Bạn nói những ngôn ngữ nào?"],
+    ["greetings","A1.2","Puhun vietnamia ja vähän suomea.","I speak Vietnamese and a little Finnish.","Tôi nói tiếng Việt và một chút tiếng Phần Lan."],
+    ["greetings","A1.2","Mitä sinä harrastat vapaa-ajalla?","What are your hobbies in your free time?","Bạn có sở thích gì khi rảnh?"],
+    ["greetings","A1.2","Tykkään kävellä metsässä.","I like walking in the forest.","Tôi thích đi bộ trong rừng."],
+    ["greetings","A1.2","Missä sinä opiskelet suomea?","Where do you study Finnish?","Bạn học tiếng Phần Lan ở đâu?"],
+    ["greetings","A1.2","Nähdään huomenna kurssilla!","See you tomorrow in class!","Hẹn gặp bạn ngày mai ở lớp!"],
 
-    {
-        topic: "greetings", level: "A2",
-        fi: "Olen asunut Suomessa kaksi vuotta.",
-        en: "I have lived in Finland for two years.",
-        vi: "Tôi đã sống ở Phần Lan được hai năm."
-    },
-    {
-        topic: "greetings", level: "A2",
-        fi: "Mitä aiot tehdä viikonloppuna?",
-        en: "What are you going to do at the weekend?",
-        vi: "Bạn dự định làm gì vào cuối tuần?"
-    },
-    {
-        topic: "greetings", level: "A2",
-        fi: "Oli mukava keskustella kanssasi.",
-        en: "It was nice talking with you.",
-        vi: "Rất vui được trò chuyện với bạn."
-    },
+    ["greetings","A2","Olen muuttanut Suomeen perheeni kanssa.","I have moved to Finland with my family.","Tôi đã chuyển đến Phần Lan cùng gia đình."],
+    ["greetings","A2","Haluan oppia puhumaan suomea paremmin.","I want to learn to speak Finnish better.","Tôi muốn học nói tiếng Phần Lan tốt hơn."],
+    ["greetings","A2","Suomen opiskelu on joskus vaikeaa.","Studying Finnish is sometimes difficult.","Việc học tiếng Phần Lan đôi khi khó."],
+    ["greetings","A2","Yritän harjoitella suomea joka päivä.","I try to practise Finnish every day.","Tôi cố gắng luyện tiếng Phần Lan mỗi ngày."],
+    ["greetings","A2","Mitä aiot tehdä viikonloppuna?","What are you going to do at the weekend?","Bạn dự định làm gì vào cuối tuần?"],
+    ["greetings","A2","Aion mennä metsään kävelemään.","I am going to go for a walk in the forest.","Tôi dự định đi dạo trong rừng."],
+    ["greetings","A2","Oli mukava keskustella kanssasi.","It was nice talking with you.","Rất vui được trò chuyện với bạn."],
+    ["greetings","A2","Voimmeko tavata uudelleen ensi viikolla?","Can we meet again next week?","Chúng ta có thể gặp lại vào tuần tới không?"],
+    ["greetings","A2","Minusta on mukavaa tutustua uusiin ihmisiin.","I enjoy meeting new people.","Tôi thích làm quen với những người mới."],
+    ["greetings","A2","Toivottavasti näemme pian uudelleen.","I hope we will see each other again soon.","Hy vọng chúng ta sẽ sớm gặp lại."],
 
 
-    // FAMILY
+    // =================================
+    // 2. FAMILY — GIA ĐÌNH
+    // =================================
 
-    {
-        topic: "family", level: "A1.1",
-        fi: "Minulla on pieni perhe.",
-        en: "I have a small family.",
-        vi: "Tôi có một gia đình nhỏ."
-    },
-    {
-        topic: "family", level: "A1.2",
-        fi: "Perheessäni on neljä ihmistä.",
-        en: "There are four people in my family.",
-        vi: "Gia đình tôi có bốn người."
-    },
-    {
-        topic: "family", level: "A2",
-        fi: "Vietämme viikonloput usein yhdessä.",
-        en: "We often spend weekends together.",
-        vi: "Chúng tôi thường dành những ngày cuối tuần bên nhau."
-    },
+    ["family","A1.1","Tässä on minun perheeni.","Here is my family.","Đây là gia đình tôi."],
+    ["family","A1.1","Minulla on kaksi lasta.","I have two children.","Tôi có hai người con."],
+    ["family","A1.1","Minulla on yksi veli.","I have one brother.","Tôi có một người anh/em trai."],
+    ["family","A1.1","Äitini asuu Vietnamissa.","My mother lives in Vietnam.","Mẹ tôi sống ở Việt Nam."],
+    ["family","A1.1","Isäni on kotona.","My father is at home.","Bố tôi đang ở nhà."],
+    ["family","A1.1","Tyttäreni käy koulua.","My daughter goes to school.","Con gái tôi đi học."],
+    ["family","A1.1","Poikani on yksitoista vuotta vanha.","My son is eleven years old.","Con trai tôi mười một tuổi."],
+    ["family","A1.1","Me asumme yhdessä.","We live together.","Chúng tôi sống cùng nhau."],
+    ["family","A1.1","Perheeni on tärkeä minulle.","My family is important to me.","Gia đình rất quan trọng đối với tôi."],
+    ["family","A1.1","Me syömme yhdessä.","We eat together.","Chúng tôi ăn cùng nhau."],
 
+    ["family","A1.2","Perheessäni on neljä ihmistä.","There are four people in my family.","Gia đình tôi có bốn người."],
+    ["family","A1.2","Vaimoni opiskelee Suomessa.","My wife studies in Finland.","Vợ tôi học tập ở Phần Lan."],
+    ["family","A1.2","Lapset menevät kouluun aamulla.","The children go to school in the morning.","Các con đi học vào buổi sáng."],
+    ["family","A1.2","Autan lapsia heidän läksyissään.","I help the children with their homework.","Tôi giúp các con làm bài tập."],
+    ["family","A1.2","Viikonloppuna olemme usein kotona.","At the weekend we are often at home.","Cuối tuần chúng tôi thường ở nhà."],
+    ["family","A1.2","Isoäitini asuu toisessa kaupungissa.","My grandmother lives in another city.","Bà tôi sống ở một thành phố khác."],
+    ["family","A1.2","Veljeni käy usein meillä.","My brother often visits us.","Anh/em trai tôi thường đến thăm chúng tôi."],
+    ["family","A1.2","Pidämme yhdessä elokuvien katsomisesta.","We like watching films together.","Chúng tôi thích xem phim cùng nhau."],
+    ["family","A1.2","Lapset auttavat kotitöissä.","The children help with housework.","Các con giúp làm việc nhà."],
+    ["family","A1.2","Soitamme sukulaisille sunnuntaisin.","We call our relatives on Sundays.","Chúng tôi gọi điện cho họ hàng vào Chủ nhật."],
 
-    // HOME
-
-    {
-        topic: "home", level: "A1.1",
-        fi: "Minä asun Porissa.",
-        en: "I live in Pori.",
-        vi: "Tôi sống ở Pori."
-    },
-    {
-        topic: "home", level: "A1.2",
-        fi: "Asunnossani on kaksi makuuhuonetta.",
-        en: "My apartment has two bedrooms.",
-        vi: "Căn hộ của tôi có hai phòng ngủ."
-    },
-    {
-        topic: "home", level: "A2",
-        fi: "Keittiössä on suuri ruokapöytä.",
-        en: "There is a large dining table in the kitchen.",
-        vi: "Trong bếp có một chiếc bàn ăn lớn."
-    },
+    ["family","A2","Muutimme Suomeen koko perheen kanssa.","We moved to Finland with the whole family.","Chúng tôi chuyển đến Phần Lan cùng cả gia đình."],
+    ["family","A2","Haluamme oppia suomalaista kulttuuria.","We want to learn about Finnish culture.","Chúng tôi muốn tìm hiểu văn hóa Phần Lan."],
+    ["family","A2","Yritämme viettää enemmän aikaa yhdessä.","We try to spend more time together.","Chúng tôi cố gắng dành nhiều thời gian bên nhau hơn."],
+    ["family","A2","Lapset ovat saaneet uusia ystäviä koulussa.","The children have made new friends at school.","Các con đã có những người bạn mới ở trường."],
+    ["family","A2","Autamme toisiamme arjen asioissa.","We help each other with everyday matters.","Chúng tôi giúp đỡ nhau trong cuộc sống hằng ngày."],
+    ["family","A2","Käymme joskus yhdessä kirjastossa.","We sometimes go to the library together.","Đôi khi chúng tôi cùng nhau đến thư viện."],
+    ["family","A2","Perheeni viettää lomaa usein luonnossa.","My family often spends holidays in nature.","Gia đình tôi thường nghỉ lễ giữa thiên nhiên."],
+    ["family","A2","Lapset opettavat minulle uusia suomen sanoja.","The children teach me new Finnish words.","Các con dạy tôi những từ tiếng Phần Lan mới."],
+    ["family","A2","Haluamme rakentaa hyvän elämän Suomessa.","We want to build a good life in Finland.","Chúng tôi muốn xây dựng một cuộc sống tốt đẹp ở Phần Lan."],
+    ["family","A2","Olemme onnellisia, kun olemme yhdessä.","We are happy when we are together.","Chúng tôi hạnh phúc khi ở bên nhau."],
 
 
-    // FOOD
+    // =================================
+    // 3. HOME — NHÀ CỬA
+    // =================================
 
-    {
-        topic: "food", level: "A1.1",
-        fi: "Minä syön omenan.",
-        en: "I eat an apple.",
-        vi: "Tôi ăn một quả táo."
-    },
-    {
-        topic: "food", level: "A1.2",
-        fi: "Syön yleensä lounasta kello kaksitoista.",
-        en: "I usually eat lunch at twelve.",
-        vi: "Tôi thường ăn trưa lúc mười hai giờ."
-    },
-    {
-        topic: "food", level: "A2",
-        fi: "Pidän vihanneksista ja tuoreista hedelmistä.",
-        en: "I like vegetables and fresh fruits.",
-        vi: "Tôi thích rau và trái cây tươi."
-    },
+    ["home","A1.1","Minä asun Porissa.","I live in Pori.","Tôi sống ở Pori."],
+    ["home","A1.1","Tämä on minun kotini.","This is my home.","Đây là nhà của tôi."],
+    ["home","A1.1","Asunnossa on kolme huonetta.","There are three rooms in the apartment.","Căn hộ có ba phòng."],
+    ["home","A1.1","Keittiö on pieni.","The kitchen is small.","Nhà bếp nhỏ."],
+    ["home","A1.1","Olohuoneessa on sohva.","There is a sofa in the living room.","Trong phòng khách có một chiếc ghế sofa."],
+    ["home","A1.1","Makuuhuoneessa on sänky.","There is a bed in the bedroom.","Trong phòng ngủ có một chiếc giường."],
+    ["home","A1.1","Pöytä on ikkunan vieressä.","The table is next to the window.","Cái bàn ở cạnh cửa sổ."],
+    ["home","A1.1","Kengät ovat oven edessä.","The shoes are in front of the door.","Giày ở phía trước cửa."],
+    ["home","A1.1","Jääkaappi on keittiössä.","The fridge is in the kitchen.","Tủ lạnh ở trong bếp."],
+    ["home","A1.1","Minä siivoan kotona.","I clean at home.","Tôi dọn dẹp ở nhà."],
 
+    ["home","A1.2","Asunnossani on kaksi makuuhuonetta.","My apartment has two bedrooms.","Căn hộ của tôi có hai phòng ngủ."],
+    ["home","A1.2","Olohuoneessa on suuri ikkuna.","There is a large window in the living room.","Phòng khách có một cửa sổ lớn."],
+    ["home","A1.2","Laitan ruokaa keittiössä joka päivä.","I cook in the kitchen every day.","Tôi nấu ăn trong bếp mỗi ngày."],
+    ["home","A1.2","Pesukone on kylpyhuoneessa.","The washing machine is in the bathroom.","Máy giặt ở trong phòng tắm."],
+    ["home","A1.2","Kirjat ovat hyllyllä.","The books are on the shelf.","Sách ở trên kệ."],
+    ["home","A1.2","Matto on pöydän alla.","The rug is under the table.","Tấm thảm ở dưới bàn."],
+    ["home","A1.2","Meillä on pieni parveke.","We have a small balcony.","Chúng tôi có một ban công nhỏ."],
+    ["home","A1.2","Käytävä on pitkä ja kapea.","The hallway is long and narrow.","Hành lang dài và hẹp."],
+    ["home","A1.2","Imuroin lattian kerran viikossa.","I vacuum the floor once a week.","Tôi hút bụi sàn nhà mỗi tuần một lần."],
+    ["home","A1.2","Naapurimme asuu yläkerrassa.","Our neighbour lives upstairs.","Hàng xóm của chúng tôi sống ở tầng trên."],
 
-    // WORK
-
-    {
-        topic: "work", level: "A1.1",
-        fi: "Minä olen opiskelija.",
-        en: "I am a student.",
-        vi: "Tôi là học sinh / sinh viên."
-    },
-    {
-        topic: "work", level: "A1.2",
-        fi: "Hän työskentelee sairaalassa.",
-        en: "He or she works in a hospital.",
-        vi: "Anh ấy / cô ấy làm việc ở bệnh viện."
-    },
-    {
-        topic: "work", level: "A2",
-        fi: "Etsin parhaillaan uutta työpaikkaa.",
-        en: "I am currently looking for a new job.",
-        vi: "Hiện tại tôi đang tìm một công việc mới."
-    },
+    ["home","A2","Keittiön pöydän ääressä syömme yhdessä.","We eat together at the kitchen table.","Chúng tôi ăn cùng nhau bên bàn bếp."],
+    ["home","A2","Asuntomme sijaitsee rauhallisella alueella.","Our apartment is in a quiet area.","Căn hộ của chúng tôi nằm trong một khu vực yên tĩnh."],
+    ["home","A2","Pidän siitä, että kotona on paljon valoa.","I like that there is a lot of light at home.","Tôi thích nhà có nhiều ánh sáng."],
+    ["home","A2","Siivoamme koko asunnon lauantaisin.","We clean the whole apartment on Saturdays.","Chúng tôi dọn dẹp toàn bộ căn hộ vào thứ Bảy."],
+    ["home","A2","Talvella pidämme verhot usein kiinni.","In winter we often keep the curtains closed.","Vào mùa đông chúng tôi thường kéo rèm lại."],
+    ["home","A2","Parvekkeella on kesällä paljon kukkia.","There are many flowers on the balcony in summer.","Vào mùa hè có nhiều hoa trên ban công."],
+    ["home","A2","Haluaisin joskus asua omakotitalossa.","I would like to live in a detached house someday.","Một ngày nào đó tôi muốn sống trong một ngôi nhà riêng."],
+    ["home","A2","Lähin ruokakauppa on kävelymatkan päässä.","The nearest grocery store is within walking distance.","Cửa hàng thực phẩm gần nhất nằm trong khoảng cách đi bộ."],
+    ["home","A2","Yritämme pitää kotimme siistinä joka päivä.","We try to keep our home tidy every day.","Chúng tôi cố gắng giữ nhà cửa gọn gàng mỗi ngày."],
+    ["home","A2","Viihdyn hyvin tässä asunnossa.","I feel comfortable in this apartment.","Tôi cảm thấy thoải mái trong căn hộ này."],
 
 
-    // DAILY LIFE
+    // =================================
+    // 4. FOOD — THỨC ĂN
+    // =================================
 
-    {
-        topic: "daily", level: "A1.1",
-        fi: "Minä herään aamulla kello seitsemän.",
-        en: "I wake up at seven in the morning.",
-        vi: "Tôi thức dậy lúc bảy giờ sáng."
-    },
-    {
-        topic: "daily", level: "A1.2",
-        fi: "Menen joka päivä suomen kielen kurssille.",
-        en: "I go to Finnish class every day.",
-        vi: "Tôi đi học tiếng Phần Lan mỗi ngày."
-    },
-    {
-        topic: "daily", level: "A2",
-        fi: "Opiskelen suomea yleensä illalla kotona.",
-        en: "I usually study Finnish at home in the evening.",
-        vi: "Tôi thường học tiếng Phần Lan ở nhà vào buổi tối."
-    },
+    ["food","A1.1","Minä syön omenan.","I eat an apple.","Tôi ăn một quả táo."],
+    ["food","A1.1","Juon vettä.","I drink water.","Tôi uống nước."],
+    ["food","A1.1","Pidän banaaneista.","I like bananas.","Tôi thích chuối."],
+    ["food","A1.1","Leipä on pöydällä.","The bread is on the table.","Bánh mì ở trên bàn."],
+    ["food","A1.1","Minä syön riisiä.","I eat rice.","Tôi ăn cơm."],
+    ["food","A1.1","Kahvi on kuumaa.","The coffee is hot.","Cà phê nóng."],
+    ["food","A1.1","Haluan yhden kananmunan.","I want one egg.","Tôi muốn một quả trứng."],
+    ["food","A1.1","Tämä keitto on hyvää.","This soup is delicious.","Món súp này ngon."],
+    ["food","A1.1","Ostan maitoa kaupasta.","I buy milk from the shop.","Tôi mua sữa ở cửa hàng."],
+    ["food","A1.1","Syön aamupalaa kotona.","I eat breakfast at home.","Tôi ăn sáng ở nhà."],
 
+    ["food","A1.2","Syön yleensä lounasta kello kaksitoista.","I usually eat lunch at twelve.","Tôi thường ăn trưa lúc mười hai giờ."],
+    ["food","A1.2","Pidän vihanneksista ja hedelmistä.","I like vegetables and fruits.","Tôi thích rau và trái cây."],
+    ["food","A1.2","Valmistan päivällisen koko perheelle.","I prepare dinner for the whole family.","Tôi chuẩn bị bữa tối cho cả gia đình."],
+    ["food","A1.2","Lisään keittoon vähän suolaa.","I add a little salt to the soup.","Tôi thêm một ít muối vào súp."],
+    ["food","A1.2","Ostan kaupasta tuoreita tomaatteja.","I buy fresh tomatoes from the shop.","Tôi mua cà chua tươi ở cửa hàng."],
+    ["food","A1.2","Syömme kalaa yleensä perjantaisin.","We usually eat fish on Fridays.","Chúng tôi thường ăn cá vào thứ Sáu."],
+    ["food","A1.2","Lapset haluavat syödä jäätelöä.","The children want to eat ice cream.","Các con muốn ăn kem."],
+    ["food","A1.2","Minä juon teetä ilman sokeria.","I drink tea without sugar.","Tôi uống trà không đường."],
+    ["food","A1.2","Mitä haluat syödä tänään?","What do you want to eat today?","Hôm nay bạn muốn ăn gì?"],
+    ["food","A1.2","Ruoka tuoksuu todella hyvältä.","The food smells really good.","Thức ăn có mùi rất thơm."],
 
-    // WEATHER
-
-    {
-        topic: "weather", level: "A1.1",
-        fi: "Tänään on kylmä sää.",
-        en: "The weather is cold today.",
-        vi: "Hôm nay thời tiết lạnh."
-    },
-    {
-        topic: "weather", level: "A1.2",
-        fi: "Ulkona sataa lunta.",
-        en: "It is snowing outside.",
-        vi: "Ngoài trời đang có tuyết rơi."
-    },
-    {
-        topic: "weather", level: "A2",
-        fi: "Huomenna sää on lämpimämpi kuin tänään.",
-        en: "Tomorrow the weather will be warmer than today.",
-        vi: "Ngày mai thời tiết sẽ ấm hơn hôm nay."
-    },
+    ["food","A2","Yritän syödä monipuolisesti joka päivä.","I try to eat a varied diet every day.","Tôi cố gắng ăn uống đa dạng mỗi ngày."],
+    ["food","A2","Valmistan usein ruokaa tuoreista aineksista.","I often cook with fresh ingredients.","Tôi thường nấu ăn bằng nguyên liệu tươi."],
+    ["food","A2","Torilta voi ostaa paikallisia vihanneksia.","You can buy local vegetables at the market.","Bạn có thể mua rau địa phương ở chợ."],
+    ["food","A2","Pakastan marjoja talvea varten.","I freeze berries for the winter.","Tôi đông lạnh các loại quả mọng để dùng vào mùa đông."],
+    ["food","A2","En käytä ruoanlaitossa kovin paljon suolaa.","I do not use much salt when cooking.","Tôi không dùng nhiều muối khi nấu ăn."],
+    ["food","A2","Kokeilen mielelläni uusia suomalaisia ruokia.","I like trying new Finnish dishes.","Tôi thích thử những món ăn Phần Lan mới."],
+    ["food","A2","Aterian jälkeen juomme usein kahvia.","After the meal we often drink coffee.","Sau bữa ăn chúng tôi thường uống cà phê."],
+    ["food","A2","Ruokakaupassa vertailen usein tuotteiden hintoja.","At the grocery store I often compare product prices.","Ở cửa hàng thực phẩm tôi thường so sánh giá sản phẩm."],
+    ["food","A2","Kasvikset kannattaa pestä ennen syömistä.","Vegetables should be washed before eating.","Nên rửa rau trước khi ăn."],
+    ["food","A2","Haluan oppia valmistamaan lisää suomalaisia ruokia.","I want to learn to prepare more Finnish dishes.","Tôi muốn học cách nấu thêm nhiều món ăn Phần Lan."],
 
 
-    // SHOPPING
+    // =================================
+    // 5. WORK — CÔNG VIỆC
+    // =================================
 
-    {
-        topic: "shopping", level: "A1.1",
-        fi: "Missä on lähin kauppa?",
-        en: "Where is the nearest shop?",
-        vi: "Cửa hàng gần nhất ở đâu?"
-    },
-    {
-        topic: "shopping", level: "A1.2",
-        fi: "Paljonko tämä omena maksaa?",
-        en: "How much does this apple cost?",
-        vi: "Quả táo này giá bao nhiêu?"
-    },
-    {
-        topic: "shopping", level: "A2",
-        fi: "Voinko maksaa ostokset pankkikortilla?",
-        en: "Can I pay for the shopping by bank card?",
-        vi: "Tôi có thể thanh toán bằng thẻ ngân hàng không?"
-    }
-];
+    ["work","A1.1","Minä olen opiskelija.","I am a student.","Tôi là học sinh / sinh viên."],
+    ["work","A1.1","Hän työskentelee sairaalassa.","He or she works in a hospital.","Anh ấy / cô ấy làm việc ở bệnh viện."],
+    ["work","A1.1","Missä sinä olet töissä?","Where do you work?","Bạn làm việc ở đâu?"],
+    ["work","A1.1","Minä etsin työtä.","I am looking for work.","Tôi đang tìm việc."],
+    ["work","A1.1","Työ alkaa aamulla.","Work starts in the morning.","Công việc bắt đầu vào buổi sáng."],
+    ["work","A1.1","Minulla on tänään vapaapäivä.","I have a day off today.","Hôm nay tôi được nghỉ."],
+    ["work","A1.1","Opettaja on luokassa.","The teacher is in the classroom.","Giáo viên ở trong lớp học."],
+    ["work","A1.1","Lääkäri auttaa potilasta.","The doctor helps the patient.","Bác sĩ giúp bệnh nhân."],
+    ["work","A1.1","Minä opiskelen suomea.","I study Finnish.","Tôi học tiếng Phần Lan."],
+    ["work","A1.1","Työpaikka on lähellä kotia.","The workplace is near home.","Nơi làm việc gần nhà."],
+
+    ["work","A1.2","Työskentelen yleensä maanantaista perjantaihin.","I usually work from Monday to Friday.","Tôi thường làm việc từ thứ Hai đến thứ Sáu."],
+    ["work","A1.2","Etsin uutta työpaikkaa Porista.","I am looking for a new job in Pori.","Tôi đang tìm việc mới ở Pori."],
+    ["work","A1.2","Minulla ei ole vielä työkokemusta Suomessa.","I do not have work experience in Finland yet.","Tôi chưa có kinh nghiệm làm việc ở Phần Lan."],
+    ["work","A1.2","Työkaverini ovat ystävällisiä.","My colleagues are friendly.","Đồng nghiệp của tôi thân thiện."],
+    ["work","A1.2","Pidän työstä, jossa saan auttaa ihmisiä.","I like work where I can help people.","Tôi thích công việc mà tôi có thể giúp đỡ mọi người."],
+    ["work","A1.2","Tarvitsen suomen kieltä työelämässä.","I need Finnish in working life.","Tôi cần tiếng Phần Lan trong công việc."],
+    ["work","A1.2","Haen työpaikkaa internetin kautta.","I apply for jobs online.","Tôi tìm việc qua Internet."],
+    ["work","A1.2","Työhaastattelu alkaa kello yhdeksän.","The job interview starts at nine.","Buổi phỏng vấn xin việc bắt đầu lúc chín giờ."],
+    ["work","A1.2","Minun pitää lähettää työhakemus.","I have to send a job application.","Tôi phải gửi đơn xin việc."],
+    ["work","A1.2","Haluan oppia uusia työtehtäviä.","I want to learn new work tasks.","Tôi muốn học những nhiệm vụ công việc mới."],
+
+    ["work","A2","Etsin parhaillaan sopivaa työpaikkaa.","I am currently looking for a suitable job.","Hiện tại tôi đang tìm một công việc phù hợp."],
+    ["work","A2","Aikaisempi työkokemukseni on ulkomailta.","My previous work experience is from abroad.","Kinh nghiệm làm việc trước đây của tôi là ở nước ngoài."],
+    ["work","A2","Haluan kehittää suomen kielen taitoani työssä.","I want to improve my Finnish skills at work.","Tôi muốn cải thiện tiếng Phần Lan trong công việc."],
+    ["work","A2","Työntekijän pitää noudattaa työpaikan sääntöjä.","An employee must follow workplace rules.","Nhân viên phải tuân thủ nội quy nơi làm việc."],
+    ["work","A2","Työpäivän jälkeen menen yleensä kotiin bussilla.","After work I usually go home by bus.","Sau giờ làm tôi thường về nhà bằng xe buýt."],
+    ["work","A2","Hyvä työilmapiiri on minulle tärkeä.","A good working atmosphere is important to me.","Môi trường làm việc tốt rất quan trọng đối với tôi."],
+    ["work","A2","Kysyn työkaverilta apua, jos en ymmärrä tehtävää.","I ask a colleague for help if I do not understand a task.","Tôi hỏi đồng nghiệp giúp đỡ nếu không hiểu nhiệm vụ."],
+    ["work","A2","Haluan löytää työn, jossa voin oppia lisää.","I want to find a job where I can learn more.","Tôi muốn tìm công việc mà tôi có thể học hỏi thêm."],
+    ["work","A2","Työhaastattelussa kerron aikaisemmasta kokemuksestani.","In the job interview I talk about my previous experience.","Trong buổi phỏng vấn tôi kể về kinh nghiệm trước đây."],
+    ["work","A2","Työn ja perhe-elämän tasapaino on tärkeää.","The balance between work and family life is important.","Sự cân bằng giữa công việc và gia đình rất quan trọng."],
+
+
+    // =================================
+    // 6. DAILY LIFE — SINH HOẠT HẰNG NGÀY
+    // =================================
+
+    ["daily","A1.1","Minä herään kello seitsemän.","I wake up at seven.","Tôi thức dậy lúc bảy giờ."],
+    ["daily","A1.1","Peseydyn aamulla.","I wash myself in the morning.","Tôi vệ sinh cá nhân vào buổi sáng."],
+    ["daily","A1.1","Syön aamupalaa kotona.","I eat breakfast at home.","Tôi ăn sáng ở nhà."],
+    ["daily","A1.1","Menen kouluun bussilla.","I go to school by bus.","Tôi đi học bằng xe buýt."],
+    ["daily","A1.1","Juon kahvia aamulla.","I drink coffee in the morning.","Tôi uống cà phê vào buổi sáng."],
+    ["daily","A1.1","Palaan kotiin iltapäivällä.","I return home in the afternoon.","Tôi trở về nhà vào buổi chiều."],
+    ["daily","A1.1","Teen ruokaa illalla.","I cook in the evening.","Tôi nấu ăn vào buổi tối."],
+    ["daily","A1.1","Katson televisiota kotona.","I watch television at home.","Tôi xem tivi ở nhà."],
+    ["daily","A1.1","Menemme nukkumaan kello kymmenen.","We go to bed at ten.","Chúng tôi đi ngủ lúc mười giờ."],
+    ["daily","A1.1","Tänään on maanantai.","Today is Monday.","Hôm nay là thứ Hai."],
+
+    ["daily","A1.2","Menen joka päivä suomen kielen kurssille.","I go to Finnish class every day.","Tôi đi học tiếng Phần Lan mỗi ngày."],
+    ["daily","A1.2","Käyn kaupassa koulun jälkeen.","I go shopping after school.","Tôi đi mua sắm sau giờ học."],
+    ["daily","A1.2","Teen kotitehtävät ennen illallista.","I do my homework before dinner.","Tôi làm bài tập trước bữa tối."],
+    ["daily","A1.2","Siivoan keittiön ruoanlaiton jälkeen.","I clean the kitchen after cooking.","Tôi dọn bếp sau khi nấu ăn."],
+    ["daily","A1.2","Kävelen usein puistossa iltapäivällä.","I often walk in the park in the afternoon.","Tôi thường đi bộ trong công viên vào buổi chiều."],
+    ["daily","A1.2","Luen kirjaa ennen nukkumaanmenoa.","I read a book before going to sleep.","Tôi đọc sách trước khi đi ngủ."],
+    ["daily","A1.2","Soitan ystävälleni viikonloppuna.","I call my friend at the weekend.","Tôi gọi điện cho bạn vào cuối tuần."],
+    ["daily","A1.2","Pesen pyykkiä yleensä sunnuntaisin.","I usually do laundry on Sundays.","Tôi thường giặt quần áo vào Chủ nhật."],
+    ["daily","A1.2","Minulla on paljon tekemistä tänään.","I have a lot to do today.","Hôm nay tôi có nhiều việc phải làm."],
+    ["daily","A1.2","Vapaa-ajalla kuuntelen musiikkia.","In my free time I listen to music.","Khi rảnh tôi nghe nhạc."],
+
+    ["daily","A2","Herään aikaisin, koska kurssi alkaa aamulla.","I wake up early because the course starts in the morning.","Tôi thức dậy sớm vì khóa học bắt đầu vào buổi sáng."],
+    ["daily","A2","Yritän suunnitella päiväni etukäteen.","I try to plan my day in advance.","Tôi cố gắng lên kế hoạch cho ngày mới trước."],
+    ["daily","A2","Jos sää on hyvä, käyn kävelyllä ulkona.","If the weather is good, I go for a walk outside.","Nếu thời tiết đẹp, tôi đi dạo bên ngoài."],
+    ["daily","A2","Viikonloppuisin meillä on enemmän aikaa levätä.","At weekends we have more time to rest.","Vào cuối tuần chúng tôi có nhiều thời gian nghỉ ngơi hơn."],
+    ["daily","A2","Käytän aamulla hetken suomen opiskeluun.","I spend a little time studying Finnish in the morning.","Buổi sáng tôi dành một chút thời gian học tiếng Phần Lan."],
+    ["daily","A2","Teen ostoslistan ennen kauppaan lähtemistä.","I make a shopping list before going to the store.","Tôi lập danh sách mua sắm trước khi đi cửa hàng."],
+    ["daily","A2","Kun olen väsynyt, menen aikaisemmin nukkumaan.","When I am tired, I go to bed earlier.","Khi mệt, tôi đi ngủ sớm hơn."],
+    ["daily","A2","Yritän löytää aikaa sekä opiskelulle että perheelle.","I try to find time for both studying and family.","Tôi cố gắng dành thời gian cho cả việc học và gia đình."],
+    ["daily","A2","Teen usein seuraavan päivän suunnitelmat illalla.","I often make plans for the next day in the evening.","Tôi thường lên kế hoạch cho ngày hôm sau vào buổi tối."],
+    ["daily","A2","Pienet päivittäiset harjoitukset auttavat oppimaan kieltä.","Small daily exercises help with learning a language.","Những bài luyện tập nhỏ hằng ngày giúp học ngôn ngữ."],
+
+
+    // =================================
+    // 7. WEATHER — THỜI TIẾT
+    // =================================
+
+    ["weather","A1.1","Tänään on kylmä sää.","The weather is cold today.","Hôm nay thời tiết lạnh."],
+    ["weather","A1.1","Aurinko paistaa.","The sun is shining.","Mặt trời đang chiếu sáng."],
+    ["weather","A1.1","Ulkona sataa vettä.","It is raining outside.","Ngoài trời đang mưa."],
+    ["weather","A1.1","Nyt sataa lunta.","It is snowing now.","Bây giờ trời đang có tuyết."],
+    ["weather","A1.1","Tuulee paljon tänään.","It is very windy today.","Hôm nay trời nhiều gió."],
+    ["weather","A1.1","Taivas on pilvinen.","The sky is cloudy.","Bầu trời nhiều mây."],
+    ["weather","A1.1","Kesällä on lämmintä.","It is warm in summer.","Mùa hè trời ấm."],
+    ["weather","A1.1","Talvella on usein pakkasta.","In winter it is often freezing.","Mùa đông thường có băng giá."],
+    ["weather","A1.1","Ulkona on kaunis sää.","The weather is beautiful outside.","Ngoài trời thời tiết đẹp."],
+    ["weather","A1.1","Minulla on lämmin takki.","I have a warm coat.","Tôi có một chiếc áo khoác ấm."],
+
+    ["weather","A1.2","Ulkona sataa räntää.","It is sleeting outside.","Ngoài trời đang mưa tuyết."],
+    ["weather","A1.2","Lämpötila on tänään viisi astetta.","The temperature is five degrees today.","Nhiệt độ hôm nay là năm độ."],
+    ["weather","A1.2","Aamulla oli sumua.","It was foggy in the morning.","Buổi sáng có sương mù."],
+    ["weather","A1.2","Iltapäivällä aurinko tulee esiin.","The sun will come out in the afternoon.","Buổi chiều mặt trời sẽ ló ra."],
+    ["weather","A1.2","Laitoin pipon päähän ennen ulosmenoa.","I put a hat on before going outside.","Tôi đội mũ trước khi ra ngoài."],
+    ["weather","A1.2","Syksyllä lehdet muuttuvat keltaisiksi.","In autumn the leaves turn yellow.","Vào mùa thu lá chuyển sang màu vàng."],
+    ["weather","A1.2","Keväällä lumi alkaa sulaa.","In spring the snow begins to melt.","Vào mùa xuân tuyết bắt đầu tan."],
+    ["weather","A1.2","Sää muuttuu nopeasti syksyllä.","The weather changes quickly in autumn.","Thời tiết thay đổi nhanh vào mùa thu."],
+    ["weather","A1.2","En halua mennä ulos sateella.","I do not want to go outside in the rain.","Tôi không muốn ra ngoài khi trời mưa."],
+    ["weather","A1.2","Huomenna voi olla aurinkoista.","Tomorrow it may be sunny.","Ngày mai có thể trời nắng."],
+
+    ["weather","A2","Huomenna sää on lämpimämpi kuin tänään.","Tomorrow the weather will be warmer than today.","Ngày mai thời tiết sẽ ấm hơn hôm nay."],
+    ["weather","A2","Talvella päivät ovat lyhyitä ja yöt pitkiä.","In winter the days are short and the nights are long.","Mùa đông ngày ngắn và đêm dài."],
+    ["weather","A2","Lumisateen jälkeen tiet voivat olla liukkaita.","After snowfall the roads can be slippery.","Sau khi tuyết rơi, đường có thể trơn trượt."],
+    ["weather","A2","Pidän syksystä, koska metsän värit ovat kauniita.","I like autumn because the colours of the forest are beautiful.","Tôi thích mùa thu vì màu sắc của rừng rất đẹp."],
+    ["weather","A2","Sääennusteen mukaan viikonloppuna sataa vettä.","According to the weather forecast, it will rain at the weekend.","Theo dự báo thời tiết, cuối tuần trời sẽ mưa."],
+    ["weather","A2","Pakkasella kannattaa pukeutua lämpimästi.","When it is freezing, it is a good idea to dress warmly.","Khi trời giá rét, nên mặc quần áo ấm."],
+    ["weather","A2","Kevään ensimmäiset lämpimät päivät tuntuvat mukavilta.","The first warm days of spring feel pleasant.","Những ngày ấm áp đầu tiên của mùa xuân thật dễ chịu."],
+    ["weather","A2","Voimakas tuuli saa ilman tuntumaan kylmemmältä.","Strong wind makes the air feel colder.","Gió mạnh khiến không khí có cảm giác lạnh hơn."],
+    ["weather","A2","Kesällä nautimme pitkistä ja valoisista illoista.","In summer we enjoy long and bright evenings.","Mùa hè chúng tôi tận hưởng những buổi tối dài và sáng."],
+    ["weather","A2","Tarkistan sääennusteen ennen metsäretkeä.","I check the weather forecast before a trip to the forest.","Tôi kiểm tra dự báo thời tiết trước chuyến đi rừng."],
+
+
+    // =================================
+    // 8. SHOPPING — MUA SẮM
+    // =================================
+
+    ["shopping","A1.1","Missä on lähin kauppa?","Where is the nearest shop?","Cửa hàng gần nhất ở đâu?"],
+    ["shopping","A1.1","Paljonko tämä maksaa?","How much does this cost?","Cái này giá bao nhiêu?"],
+    ["shopping","A1.1","Haluan ostaa leipää.","I want to buy bread.","Tôi muốn mua bánh mì."],
+    ["shopping","A1.1","Missä maito on?","Where is the milk?","Sữa ở đâu?"],
+    ["shopping","A1.1","Tarvitsen yhden pussin.","I need one bag.","Tôi cần một cái túi."],
+    ["shopping","A1.1","Voinko maksaa kortilla?","Can I pay by card?","Tôi có thể thanh toán bằng thẻ không?"],
+    ["shopping","A1.1","Tämä omena on punainen.","This apple is red.","Quả táo này màu đỏ."],
+    ["shopping","A1.1","Ostan kaksi banaania.","I buy two bananas.","Tôi mua hai quả chuối."],
+    ["shopping","A1.1","Kauppa on tänään auki.","The shop is open today.","Hôm nay cửa hàng mở cửa."],
+    ["shopping","A1.1","Kiitos paljon!","Thank you very much!","Cảm ơn rất nhiều!"],
+
+    ["shopping","A1.2","Paljonko tämä omena maksaa?","How much does this apple cost?","Quả táo này giá bao nhiêu?"],
+    ["shopping","A1.2","Etsin uusia talvikenkiä.","I am looking for new winter shoes.","Tôi đang tìm giày mùa đông mới."],
+    ["shopping","A1.2","Onko tämä paita saatavilla isompana?","Is this shirt available in a larger size?","Áo này có cỡ lớn hơn không?"],
+    ["shopping","A1.2","Haluaisin ostaa tuoreita vihanneksia.","I would like to buy fresh vegetables.","Tôi muốn mua rau tươi."],
+    ["shopping","A1.2","Missä kassajono alkaa?","Where does the checkout queue start?","Hàng chờ thanh toán bắt đầu ở đâu?"],
+    ["shopping","A1.2","Tarvitsen kuitin ostoksista.","I need a receipt for the purchases.","Tôi cần hóa đơn mua hàng."],
+    ["shopping","A1.2","Voinko palauttaa tämän tuotteen?","Can I return this product?","Tôi có thể trả lại sản phẩm này không?"],
+    ["shopping","A1.2","Tämä tuote on tänään tarjouksessa.","This product is on sale today.","Sản phẩm này hôm nay đang được giảm giá."],
+    ["shopping","A1.2","Ostan yleensä ruokaa kerran viikossa.","I usually buy food once a week.","Tôi thường mua thực phẩm mỗi tuần một lần."],
+    ["shopping","A1.2","Tarvitsemme kotiin lisää pesuainetta.","We need more detergent at home.","Chúng tôi cần thêm nước giặt ở nhà."],
+
+    ["shopping","A2","Vertailen eri kauppojen hintoja ennen ostamista.","I compare prices in different shops before buying.","Tôi so sánh giá ở các cửa hàng khác nhau trước khi mua."],
+    ["shopping","A2","Yritän ostaa vain niitä tuotteita, joita tarvitsen.","I try to buy only the products I need.","Tôi cố gắng chỉ mua những sản phẩm mình cần."],
+    ["shopping","A2","Ruokakaupassa on aamulla yleensä vähemmän ihmisiä.","There are usually fewer people in the grocery store in the morning.","Buổi sáng cửa hàng thực phẩm thường ít người hơn."],
+    ["shopping","A2","Säästän rahaa tekemällä ostoslistan etukäteen.","I save money by making a shopping list in advance.","Tôi tiết kiệm tiền bằng cách lập danh sách mua sắm trước."],
+    ["shopping","A2","Tuoreet marjat ovat kesällä usein edullisempia.","Fresh berries are often cheaper in summer.","Các loại quả mọng tươi thường rẻ hơn vào mùa hè."],
+    ["shopping","A2","Voitko auttaa minua löytämään tämän tuotteen?","Can you help me find this product?","Bạn có thể giúp tôi tìm sản phẩm này không?"],
+    ["shopping","A2","Ostan usein tuotteita, jotka ovat tarjouksessa.","I often buy products that are on sale.","Tôi thường mua những sản phẩm đang giảm giá."],
+    ["shopping","A2","Käytän kestokassia muovipussin sijasta.","I use a reusable bag instead of a plastic bag.","Tôi dùng túi tái sử dụng thay cho túi nhựa."],
+    ["shopping","A2","Jos tuote on viallinen, voin pyytää hyvitystä.","If a product is faulty, I can ask for a refund.","Nếu sản phẩm bị lỗi, tôi có thể yêu cầu hoàn tiền."],
+    ["shopping","A2","Tarkistan viimeisen käyttöpäivän ennen ostamista.","I check the expiry date before buying.","Tôi kiểm tra hạn sử dụng trước khi mua."]
+    
+].map(([topic, level, fi, en, vi]) => ({
+    topic,
+    level,
+    fi,
+    en,
+    vi
+}));
 
 
 /* 5. HELPER FUNCTIONS */
