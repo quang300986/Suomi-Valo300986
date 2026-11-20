@@ -177,26 +177,62 @@ function showDictation() {
 
 function checkAnswer() {
     const t = translations[currentLanguage];
+    const lesson = dictationLessons[currentLesson];
 
-    const answer = document.getElementById("answer").value
-        .trim().toLowerCase()
+    const normalize = text => text
+        .trim()
+        .toLowerCase()
         .replace(/[.!?]+$/g, "")
         .replace(/\s+/g, " ");
 
-    const correct = dictationLessons[currentLesson].fi
-        .toLowerCase().replace(/[.!?]+$/g, "")
-        .replace(/\s+/g, " ");
+    const answer = normalize(
+        document.getElementById("answer").value
+    );
 
-    const lesson = dictationLessons[currentLesson];
+    const correct = normalize(lesson.fi);
+
+    const answerWords = answer.split(" ");
+    const correctWords = correct.split(" ");
+
+    let resultHTML = "";
+
+    const maxWords = Math.max(
+        answerWords.length,
+        correctWords.length
+    );
+
+    for (let i = 0; i < maxWords; i++) {
+        const typed = answerWords[i] || "";
+        const expected = correctWords[i] || "";
+
+        if (typed === expected && expected !== "") {
+            resultHTML += `<span class="word-correct">${typed}</span> `;
+        } else {
+            let masked = "";
+
+            for (let j = 0; j < expected.length; j++) {
+                masked += typed[j] === expected[j]
+                    ? expected[j]
+                    : "*";
+            }
+
+            resultHTML += `<span class="word-wrong">${masked}</span> `;
+        }
+    }
+
+    const isCorrect = answer === correct;
 
     document.getElementById("result").innerHTML = `
         <hr>
-        <h3>${answer === correct ? "🎉 " + t.correct : "💪 " + t.incorrect}</h3>
-        <p>🇫🇮 ${lesson.fi}</p>
-        <p>🇬🇧 ${lesson.en}</p>
-        <p>🇻🇳 ${lesson.vi}</p>
+        <h3>${isCorrect ? "🎉 " + t.correct : "💪 " + t.incorrect}</h3>
+        <div class="masked-answer">${isCorrect ? lesson.fi : resultHTML}</div>
+        ${isCorrect ? `
+            <p>🇬🇧 ${lesson.en}</p>
+            <p>🇻🇳 ${lesson.vi}</p>
+        ` : ""}
     `;
 }
+
 
 function nextLesson() {
     currentLesson = (currentLesson + 1) % dictationLessons.length;
