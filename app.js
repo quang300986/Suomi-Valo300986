@@ -132,7 +132,10 @@ let selectedLevel = null;
 let activeLessons = [];
 let currentLesson = 0;
 let answerChecked = false;
-
+let selectedVocabularyTopic = null;
+let selectedVocabularyLevel = null;
+let activeVocabularyWords = [];
+let currentVocabularyIndex = 0;
 
 /* 3. TOPICS */
 
@@ -784,6 +787,18 @@ function renderCurrentScreen() {
             showComingSoon();
             break;
 
+case "vocabularyTopics":
+    showVocabularyTopics();
+    break;
+
+case "vocabularyLevels":
+    showVocabularyLevels();
+    break;
+
+case "vocabularyCard":
+    showVocabularyCard();
+    break;
+
         case "module":
             showModule(currentModule);
             break;
@@ -1192,7 +1207,205 @@ function showModule(name) {
 }
 
 
+function showVocabularyTopics() {
+    currentScreen = "vocabularyTopics";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "vocabulary";
+
+    const title = getText("vocabulary");
+
+    lesson.innerHTML = `
+        <h2>📚 ${title}</h2>
+        <p>Choose a vocabulary topic</p>
+
+        <div class="topic-grid">
+            ${vocabularyTopics.map(topic => `
+                <button onclick="selectVocabularyTopic('${topic.id}')">
+                    ${topic.fi}
+                    <br>
+                    <small>${topic.vi}</small>
+                </button>
+            `).join("")}
+        </div>
+
+        <button onclick="showHome()">
+            ← ${getText("home")}
+        </button>
+    `;
+
+    scrollToLesson();
+}
+
+
+function selectVocabularyTopic(topicId) {
+    selectedVocabularyTopic = topicId;
+    showVocabularyLevels();
+}
+
+function showVocabularyLevels() {
+    currentScreen = "vocabularyLevels";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "vocabulary";
+
+    const topic = vocabularyTopics.find(
+        item => item.id === selectedVocabularyTopic
+    );
+
+    lesson.innerHTML = `
+        <h2>📚 ${topic.fi}</h2>
+        <p>Choose your level</p>
+
+        <button onclick="selectVocabularyLevel('A1.1')">
+            A1.1 - Beginner
+        </button>
+
+        <button onclick="selectVocabularyLevel('A1.2')">
+            A1.2 - Elementary
+        </button>
+
+        <button onclick="selectVocabularyLevel('A2')">
+            A2 - Pre-intermediate
+        </button>
+
+        <button onclick="showVocabularyTopics()">
+            ← Back
+        </button>
+    `;
+
+    scrollToLesson();
+}
+
+
+function selectVocabularyLevel(level) {
+    selectedVocabularyLevel = level;
+
+    activeVocabularyWords = vocabularyWords.filter(word =>
+        word.topic === selectedVocabularyTopic &&
+        word.level === selectedVocabularyLevel
+    );
+
+    currentVocabularyIndex = 0;
+    showVocabularyCard();
+}
+
+function showVocabularyCard() {
+    currentScreen = "vocabularyCard";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "vocabulary";
+
+    const topic = vocabularyTopics.find(
+        item => item.id === selectedVocabularyTopic
+    );
+
+    const word = activeVocabularyWords[currentVocabularyIndex];
+
+    if (!word) {
+        lesson.innerHTML = `
+            <h2>No vocabulary found</h2>
+            <button onclick="showVocabularyLevels()">← Back</button>
+        `;
+        return;
+    }
+
+    lesson.innerHTML = `
+        <h2>📚 ${topic.fi}</h2>
+
+        <p>
+            ${selectedVocabularyLevel}
+            • ${currentVocabularyIndex + 1} / ${activeVocabularyWords.length}
+        </p>
+
+        <div class="vocabulary-card">
+            <h1>${word.fi}</h1>
+
+            <button onclick="speakVocabulary()">
+                🔊 Listen
+            </button>
+
+            <h3>🇻🇳 ${word.vi}</h3>
+            <h3>🇬🇧 ${word.en}</h3>
+        </div>
+
+        <button
+            onclick="previousVocabularyWord()"
+            ${currentVocabularyIndex === 0 ? "disabled" : ""}
+        >
+            ← Previous
+        </button>
+
+        <button
+            onclick="nextVocabularyWord()"
+            ${currentVocabularyIndex === activeVocabularyWords.length - 1 ? "disabled" : ""}
+        >
+            Next →
+        </button>
+
+        <br>
+
+        <button onclick="showVocabularyLevels()">
+            ← Change level
+        </button>
+
+        <button onclick="showVocabularyTopics()">
+            ← Topics
+        </button>
+    `;
+
+    scrollToLesson();
+}
+
+function previousVocabularyWord() {
+    if (currentVocabularyIndex > 0) {
+        currentVocabularyIndex--;
+        showVocabularyCard();
+    }
+}
+
+function nextVocabularyWord() {
+    if (currentVocabularyIndex < activeVocabularyWords.length - 1) {
+        currentVocabularyIndex++;
+        showVocabularyCard();
+    }
+}
+
+
+function speakVocabulary() {
+    const word = activeVocabularyWords[currentVocabularyIndex];
+
+    if (!word || !("speechSynthesis" in window)) return;
+
+    const speak = () => {
+        const voices = window.speechSynthesis.getVoices();
+        const satuVoice = voices.find(v => v.name === "Satu");
+
+        const speech = new SpeechSynthesisUtterance(word.fi);
+        speech.lang = "fi-FI";
+        speech.rate = 0.85;
+        speech.pitch = 1;
+
+        if (satuVoice) speech.voice = satuVoice;
+
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(speech);
+    };
+
+    if (window.speechSynthesis.getVoices().length > 0) {
+        speak();
+    } else {
+        window.speechSynthesis.addEventListener(
+            "voiceschanged",
+            speak,
+            { once: true }
+        );
+    }
+}
+
+
 /* 17. OPEN MENU */
+
 
 function openLesson(name) {
     if (name === "dictation") {
@@ -1205,8 +1418,17 @@ function openLesson(name) {
         return;
     }
 
+    if (name === "vocabulary") {
+        selectedVocabularyTopic = null;
+        selectedVocabularyLevel = null;
+        activeVocabularyWords = [];
+        currentVocabularyIndex = 0;
+
+        showVocabularyTopics();
+        return;
+    }
+
     const allowedModules = [
-        "vocabulary",
         "grammar",
         "listening",
         "yki"
@@ -1237,6 +1459,14 @@ window.speakFinnish = speakFinnish;
 window.checkAnswer = checkAnswer;
 window.nextLesson = nextLesson;
 
+window.showVocabularyTopics = showVocabularyTopics;
+window.selectVocabularyTopic = selectVocabularyTopic;
+window.showVocabularyLevels = showVocabularyLevels;
+window.selectVocabularyLevel = selectVocabularyLevel;
+window.showVocabularyCard = showVocabularyCard;
+window.previousVocabularyWord = previousVocabularyWord;
+window.nextVocabularyWord = nextVocabularyWord;
+window.speakVocabulary = speakVocabulary;
 
 /* 19. START APP */
 
