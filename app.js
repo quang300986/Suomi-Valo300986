@@ -1,154 +1,242 @@
 
+const translations = {
+    en: {
+        welcome: "Welcome Back!",
+        subtitle: "Choose your learning activity.",
+        dictation: "Daily Dictation",
+        dictationDesc: "Listen and Write",
+        vocabulary: "Vocabulary",
+        vocabularyDesc: "Learn New Words",
+        grammar: "Grammar",
+        grammarDesc: "Learn Finnish Grammar",
+        listening: "Listening & Speaking",
+        listeningDesc: "Improve Your Skills",
+        yki: "YKI Preparation",
+        ykiDesc: "Prepare for YKI",
+        choose: "Choose a lesson to start.",
+        listen: "Listen",
+        write: "Write what you hear:",
+        check: "Check Answer",
+        next: "Next Exercise",
+        correct: "Correct! Well done!",
+        incorrect: "Try again!",
+        answer: "Your answer",
+        exercise: "Exercise",
+        finnish: "Finnish",
+        english: "English",
+        vietnamese: "Vietnamese"
+    },
+    vi: {
+        welcome: "Chào mừng bạn trở lại!",
+        subtitle: "Hãy chọn hoạt động học tập.",
+        dictation: "Luyện nghe viết",
+        dictationDesc: "Nghe và viết",
+        vocabulary: "Từ vựng",
+        vocabularyDesc: "Học từ mới",
+        grammar: "Ngữ pháp",
+        grammarDesc: "Học ngữ pháp Phần Lan",
+        listening: "Nghe và nói",
+        listeningDesc: "Cải thiện kỹ năng",
+        yki: "Luyện thi YKI",
+        ykiDesc: "Chuẩn bị kỳ thi YKI",
+        choose: "Chọn một bài học để bắt đầu.",
+        listen: "Nghe",
+        write: "Viết câu bạn nghe được:",
+        check: "Kiểm tra đáp án",
+        next: "Bài tiếp theo",
+        correct: "Chính xác! Làm tốt lắm!",
+        incorrect: "Hãy thử lại nhé!",
+        answer: "Câu trả lời của bạn",
+        exercise: "Bài tập",
+        finnish: "Tiếng Phần Lan",
+        english: "Tiếng Anh",
+        vietnamese: "Tiếng Việt"
+    },
+    fi: {
+        welcome: "Tervetuloa takaisin!",
+        subtitle: "Valitse harjoitus.",
+        dictation: "Saneluharjoitus",
+        dictationDesc: "Kuuntele ja kirjoita",
+        vocabulary: "Sanasto",
+        vocabularyDesc: "Opiskele uusia sanoja",
+        grammar: "Kielioppi",
+        grammarDesc: "Opiskele suomen kielioppia",
+        listening: "Kuuntelu ja puhuminen",
+        listeningDesc: "Harjoittele taitojasi",
+        yki: "YKI-harjoittelu",
+        ykiDesc: "Valmistaudu YKI-kokeeseen",
+        choose: "Valitse oppitunti.",
+        listen: "Kuuntele",
+        write: "Kirjoita kuulemasi lause:",
+        check: "Tarkista vastaus",
+        next: "Seuraava harjoitus",
+        correct: "Oikein! Hienosti tehty!",
+        incorrect: "Yritä uudelleen!",
+        answer: "Vastauksesi",
+        exercise: "Harjoitus",
+        finnish: "Suomi",
+        english: "Englanti",
+        vietnamese: "Vietnam"
+    }
+};
+
+let currentLanguage = "en";
+let currentLesson = 0;
+
 const dictationLessons = [
     {
         fi: "Minä asun Porissa.",
-        vi: "Tôi sống ở Pori.",
-        en: "I live in Pori."
+        en: "I live in Pori.",
+        vi: "Tôi sống ở Pori."
     },
     {
         fi: "Tänään on kylmä sää.",
-        vi: "Hôm nay thời tiết lạnh.",
-        en: "Today the weather is cold."
+        en: "Today the weather is cold.",
+        vi: "Hôm nay thời tiết lạnh."
     },
     {
         fi: "Minä opiskelen suomea joka päivä.",
-        vi: "Tôi học tiếng Phần Lan mỗi ngày.",
-        en: "I study Finnish every day."
+        en: "I study Finnish every day.",
+        vi: "Tôi học tiếng Phần Lan mỗi ngày."
     },
     {
         fi: "Perheeni asuu Suomessa.",
-        vi: "Gia đình tôi sống ở Phần Lan.",
-        en: "My family lives in Finland."
+        en: "My family lives in Finland.",
+        vi: "Gia đình tôi sống ở Phần Lan."
     },
     {
         fi: "Minä menen aamulla kouluun.",
-        vi: "Tôi đi học vào buổi sáng.",
-        en: "I go to school in the morning."
+        en: "I go to school in the morning.",
+        vi: "Tôi đi học vào buổi sáng."
     }
 ];
 
-let currentLesson = 0;
+function setLanguage(language) {
+    currentLanguage = language;
+
+    const t = translations[language];
+
+    document.documentElement.lang = language;
+
+    document.getElementById("welcome").textContent = t.welcome;
+    document.getElementById("subtitle").textContent = t.subtitle;
+
+    const sections = [
+        ["dictation", "dictationDesc"],
+        ["vocabulary", "vocabularyDesc"],
+        ["grammar", "grammarDesc"],
+        ["listening", "listeningDesc"],
+        ["yki", "ykiDesc"]
+    ];
+
+    sections.forEach(([name, desc]) => {
+        document.getElementById("menu-" + name).textContent = t[name];
+        document.getElementById("desc-" + name).textContent = t[desc];
+    });
+
+    const lesson = document.getElementById("lesson");
+
+    if (lesson.dataset.type === "dictation") {
+        showDictation();
+    } else {
+        lesson.innerHTML = `
+            <h2>🇫🇮 Aloitetaan!</h2>
+            <p>${t.choose}</p>
+        `;
+        lesson.dataset.type = "";
+    }
+}
 
 function speakFinnish() {
-    const lesson = dictationLessons[currentLesson];
-
-    if (!("speechSynthesis" in window)) {
-        alert("Trình duyệt không hỗ trợ đọc giọng nói.");
-        return;
-    }
-
-    window.speechSynthesis.cancel();
-
-    const speech = new SpeechSynthesisUtterance(lesson.fi);
-    speech.lang = "fi-FI";
-    speech.rate = 0.8;
-    speech.pitch = 1;
-
-    const voices = window.speechSynthesis.getVoices();
-    const finnishVoice = voices.find(v =>
-        v.lang.toLowerCase().startsWith("fi")
+    const speech = new SpeechSynthesisUtterance(
+        dictationLessons[currentLesson].fi
     );
 
-    if (finnishVoice) {
-        speech.voice = finnishVoice;
-    }
+    speech.lang = "fi-FI";
+    speech.rate = 0.8;
 
+    window.speechSynthesis.cancel();
     window.speechSynthesis.speak(speech);
 }
 
 function showDictation() {
-    const lesson = dictationLessons[currentLesson];
+    const t = translations[currentLanguage];
+    const lesson = document.getElementById("lesson");
 
-    document.getElementById("lesson").innerHTML = `
-        <h2>🎧 Daily Dictation</h2>
-        <p>Listen and write in Finnish!</p>
+    lesson.dataset.type = "dictation";
 
-        <p>Harjoitus ${currentLesson + 1} / ${dictationLessons.length}</p>
+    lesson.innerHTML = `
+        <h2>🎧 ${t.dictation}</h2>
+        <p>${t.exercise} ${currentLesson + 1} / ${dictationLessons.length}</p>
 
-        <button onclick="speakFinnish()">
-            🔊 Kuuntele (Nghe)
-        </button>
+        <button onclick="speakFinnish()">🔊 ${t.listen}</button>
 
-        <p>✍️ Kirjoita kuulemasi lause:</p>
+        <p>${t.write}</p>
 
         <textarea id="answer"
-            placeholder="Kirjoita suomeksi..."
+            placeholder="${t.answer}..."
             rows="3"
-            style="width:100%;padding:12px;
-            border-radius:10px;font-size:16px;">
+            style="width:100%;padding:12px;border-radius:10px;font-size:16px;">
         </textarea>
 
-        <button onclick="checkAnswer()">
-            ✓ Tarkista (Kiểm tra)
-        </button>
+        <button onclick="checkAnswer()">✓ ${t.check}</button>
 
         <div id="result"></div>
 
-        <button onclick="nextLesson()">
-            ➜ Seuraava (Tiếp theo)
-        </button>
+        <button onclick="nextLesson()">➜ ${t.next}</button>
     `;
 }
 
 function checkAnswer() {
+    const t = translations[currentLanguage];
+
     const answer = document.getElementById("answer").value
-        .trim()
-        .toLowerCase()
+        .trim().toLowerCase()
         .replace(/[.!?]+$/g, "")
+        .replace(/\s+/g, " ");
+
+    const correct = dictationLessons[currentLesson].fi
+        .toLowerCase().replace(/[.!?]+$/g, "")
         .replace(/\s+/g, " ");
 
     const lesson = dictationLessons[currentLesson];
 
-    const correct = lesson.fi.toLowerCase()
-        .replace(/[.!?]+$/g, "")
-        .replace(/\s+/g, " ");
-
-    const result = document.getElementById("result");
-
-    if (answer === correct) {
-        result.innerHTML = `
-            <h3>🎉 Oikein! Chính xác!</h3>
-        `;
-    } else {
-        result.innerHTML = `
-            <h3>💪 Yritä uudelleen! Hãy thử lại!</h3>
-        `;
-    }
-
-    result.innerHTML += `
+    document.getElementById("result").innerHTML = `
         <hr>
+        <h3>${answer === correct ? "🎉 " + t.correct : "💪 " + t.incorrect}</h3>
         <p>🇫🇮 ${lesson.fi}</p>
-        <p>🇻🇳 ${lesson.vi}</p>
         <p>🇬🇧 ${lesson.en}</p>
+        <p>🇻🇳 ${lesson.vi}</p>
     `;
 }
 
 function nextLesson() {
-    currentLesson =
-        (currentLesson + 1) % dictationLessons.length;
-
+    currentLesson = (currentLesson + 1) % dictationLessons.length;
     showDictation();
 }
 
-function openLesson(lesson) {
-    if (lesson === "dictation") {
+function openLesson(name) {
+    if (name === "dictation") {
         showDictation();
         return;
     }
 
+    const t = translations[currentLanguage];
+
     const titles = {
-        vocabulary: "📚 Vocabulary",
-        grammar: "✏️ Grammar",
-        listening: "🔊 Listening",
-        yki: "🎓 YKI Preparation"
+        vocabulary: t.vocabulary,
+        grammar: t.grammar,
+        listening: t.listening,
+        yki: t.yki
     };
 
-    document.getElementById("lesson").innerHTML = `
-        <h2>${titles[lesson]}</h2>
-        <p>Oppiminen alkaa tästä!</p>
-        <p>Phần học này sẽ được phát triển tiếp.</p>
+    const lesson = document.getElementById("lesson");
+    lesson.dataset.type = name;
+
+    lesson.innerHTML = `
+        <h2>${titles[name]}</h2>
+        <p>${t.choose}</p>
     `;
 
-    document.getElementById("lesson")
-        .scrollIntoView({ behavior: "smooth" });
+    lesson.scrollIntoView({ behavior: "smooth" });
 }
