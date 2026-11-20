@@ -1282,11 +1282,11 @@ function selectVocabularyLevel(level) {
     selectedVocabularyLevel = level;
 
     const levels = ["A1.1", "A1.2", "A2"];
-    const selectedIndex = levels.indexOf(level);
+    const startIndex = levels.indexOf(level);
 
     activeVocabularyWords = vocabularyWords.filter(word =>
         word.topic === selectedVocabularyTopic &&
-        levels.indexOf(word.level) >= selectedIndex
+        levels.indexOf(word.level) >= startIndex
     );
 
     currentVocabularyIndex = 0;
