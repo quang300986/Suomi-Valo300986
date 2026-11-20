@@ -1,4 +1,3 @@
-
 const translations = {
     en: {
         welcome: "Welcome Back!",
@@ -141,39 +140,7 @@ const dictationLessons = [
         en: "I go to school in the morning.",
         vi: "Tôi đi học vào buổi sáng."
     }
-] 
-{ topic: "greetings", level: "A1.1", text: "Hei!" },
-{ topic: "greetings", level: "A1.1", text: "Hyvää huomenta!" },
-{ topic: "greetings", level: "A1.1", text: "Hyvää päivää!" },
-{ topic: "greetings", level: "A1.1", text: "Hyvää iltaa!" },
-{ topic: "greetings", level: "A1.1", text: "Hyvää yötä!" },
-{ topic: "greetings", level: "A1.1", text: "Moi, mitä kuuluu?" },
-{ topic: "greetings", level: "A1.1", text: "Kiitos, hyvää." },
-{ topic: "greetings", level: "A1.1", text: "Entä sinulle?" },
-{ topic: "greetings", level: "A1.1", text: "Näkemiin!" },
-{ topic: "greetings", level: "A1.1", text: "Hei hei!" },
-
-{ topic: "greetings", level: "A1.2", text: "Hauska tutustua." },
-{ topic: "greetings", level: "A1.2", text: "Mikä sinun nimesi on?" },
-{ topic: "greetings", level: "A1.2", text: "Minun nimeni on Anna." },
-{ topic: "greetings", level: "A1.2", text: "Mistä sinä olet kotoisin?" },
-{ topic: "greetings", level: "A1.2", text: "Olen Vietnamista." },
-{ topic: "greetings", level: "A1.2", text: "Missä sinä asut?" },
-{ topic: "greetings", level: "A1.2", text: "Asun Porissa." },
-{ topic: "greetings", level: "A1.2", text: "Kuinka vanha sinä olet?" },
-{ topic: "greetings", level: "A1.2", text: "Olen kolmekymmentä vuotta vanha." },
-{ topic: "greetings", level: "A1.2", text: "Nähdään huomenna!" },
-
-{ topic: "greetings", level: "A2", text: "Mitä sinulle kuuluu tänään?" },
-{ topic: "greetings", level: "A2", text: "Minulla menee ihan hyvin." },
-{ topic: "greetings", level: "A2", text: "Onpa mukava nähdä sinua!" },
-{ topic: "greetings", level: "A2", text: "En ole nähnyt sinua pitkään aikaan." },
-{ topic: "greetings", level: "A2", text: "Mitä olet tehnyt viime aikoina?" },
-{ topic: "greetings", level: "A2", text: "Olen opiskellut suomea joka päivä." },
-{ topic: "greetings", level: "A2", text: "Oletko asunut Suomessa kauan?" },
-{ topic: "greetings", level: "A2", text: "Olen asunut täällä vuoden." },
-{ topic: "greetings", level: "A2", text: "Toivottavasti nähdään pian uudelleen." },
-{ topic: "greetings", level: "A2", text: "Mukavaa päivänjatkoa!" },;
+];
 
 function setLanguage(language) {
     currentLanguage = language;
