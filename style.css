@@ -11,20 +11,47 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #164b91, #3478c9);
+    background: linear-gradient(135deg, #123d78, #3478c9);
     color: white;
     text-align: center;
-    padding: 35px 15px;
+    padding: 30px 15px;
     border-radius: 0 0 28px 28px;
 }
 
 header h1 {
-    font-size: 32px;
+    font-size: 34px;
     margin: 5px;
 }
 
-header p {
+header h3 {
     margin: 8px;
+}
+
+header p {
+    margin: 10px;
+}
+
+.language-switch {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.language-switch button {
+    background: white;
+    color: #174a91;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.language-switch button:active {
+    background: #dceaff;
+    transform: scale(0.95);
 }
 
 main {
@@ -34,7 +61,7 @@ main {
 }
 
 main h2 {
-    color: #164b91;
+    color: #174a91;
 }
 
 .menu {
@@ -47,13 +74,14 @@ main h2 {
 .menu button {
     background: white;
     border: none;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 22px 10px;
-    color: #164b91;
-    font-size: 17px;
+    color: #174a91;
+    font-size: 16px;
     font-weight: bold;
     box-shadow: 0 3px 12px #00000010;
     cursor: pointer;
+    min-height: 105px;
 }
 
 .menu button:active {
@@ -64,21 +92,56 @@ main h2 {
     display: block;
     margin-top: 10px;
     color: #65748b;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: normal;
 }
 
 #lesson {
     background: white;
     padding: 20px;
-    border-radius: 16px;
+    border-radius: 18px;
     margin-top: 25px;
-    min-height: 120px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+#lesson button {
+    background: #174a91;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 13px 18px;
+    margin: 6px 3px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#lesson textarea {
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+}
+
+#lesson p {
+    line-height: 1.6;
 }
 
 footer {
     text-align: center;
     color: #718096;
-    padding: 20px;
+    padding: 25px;
     font-size: 13px;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 360px) {
+    .language-switch {
+        gap: 5px;
+    }
+
+    .language-switch button {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
 }
