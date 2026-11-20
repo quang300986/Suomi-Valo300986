@@ -22,10 +22,13 @@ const translations = {
         incorrect: "Try again!",
         answer: "Your answer",
         exercise: "Exercise",
-        finnish: "Finnish",
-        english: "English",
-        vietnamese: "Vietnamese"
+        back: "Back",
+        chooseTopic: "Choose a topic",
+        chooseLevel: "Choose your level",
+        comingSoon: "Lessons coming soon!",
+        completed: "You completed this level!"
     },
+
     vi: {
         welcome: "Chào mừng bạn trở lại!",
         subtitle: "Hãy chọn hoạt động học tập.",
@@ -48,10 +51,13 @@ const translations = {
         incorrect: "Hãy thử lại nhé!",
         answer: "Câu trả lời của bạn",
         exercise: "Bài tập",
-        finnish: "Tiếng Phần Lan",
-        english: "Tiếng Anh",
-        vietnamese: "Tiếng Việt"
+        back: "Quay lại",
+        chooseTopic: "Chọn chủ đề",
+        chooseLevel: "Chọn trình độ",
+        comingSoon: "Bài học đang được chuẩn bị!",
+        completed: "Bạn đã hoàn thành cấp độ này!"
     },
+
     fi: {
         welcome: "Tervetuloa takaisin!",
         subtitle: "Valitse harjoitus.",
@@ -74,29 +80,19 @@ const translations = {
         incorrect: "Yritä uudelleen!",
         answer: "Vastauksesi",
         exercise: "Harjoitus",
-        finnish: "Suomi",
-        english: "Englanti",
-        vietnamese: "Vietnam"
+        back: "Takaisin",
+        chooseTopic: "Valitse aihe",
+        chooseLevel: "Valitse taso",
+        comingSoon: "Harjoitukset tulossa pian!",
+        completed: "Olet suorittanut tämän tason!"
     }
 };
+
 let currentLanguage = "en";
 let currentLesson = 0;
-
 let selectedTopic = null;
 let selectedLevel = null;
 let activeLessons = [];
-
-const dictationTopics = [
-    { id: "greetings", fi: "Tervehdykset", en: "Greetings", vi: "Chào hỏi" },
-    { id: "family", fi: "Perhe", en: "Family", vi: "Gia đình" },
-    { id: "home", fi: "Koti", en: "Home", vi: "Nhà cửa" },
-    { id: "food", fi: "Ruoka", en: "Food", vi: "Thức ăn" },
-    { id: "work", fi: "Työ ja ammatti", en: "Work and profession", vi: "Công việc" },
-    { id: "daily", fi: "Arkipäivä", en: "Daily life", vi: "Sinh hoạt hằng ngày" },
-    { id: "weather", fi: "Sää", en: "Weather", vi: "Thời tiết" },
-    { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" }
-];
-
 
 const dictationTopics = [
     { id: "greetings", fi: "Tervehdykset", en: "Greetings", vi: "Chào hỏi" },
@@ -173,7 +169,13 @@ function setLanguage(language) {
     const lesson = document.getElementById("lesson");
 
     if (lesson.dataset.type === "dictation") {
-        showDictation();
+        if (activeLessons.length > 0) {
+            showDictation();
+        } else if (selectedTopic) {
+            showDictationLevels();
+        } else {
+            showDictationTopics();
+        }
     } else {
         lesson.innerHTML = `
             <h2>🇫🇮 Aloitetaan!</h2>
@@ -191,7 +193,7 @@ function showDictationTopics() {
 
     let html = `
         <h2>🎧 ${t.dictation}</h2>
-        <h3>Choose a topic</h3>
+        <h3>${t.chooseTopic}</h3>
         <div class="topic-list">
     `;
 
@@ -210,16 +212,23 @@ function showDictationTopics() {
     lesson.innerHTML = html;
     lesson.scrollIntoView({ behavior: "smooth" });
 }
+
 function selectDictationTopic(topicId) {
     selectedTopic = topicId;
+    selectedLevel = null;
+    activeLessons = [];
+
     showDictationLevels();
 }
 
 function showDictationLevels() {
+    const t = translations[currentLanguage];
     const lesson = document.getElementById("lesson");
 
+    lesson.dataset.type = "dictation";
+
     lesson.innerHTML = `
-        <h2>🎧 Choose your level</h2>
+        <h2>🎧 ${t.chooseLevel}</h2>
 
         <button onclick="selectDictationLevel('A1.1')">
             A1.1 – Beginner
@@ -234,42 +243,45 @@ function showDictationLevels() {
         </button>
 
         <button onclick="showDictationTopics()">
-            ← Back to topics
+            ← ${t.back}
         </button>
     `;
 
     lesson.scrollIntoView({ behavior: "smooth" });
 }
 
-function showDictationLevels() {
-    const lesson = document.getElementById("lesson");
+function selectDictationLevel(level) {
+    selectedLevel = level;
 
-    lesson.innerHTML = `
-        <h2>🎧 Choose your level</h2>
+    activeLessons = dictationLessons.filter(item =>
+        item.topic === selectedTopic &&
+        item.level === selectedLevel
+    );
 
-        <button onclick="selectDictationLevel('A1.1')">
-            A1.1 – Beginner
-        </button>
+    currentLesson = 0;
 
-        <button onclick="selectDictationLevel('A1.2')">
-            A1.2 – Elementary
-        </button>
+    if (activeLessons.length === 0) {
+        const t = translations[currentLanguage];
 
-        <button onclick="selectDictationLevel('A2')">
-            A2 – Pre-intermediate
-        </button>
+        document.getElementById("lesson").innerHTML = `
+            <h2>📚 ${t.comingSoon}</h2>
+            <button onclick="showDictationLevels()">
+                ← ${t.back}
+            </button>
+        `;
 
-        <button onclick="showDictationTopics()">
-            ← Back to topics
-        </button>
-    `;
+        return;
+    }
 
-    lesson.scrollIntoView({ behavior: "smooth" });
+    showDictation();
 }
 
 function showDictation() {
     const t = translations[currentLanguage];
     const lesson = document.getElementById("lesson");
+    const current = activeLessons[currentLesson];
+
+    if (!current) return;
 
     lesson.dataset.type = "dictation";
 
@@ -277,7 +289,9 @@ function showDictation() {
         <h2>🎧 ${t.dictation}</h2>
         <p>${t.exercise} ${currentLesson + 1} / ${activeLessons.length}</p>
 
-        <button onclick="speakFinnish()">🔊 ${t.listen}</button>
+        <button onclick="speakFinnish()">
+            🔊 ${t.listen}
+        </button>
 
         <p>${t.write}</p>
 
@@ -292,12 +306,45 @@ function showDictation() {
         <div id="result"></div>
 
         <button onclick="nextLesson()">➜ ${t.next}</button>
+
+        <button onclick="showDictationLevels()">← ${t.back}</button>
     `;
+
+    lesson.scrollIntoView({ behavior: "smooth" });
+}
+
+function speakFinnish() {
+    const current = activeLessons[currentLesson];
+
+    if (!current || !("speechSynthesis" in window)) {
+        alert("Speech is not supported by this browser.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(current.fi);
+    speech.lang = "fi-FI";
+    speech.rate = 0.85;
+
+    const voices = window.speechSynthesis.getVoices();
+    const finnishVoice = voices.find(voice =>
+        voice.lang.toLowerCase().startsWith("fi")
+    );
+
+    if (finnishVoice) {
+        speech.voice = finnishVoice;
+    }
+
+    window.speechSynthesis.speak(speech);
 }
 
 function checkAnswer() {
     const t = translations[currentLanguage];
-    const lesson = dictationLessons[currentLesson];
+    const current = activeLessons[currentLesson];
+    const answerInput = document.getElementById("answer");
+
+    if (!current || !answerInput) return;
 
     const normalize = text => text
         .trim()
@@ -305,65 +352,85 @@ function checkAnswer() {
         .replace(/[.!?]+$/g, "")
         .replace(/\s+/g, " ");
 
-    const answer = normalize(
-        document.getElementById("answer").value
-    );
+    const answer = normalize(answerInput.value);
+    const correct = normalize(current.fi);
 
-    const correct = normalize(lesson.fi);
+    const isCorrect = answer === correct;
 
     const answerWords = answer.split(" ");
     const correctWords = correct.split(" ");
 
     let resultHTML = "";
 
-    const maxWords = Math.max(
-        answerWords.length,
-        correctWords.length
-    );
+    if (isCorrect) {
+        resultHTML = current.fi;
+    } else {
+        const maxWords = Math.max(
+            answerWords.length,
+            correctWords.length
+        );
 
-    for (let i = 0; i < maxWords; i++) {
-        const typed = answerWords[i] || "";
-        const expected = correctWords[i] || "";
+        for (let i = 0; i < maxWords; i++) {
+            const typed = answerWords[i] || "";
+            const expected = correctWords[i] || "";
 
-        if (typed === expected && expected !== "") {
-            resultHTML += `<span class="word-correct">${typed}</span> `;
-        } else {
-            let masked = "";
+            if (typed === expected && expected !== "") {
+                resultHTML += `<span class="word-correct">${typed}</span> `;
+            } else {
+                let masked = "";
 
-            for (let j = 0; j < expected.length; j++) {
-                masked += typed[j] === expected[j]
-                    ? expected[j]
-                    : "*";
+                for (let j = 0; j < expected.length; j++) {
+                    masked += typed[j] === expected[j]
+                        ? expected[j]
+                        : "*";
+                }
+
+                resultHTML += `<span class="word-wrong">${masked}</span> `;
             }
-
-            resultHTML += `<span class="word-wrong">${masked}</span> `;
         }
     }
-
-    const isCorrect = answer === correct;
 
     document.getElementById("result").innerHTML = `
         <hr>
         <h3>${isCorrect ? "🎉 " + t.correct : "💪 " + t.incorrect}</h3>
-        <div class="masked-answer">${isCorrect ? lesson.fi : resultHTML}</div>
+        <div class="masked-answer">${resultHTML}</div>
+
         ${isCorrect ? `
-            <p>🇬🇧 ${lesson.en}</p>
-            <p>🇻🇳 ${lesson.vi}</p>
+            <p>🇬🇧 ${current.en}</p>
+            <p>🇻🇳 ${current.vi}</p>
         ` : ""}
     `;
 }
 
-
 function nextLesson() {
-    currentLesson = (currentLesson + 1) % dictationLessons.length;
-    showDictation();
+    if (currentLesson < activeLessons.length - 1) {
+        currentLesson++;
+        showDictation();
+    } else {
+        const t = translations[currentLanguage];
+
+        document.getElementById("lesson").innerHTML = `
+            <h2>🎉 ${t.completed}</h2>
+            <button onclick="showDictationLevels()">
+                ← ${t.back}
+            </button>
+            <button onclick="showDictationTopics()">
+                Choose another topic
+            </button>
+        `;
+    }
 }
 
 function openLesson(name) {
-   if (name === "dictation") {
-    showDictationTopics();
-    return;
-}
+    if (name === "dictation") {
+        selectedTopic = null;
+        selectedLevel = null;
+        activeLessons = [];
+        currentLesson = 0;
+
+        showDictationTopics();
+        return;
+    }
 
     const t = translations[currentLanguage];
 
