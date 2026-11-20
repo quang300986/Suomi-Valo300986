@@ -1,0 +1,84 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5fb;
+    color: #24324a;
+}
+
+header {
+    background: linear-gradient(135deg, #164b91, #3478c9);
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+    border-radius: 0 0 28px 28px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin: 5px;
+}
+
+header p {
+    margin: 8px;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+main h2 {
+    color: #164b91;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.menu button {
+    background: white;
+    border: none;
+    border-radius: 16px;
+    padding: 22px 10px;
+    color: #164b91;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0 3px 12px #00000010;
+    cursor: pointer;
+}
+
+.menu button:active {
+    transform: scale(0.97);
+}
+
+.menu small {
+    display: block;
+    margin-top: 10px;
+    color: #65748b;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#lesson {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    margin-top: 25px;
+    min-height: 120px;
+}
+
+footer {
+    text-align: center;
+    color: #718096;
+    padding: 20px;
+    font-size: 13px;
+}
