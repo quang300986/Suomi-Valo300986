@@ -1281,14 +1281,19 @@ function showVocabularyLevels() {
 function selectVocabularyLevel(level) {
     selectedVocabularyLevel = level;
 
+    const levels = ["A1.1", "A1.2", "A2"];
+    const selectedIndex = levels.indexOf(level);
+
     activeVocabularyWords = vocabularyWords.filter(word =>
         word.topic === selectedVocabularyTopic &&
-        word.level === selectedVocabularyLevel
+        levels.indexOf(word.level) >= selectedIndex
     );
 
     currentVocabularyIndex = 0;
     showVocabularyCard();
 }
+
+
 
 function showVocabularyCard() {
     currentScreen = "vocabularyCard";
@@ -1314,7 +1319,7 @@ function showVocabularyCard() {
         <h2>📚 ${topic.fi}</h2>
 
         <p>
-            ${selectedVocabularyLevel}
+            ${word.level}
             • ${currentVocabularyIndex + 1} / ${activeVocabularyWords.length}
         </p>
 
@@ -1356,6 +1361,7 @@ function showVocabularyCard() {
 
     scrollToLesson();
 }
+
 
 function previousVocabularyWord() {
     if (currentVocabularyIndex > 0) {
