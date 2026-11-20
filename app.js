@@ -1466,6 +1466,7 @@ window.showVocabularyCard = showVocabularyCard;
 window.previousVocabularyWord = previousVocabularyWord;
 window.nextVocabularyWord = nextVocabularyWord;
 window.speakVocabulary = speakVocabulary;
+console.log("VOCABULARY EXPORT FINISHED");
 
 /* 19. START APP */
 
