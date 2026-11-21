@@ -1338,7 +1338,30 @@ function showVocabularyCard() {
         `;
         return;
     }
+    // FIND IMAGE FOR VOCABULARY
+    const imageName = word.fi
+        .toLowerCase()
+        .replace(/ä/g, "a")
+        .replace(/ö/g, "o")
+        .replace(/å/g, "a")
+        .replace(/[^a-z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, "");
 
+    const imageHTML = `
+        <img
+            class="vocabulary-image"
+            src="images/${imageName}.webp"
+            alt="${word.fi}"
+            onerror="
+                if (!this.dataset.triedUppercase) {
+                    this.dataset.triedUppercase = 'yes';
+                    this.src = 'images/${imageName.toUpperCase()}.webp';
+                } else {
+                    this.style.display = 'none';
+                }
+            "
+        >
+    `;
     lesson.innerHTML = `
         <h2>📚 ${topic.fi}</h2>
 
