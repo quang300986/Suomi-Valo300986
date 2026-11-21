@@ -1371,7 +1371,8 @@ function showVocabularyCard() {
         </p>
 
         <div class="vocabulary-card">
-            <h1>${word.fi}</h1>
+    ${imageHTML}
+    <h1>${word.fi}</h1>
 
             <button onclick="speakVocabulary()">
                 🔊 Listen
