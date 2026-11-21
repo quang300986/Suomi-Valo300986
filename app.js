@@ -1023,7 +1023,7 @@ function speakFinnish() {
     const speech = new SpeechSynthesisUtterance(current.fi);
 
     speech.lang = "fi-FI";
-    speech.rate = 0.85;
+    speech.rate = 0.75;
     speech.pitch = 1;
 
     if (satuVoice) {
@@ -1413,7 +1413,7 @@ function speakVocabulary() {
 
         const speech = new SpeechSynthesisUtterance(word.fi);
         speech.lang = "fi-FI";
-        speech.rate = 0.85;
+        speech.rate = 0.75;
         speech.pitch = 1;
 
         if (satuVoice) speech.voice = satuVoice;
