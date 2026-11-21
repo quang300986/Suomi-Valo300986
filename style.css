@@ -164,3 +164,14 @@ button {
     line-height: 1.8;
     overflow-wrap: anywhere;
 }
+    /* VOCABULARY IMAGE */
+
+.vocabulary-image {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: 200px;
+    object-fit: contain;
+    margin: 15px auto;
+    border-radius: 16px;
+}
