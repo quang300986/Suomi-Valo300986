@@ -500,6 +500,124 @@ const stories = [
         }
     ]
 },
+    {
+    id: 1003,
+    level: "A1",
+    title: "Oma unelma",
+    vietnameseTitle: "Ước mơ của riêng mình",
+    englishTitle: "A Dream of My Own",
+    sentences: [
+        {
+            fi: "Ali opiskelee ammattikoulussa.",
+            vi: "Ali học tại trường dạy nghề.",
+            en: "Ali studies at a vocational school."
+        },
+        {
+            fi: "Hän haluaa oppia kokiksi.",
+            vi: "Cậu ấy muốn học để trở thành đầu bếp.",
+            en: "He wants to train as a chef."
+        },
+        {
+            fi: "Ali pitää ruoanlaitosta.",
+            vi: "Ali thích nấu ăn.",
+            en: "Ali likes cooking."
+        },
+        {
+            fi: "Koulussa hän oppii uusia asioita.",
+            vi: "Ở trường, cậu ấy học những điều mới.",
+            en: "At school, he learns new things."
+        },
+        {
+            fi: "Joskus tehtävät ovat vaikeita.",
+            vi: "Đôi khi các bài tập rất khó.",
+            en: "Sometimes the tasks are difficult."
+        },
+        {
+            fi: "Ali kysyy opettajalta apua.",
+            vi: "Ali hỏi giáo viên để được giúp đỡ.",
+            en: "Ali asks the teacher for help."
+        },
+        {
+            fi: "Hän harjoittelee myös kotona.",
+            vi: "Cậu ấy cũng luyện tập ở nhà.",
+            en: "He also practises at home."
+        },
+        {
+            fi: "Vähitellen hän oppii enemmän.",
+            vi: "Dần dần, cậu ấy học được nhiều hơn.",
+            en: "Little by little, he learns more."
+        },
+        {
+            fi: "Ali valmistaa hyvän aterian.",
+            vi: "Ali chuẩn bị một bữa ăn ngon.",
+            en: "Ali prepares a good meal."
+        },
+        {
+            fi: "Hän uskoo omaan unelmaansa.",
+            vi: "Cậu ấy tin vào ước mơ của mình.",
+            en: "He believes in his own dream."
+        }
+    ]
+},
+      {
+    id: 1004,
+    level: "A2",
+    title: "Oma unelma",
+    vietnameseTitle: "Ước mơ của riêng mình",
+    englishTitle: "A Dream of My Own",
+    sentences: [
+        {
+            fi: "Ali aloitti kokkiopinnot tämän vuoden syksyllä.",
+            vi: "Ali bắt đầu học nghề đầu bếp vào mùa thu năm nay.",
+            en: "Ali started his chef studies this autumn."
+        },
+        {
+            fi: "Hän on aina ollut kiinnostunut erilaisista ruoista.",
+            vi: "Cậu ấy luôn quan tâm đến những món ăn khác nhau.",
+            en: "He has always been interested in different kinds of food."
+        },
+        {
+            fi: "Aluksi koulun keittiössä työskenteleminen jännitti häntä.",
+            vi: "Lúc đầu, việc làm việc trong bếp của trường khiến cậu ấy hồi hộp.",
+            en: "At first, working in the school kitchen made him nervous."
+        },
+        {
+            fi: "Hän ei osannut käyttää kaikkia keittiön välineitä.",
+            vi: "Cậu ấy chưa biết sử dụng tất cả dụng cụ nhà bếp.",
+            en: "He did not know how to use all the kitchen equipment."
+        },
+        {
+            fi: "Opettaja näytti hänelle, miten työvälineitä käytetään oikein.",
+            vi: "Giáo viên chỉ cho cậu ấy cách sử dụng dụng cụ đúng cách.",
+            en: "The teacher showed him how to use the equipment correctly."
+        },
+        {
+            fi: "Ali kirjoitti ohjeet vihkoonsa ja harjoitteli rauhassa.",
+            vi: "Ali ghi hướng dẫn vào vở và bình tĩnh luyện tập.",
+            en: "Ali wrote the instructions in his notebook and practised calmly."
+        },
+        {
+            fi: "Muutaman viikon kuluttua työskentely alkoi sujua paremmin.",
+            vi: "Sau vài tuần, công việc bắt đầu diễn ra tốt hơn.",
+            en: "After a few weeks, the work began to go better."
+        },
+        {
+            fi: "Eräänä päivänä hänen ryhmänsä valmisti lounaan koulun vieraille.",
+            vi: "Một ngày nọ, nhóm của cậu ấy chuẩn bị bữa trưa cho khách của trường.",
+            en: "One day, his group prepared lunch for the school's guests."
+        },
+        {
+            fi: "Ali oli tyytyväinen, kun vieraat pitivät ruoasta.",
+            vi: "Ali rất vui khi các vị khách thích món ăn.",
+            en: "Ali was pleased when the guests enjoyed the food."
+        },
+        {
+            fi: "Hän ymmärsi, että kärsivällisyys ja harjoittelu auttavat saavuttamaan tavoitteita.",
+            vi: "Cậu ấy hiểu rằng sự kiên nhẫn và luyện tập giúp đạt được mục tiêu.",
+            en: "He understood that patience and practice help people reach their goals."
+        }
+    ]
+},
 ];
 
 window.stories = stories;
