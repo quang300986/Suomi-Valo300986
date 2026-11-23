@@ -382,6 +382,124 @@ const stories = [
       { fi: "Nyt valokuvaus on minulle mukava harrastus.", vi: "Bây giờ chụp ảnh là một sở thích thú vị đối với tôi.", en: "Now photography is an enjoyable hobby for me." }
     ]
   }
+{
+    id: 1001,
+    level: "A1",
+    title: "Uusi koti",
+    vietnameseTitle: "Ngôi nhà mới",
+    englishTitle: "A New Home",
+    sentences: [
+        {
+            fi: "Mira muuttaa uuteen asuntoon.",
+            vi: "Mira chuyển đến một căn hộ mới.",
+            en: "Mira moves into a new apartment."
+        },
+        {
+            fi: "Asunto on pieni mutta valoisa.",
+            vi: "Căn hộ nhỏ nhưng sáng sủa.",
+            en: "The apartment is small but bright."
+        },
+        {
+            fi: "Mira avaa ikkunan.",
+            vi: "Mira mở cửa sổ.",
+            en: "Mira opens the window."
+        },
+        {
+            fi: "Hän näkee puiston ikkunasta.",
+            vi: "Cô ấy nhìn thấy công viên qua cửa sổ.",
+            en: "She sees a park through the window."
+        },
+        {
+            fi: "Mira laittaa kirjat hyllyyn.",
+            vi: "Mira đặt sách lên kệ.",
+            en: "Mira puts the books on the shelf."
+        },
+        {
+            fi: "Hän järjestää keittiön ja olohuoneen.",
+            vi: "Cô ấy sắp xếp nhà bếp và phòng khách.",
+            en: "She organizes the kitchen and living room."
+        },
+        {
+            fi: "Illalla hän juo teetä ja lepää.",
+            vi: "Buổi tối cô ấy uống trà và nghỉ ngơi.",
+            en: "In the evening, she drinks tea and rests."
+        },
+        {
+            fi: "Uusi koti tuntuu mukavalta.",
+            vi: "Ngôi nhà mới mang lại cảm giác dễ chịu.",
+            en: "The new home feels comfortable."
+        },
+        {
+            fi: "Huomenna hän tutustuu naapureihin.",
+            vi: "Ngày mai cô ấy sẽ làm quen với hàng xóm.",
+            en: "Tomorrow she will get to know the neighbours."
+        },
+        {
+            fi: "Mira on iloinen uudesta alusta.",
+            vi: "Mira vui vì một khởi đầu mới.",
+            en: "Mira is happy about a new beginning."
+        }
+    ]
+},
+  {
+    id: 1002,
+    level: "A2",
+    title: "Uusi koti",
+    vietnameseTitle: "Ngôi nhà mới",
+    englishTitle: "A New Home",
+    sentences: [
+        {
+            fi: "Mira on muuttanut uuteen asuntoon uudessa kaupungissa.",
+            vi: "Mira đã chuyển đến một căn hộ mới ở một thành phố mới.",
+            en: "Mira has moved into a new apartment in a new city."
+        },
+        {
+            fi: "Ensimmäisinä päivinä kaikki tuntuu vähän vieraalta.",
+            vi: "Trong những ngày đầu, mọi thứ đều có vẻ hơi xa lạ.",
+            en: "During the first few days, everything feels a little unfamiliar."
+        },
+        {
+            fi: "Hän ei vielä tunne lähialuetta eikä naapureita.",
+            vi: "Cô ấy vẫn chưa biết khu vực xung quanh và những người hàng xóm.",
+            en: "She does not know the neighbourhood or the neighbours yet."
+        },
+        {
+            fi: "Mira päättää tutustua ympäristöön kävelemällä.",
+            vi: "Mira quyết định tìm hiểu môi trường xung quanh bằng cách đi bộ.",
+            en: "Mira decides to explore the area by walking."
+        },
+        {
+            fi: "Hän löytää läheltä kaupan, kirjaston ja bussipysäkin.",
+            vi: "Cô ấy tìm thấy một cửa hàng, thư viện và trạm xe buýt ở gần đó.",
+            en: "She finds a shop, a library and a bus stop nearby."
+        },
+        {
+            fi: "Kirjastossa hän kysyy työntekijältä tietoa alueesta.",
+            vi: "Ở thư viện, cô ấy hỏi nhân viên thông tin về khu vực.",
+            en: "At the library, she asks an employee for information about the area."
+        },
+        {
+            fi: "Kotimatkalla hän tapaa ystävällisen naapurin.",
+            vi: "Trên đường về nhà, cô ấy gặp một người hàng xóm thân thiện.",
+            en: "On the way home, she meets a friendly neighbour."
+        },
+        {
+            fi: "He keskustelevat hetken ja sopivat tapaavansa uudelleen.",
+            vi: "Họ trò chuyện một lúc và hẹn sẽ gặp lại.",
+            en: "They talk for a while and agree to meet again."
+        },
+        {
+            fi: "Mira huomaa, että uuteen paikkaan tutustuminen vie aikaa.",
+            vi: "Mira nhận ra rằng việc làm quen với một nơi mới cần có thời gian.",
+            en: "Mira realizes that getting to know a new place takes time."
+        },
+        {
+            fi: "Hän tuntee olonsa vähitellen kotoisaksi.",
+            vi: "Dần dần, cô ấy cảm thấy nơi đây thân thuộc như nhà.",
+            en: "Gradually, she begins to feel at home."
+        }
+    ]
+},
 ];
 
 window.stories = stories;
