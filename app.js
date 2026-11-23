@@ -1567,7 +1567,7 @@ function showStoryLevels() {
 function selectStoryLevel(level) {
     selectedStoryLevel = level;
 
-    activeStories = stories.filter(story =>
+    activeStories = window.stories.filter(story =>
         story.level === level
     );
 
