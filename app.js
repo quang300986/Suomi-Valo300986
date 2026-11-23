@@ -1481,7 +1481,14 @@ function openLesson(name) {
         showVocabularyTopics();
         return;
     }
+if (name === "stories") {
+    selectedStoryLevel = null;
+    activeStories = [];
+    currentStoryIndex = 0;
 
+    showStoryLevels();
+    return;
+}
     const allowedModules = [
         "grammar",
         "listening",
@@ -1528,3 +1535,32 @@ document.addEventListener("DOMContentLoaded", () => {
     setLanguage("en");
     showHome();
 });
+let selectedStoryLevel = null;
+let activeStories = [];
+let currentStoryIndex = 0;
+
+function showStoryLevels() {
+    currentScreen = "storyLevels";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "stories";
+
+    lesson.innerHTML = `
+        <h2>📖 Stories / Tarinat</h2>
+        <p>Choose your level</p>
+
+        <button onclick="selectStoryLevel('A1')">
+            A1 - Beginner
+        </button>
+
+        <button onclick="selectStoryLevel('A2')">
+            A2 - Elementary
+        </button>
+
+        <button onclick="showHome()">
+            ← Home
+        </button>
+    `;
+
+    scrollToLesson();
+}
