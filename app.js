@@ -1564,3 +1564,124 @@ function showStoryLevels() {
 
     scrollToLesson();
 }
+function selectStoryLevel(level) {
+    selectedStoryLevel = level;
+
+    activeStories = stories.filter(story =>
+        story.level === level
+    );
+
+    currentStoryIndex = 0;
+    showStoryList();
+}
+function showStoryList() {
+    currentScreen = "storyList";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "stories";
+
+    lesson.innerHTML = `
+        <h2>📖 Stories / Tarinat</h2>
+        <p>Level: ${selectedStoryLevel}</p>
+
+        <div class="topic-grid">
+            ${activeStories.map((story, index) => `
+                <button onclick="openStory(${index})">
+                    ${story.title}
+                    <br>
+                    <small>${story.vietnameseTitle}</small>
+                </button>
+            `).join("")}
+        </div>
+
+        <button onclick="showStoryLevels()">
+            ← Change level
+        </button>
+
+        <button onclick="showHome()">
+            ← Home
+        </button>
+    `;
+
+    scrollToLesson();
+}
+function openStory(index) {
+    currentStoryIndex = index;
+    showStory();
+}
+
+function showStory() {
+    currentScreen = "story";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "stories";
+
+    const story = activeStories[currentStoryIndex];
+
+    if (!story) {
+        lesson.innerHTML = `
+            <h2>No story found</h2>
+            <button onclick="showStoryList()">← Back</button>
+        `;
+        return;
+    }
+
+    lesson.innerHTML = `
+        <h2>📖 ${story.title}</h2>
+
+        <h3>🇻🇳 ${story.vietnameseTitle}</h3>
+        <h3>🇬🇧 ${story.englishTitle}</h3>
+
+        <p>Level: ${story.level}</p>
+
+        <div class="story-card">
+            ${story.sentences.map((sentence, index) => `
+                <div class="story-sentence">
+                    <h3>${index + 1}. 🇫🇮 ${sentence.fi}</h3>
+                    <p>🇻🇳 ${sentence.vi}</p>
+                    <p>🇬🇧 ${sentence.en}</p>
+                    <button onclick="speakStorySentence(${index})">
+                        🔊 Listen
+                    </button>
+                </div>
+            `).join("")}
+        </div>
+
+        <button onclick="showStoryList()">← Stories</button>
+        <button onclick="showStoryLevels()">← Change level</button>
+        <button onclick="showHome()">← Home</button>
+    `;
+
+    scrollToLesson();
+}
+function speakStorySentence(index) {
+    const story = activeStories[currentStoryIndex];
+    const sentence = story?.sentences[index];
+
+    if (!sentence || !("speechSynthesis" in window)) return;
+
+    const speak = () => {
+        const voices = window.speechSynthesis.getVoices();
+        const satuVoice = voices.find(v => v.name === "Satu");
+
+        const speech = new SpeechSynthesisUtterance(sentence.fi);
+        speech.lang = "fi-FI";
+        speech.rate = 0.7;
+        speech.pitch = 1;
+
+        if (satuVoice) speech.voice = satuVoice;
+
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(speech);
+    };
+
+    if (window.speechSynthesis.getVoices().length > 0) {
+        speak();
+    } else {
+        window.speechSynthesis.addEventListener(
+            "voiceschanged",
+            speak,
+            { once: true }
+        );
+    }
+}
