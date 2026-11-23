@@ -381,7 +381,7 @@ const stories = [
       { fi: "Harjoittelin joka päivä vähän lisää.", vi: "Tôi luyện tập thêm một chút mỗi ngày.", en: "I practised a little more every day." },
       { fi: "Nyt valokuvaus on minulle mukava harrastus.", vi: "Bây giờ chụp ảnh là một sở thích thú vị đối với tôi.", en: "Now photography is an enjoyable hobby for me." }
     ]
-  }
+  },
 {
     id: 1001,
     level: "A1",
