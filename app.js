@@ -1574,6 +1574,7 @@ function selectStoryLevel(level) {
     currentStoryIndex = 0;
     showStoryList();
 }
+window.selectStoryLevel = selectStoryLevel;
 function showStoryList() {
     currentScreen = "storyList";
 
