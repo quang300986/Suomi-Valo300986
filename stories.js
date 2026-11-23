@@ -172,12 +172,11 @@ const stories = [
         vi: "Sau đó tôi ngồi trên ghế băng.",
         en: "Then I sit on a bench."
       },
-      {
-        fi: "Metsässä on mukava olla.",
-        vi: "Ở trong rừng thật dễ chịu.",
-        en: "It is nice to be in the forest."
-      }
+      { fi: "Metsässä on mukava olla.", 
+        vi: "Ở trong rừng thật dễ chịu.", 
+        en: "It is nice to be in the forest." }
     ]
+  },
 
   {
     id: 4,
