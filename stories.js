@@ -181,4 +181,4 @@ const stories = [
   }
 ];
 
-export default stories;
+window.stories = stories;
