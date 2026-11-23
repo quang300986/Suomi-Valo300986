@@ -1481,14 +1481,14 @@ function openLesson(name) {
         showVocabularyTopics();
         return;
     }
-if (name === "stories") {
+    if (name === "stories") {
     selectedStoryLevel = null;
     activeStories = [];
     currentStoryIndex = 0;
 
     showStoryLevels();
     return;
-}
+    }
     const allowedModules = [
         "grammar",
         "listening",
