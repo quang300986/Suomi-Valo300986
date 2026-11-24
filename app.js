@@ -779,11 +779,15 @@ function setLanguage(language) {
         ["yki", "ykiDesc"]
     ];
 
-    menuItems.forEach(([name, description]) => {
-        getElement("menu-" + name).textContent = t[name];
-        getElement("desc-" + name).textContent = t[description];
-    });
+   menuItems.forEach(([name, description]) => {
+    const menu = getElement("menu-" + name);
+    const desc = getElement("desc-" + name);
 
+    if (menu && desc) {
+        menu.textContent = t[name];
+        desc.textContent = t[description];
+    }
+});
     renderCurrentScreen();
 }
 
