@@ -1562,7 +1562,84 @@ const stories = [
         }
     ]
 },
-  
+{
+    level: "A1.2",
+    title: "Matka Pariisiin",
+    vietnameseTitle: "Du lịch Paris",
+    englishTitle: "A Trip to Paris",
+    sentences: [
+        {
+            fi: "Pekka ja minä lähdemme tänään Ranskaan.",
+            vi: "Pekka và tôi hôm nay khởi hành đi Pháp.",
+            en: "Pekka and I are leaving for France today."
+        },
+        {
+            fi: "Aamulla minä en nuku pitkään, koska me lennämme jo kello 6 lentokoneella Pariisiin.",
+            vi: "Buổi sáng tôi không ngủ lâu, vì chúng tôi bay đến Paris bằng máy bay lúc 6 giờ.",
+            en: "In the morning, I don't sleep long because we fly to Paris by plane at 6 o'clock."
+        },
+        {
+            fi: "Lentokoneessa minä luen kirjaa ja Pekka nukkuu vähän.",
+            vi: "Trên máy bay, tôi đọc sách và Pekka ngủ một chút.",
+            en: "On the plane, I read a book and Pekka sleeps a little."
+        },
+        {
+            fi: "Kun me saavumme Pariisiin, Elise ja Fabian odottavat meitä.",
+            vi: "Khi chúng tôi đến Paris, Elise và Fabian đang đợi chúng tôi.",
+            en: "When we arrive in Paris, Elise and Fabian are waiting for us."
+        },
+        {
+            fi: "He sanovat: ”Tervetuloa! Puhutteko te ranskaa?”",
+            vi: "Họ nói: “Chào mừng! Các bạn có nói tiếng Pháp không?”",
+            en: "They say: “Welcome! Do you speak French?”"
+        },
+        {
+            fi: "Sitten me ajamme autolla keskustaan ja katsomme kaupunkia.",
+            vi: "Sau đó chúng tôi lái xe vào trung tâm và ngắm nhìn thành phố.",
+            en: "Then we drive to the city centre and look at the city."
+        },
+        {
+            fi: "Pekka ottaa monta valokuvaa.",
+            vi: "Pekka chụp nhiều bức ảnh.",
+            en: "Pekka takes many photos."
+        },
+        {
+            fi: "Iltapäivällä minä istun kahvilassa ja ostan postikortit Suomeen.",
+            vi: "Buổi chiều tôi ngồi trong quán cà phê và mua bưu thiếp gửi về Phần Lan.",
+            en: "In the afternoon, I sit in a café and buy postcards to send to Finland."
+        },
+        {
+            fi: "Pekka menee kioskille ja ostaa Pariisin kartan.",
+            vi: "Pekka đi đến quầy bán báo và mua bản đồ Paris.",
+            en: "Pekka goes to the kiosk and buys a map of Paris."
+        },
+        {
+            fi: "Me yövymme Elisen ja Fabianin kotona.",
+            vi: "Chúng tôi ngủ lại nhà của Elise và Fabian.",
+            en: "We stay overnight at Elise and Fabian's home."
+        },
+        {
+            fi: "He asuvat Etelä-Pariisissa.",
+            vi: "Họ sống ở phía nam Paris.",
+            en: "They live in South Paris."
+        },
+        {
+            fi: "Me emme löydä taloa heti.",
+            vi: "Chúng tôi không tìm thấy ngôi nhà ngay lập tức.",
+            en: "We don't find the house immediately."
+        },
+        {
+            fi: "Siksi Pekka soittaa Eliselle.",
+            vi: "Vì vậy Pekka gọi điện cho Elise.",
+            en: "That's why Pekka calls Elise."
+        },
+        {
+            fi: "Elise kertoo, missä talo on.",
+            vi: "Elise nói cho biết ngôi nhà ở đâu.",
+            en: "Elise tells us where the house is."
+        }
+    ]
+},  
 ];
 
 window.stories = stories;
