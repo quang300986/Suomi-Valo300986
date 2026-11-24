@@ -463,6 +463,24 @@ const dictationLessons = [
     ["shopping","A2","Jos tuote on viallinen, voin pyytää hyvitystä.","If a product is faulty, I can ask for a refund.","Nếu sản phẩm bị lỗi, tôi có thể yêu cầu hoàn tiền."],
     ["shopping","A2","Tarkistan viimeisen käyttöpäivän ennen ostamista.","I check the expiry date before buying.","Tôi kiểm tra hạn sử dụng trước khi mua."]
     
+    // MATKAILU — PARIS (15 sentences)
+    ["travel", "A1.2", "Pekka ja minä lähdemme tänään Ranskaan.", "Pekka and I are leaving for France today.", "Pekka và tôi hôm nay khởi hành đi Pháp."],
+    ["travel", "A1.2", "Aamulla minä en nuku pitkään, koska me lähdemme jo kello kuusi.", "In the morning, I don't sleep long because we leave already at six.", "Buổi sáng tôi không ngủ lâu vì chúng tôi khởi hành từ lúc sáu giờ."],
+    ["travel", "A1.2", "Me matkustamme lentokoneella Pariisiin.", "We travel to Paris by plane.", "Chúng tôi đi máy bay đến Paris."],
+    ["travel", "A1.2", "Lentokoneessa minä luen kirjaa ja Pekka nukkuu vähän.", "On the plane, I read a book and Pekka sleeps a little.", "Trên máy bay, tôi đọc sách và Pekka ngủ một chút."],
+    ["travel", "A1.2", "Kun me saavumme Pariisiin, Elise ja Fabian odottavat meitä.", "When we arrive in Paris, Elise and Fabian are waiting for us.", "Khi chúng tôi đến Paris, Elise và Fabian đang đợi chúng tôi."],
+    ["travel", "A1.2", "He kysyvät: Tervetuloa! Puhutteko te ranskaa?", "They ask: Welcome! Do you speak French?", "Họ hỏi: Chào mừng! Các bạn có nói tiếng Pháp không?"],
+    ["travel", "A1.2", "Sitten me menemme autolla keskustaan.", "Then we go to the city centre by car.", "Sau đó chúng tôi đi ô tô vào trung tâm thành phố."],
+    ["travel", "A1.2", "Me katselemme kaunista kaupunkia.", "We look around the beautiful city.", "Chúng tôi ngắm nhìn thành phố xinh đẹp."],
+    ["travel", "A1.2", "Pekka ottaa monta valokuvaa.", "Pekka takes many photos.", "Pekka chụp rất nhiều ảnh."],
+    ["travel", "A1.2", "Iltapäivällä minä istun kahvilassa.", "In the afternoon, I sit in a café.", "Buổi chiều tôi ngồi trong quán cà phê."],
+    ["travel", "A1.2", "Minä kirjoitan postikortteja Suomeen.", "I write postcards to Finland.", "Tôi viết những tấm bưu thiếp gửi về Phần Lan."],
+    ["travel", "A1.2", "Pekka menee kioskille ja ostaa Pariisin kartan.", "Pekka goes to the kiosk and buys a map of Paris.", "Pekka đến quầy bán báo và mua bản đồ Paris."],
+    ["travel", "A1.2", "Me yövymme Elisen ja Fabianin kotona.", "We stay overnight at Elise and Fabian's home.", "Chúng tôi ngủ lại nhà của Elise và Fabian."],
+    ["travel", "A1.2", "He asuvat Etelä-Pariisissa.", "They live in South Paris.", "Họ sống ở phía Nam Paris."],
+    ["travel", "A1.2", "Me emme löydä taloa heti, joten Pekka soittaa Eliselle.", "We don't find the house immediately, so Pekka calls Elise.", "Chúng tôi không tìm thấy ngôi nhà ngay, vì vậy Pekka gọi điện cho Elise."],
+    ["travel", "A1.2", "Elise kertoo, missä talo on.", "Elise tells us where the house is.", "Elise nói cho chúng tôi biết ngôi nhà ở đâu."]
+
 ].map(([topic, level, fi, en, vi]) => ({
     topic,
     level,
