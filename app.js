@@ -150,7 +150,7 @@ const dictationTopics = [
     { id: "daily", fi: "Arkipäivä", en: "Daily life", vi: "Sinh hoạt hằng ngày" },
     { id: "weather", fi: "Sää", en: "Weather", vi: "Thời tiết" },
     { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" },
-    { id: "travel", fi: "Matkailu – Pariisi", en: "Travel – Paris", vi: "Du lịch – Paris" }
+    { id: "travel", fi: "Matkailu ", en: "Travel ", vi: "Du lịch " }
 ];
 
 
