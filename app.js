@@ -484,8 +484,35 @@ const dictationLessons = [
     ["travel", "A1.2", "Illalla menemme ystäviemme kotiin.", "In the evening, we go to our friends' home.", "Buổi tối, chúng tôi đến nhà bạn bè."],
     ["travel", "A1.2", "Yövymme heidän luonaan kaksi yötä.", "We stay at their place for two nights.", "Chúng tôi ở nhà họ hai đêm."],
     ["travel", "A1.2", "Seuraavana päivänä vierailemme Eiffel-tornissa.", "The next day, we visit the Eiffel Tower.", "Ngày hôm sau, chúng tôi tham quan tháp Eiffel."],
-    ["travel", "A1.2", "Matka Pariisiin on todella mukava.", "The trip to Paris is really nice.", "Chuyến đi Paris thật sự rất thú vị."]
-    
+    ["travel", "A1.2", "Matka Pariisiin on todella mukava.", "The trip to Paris is really nice.", "Chuyến đi Paris thật sự rất thú vị."],
+   // =================================
+    // 10. TRAVEL — MATKAILU A1.1
+    // =================================
+
+    ["travel","A1.1","Minä matkustan Suomeen.","I travel to Finland.","Tôi đi du lịch đến Phần Lan."],
+    ["travel","A1.1","Minä menen lentokentälle.","I go to the airport.","Tôi đi đến sân bay."],
+    ["travel","A1.1","Missä lentokenttä on?","Where is the airport?","Sân bay ở đâu?"],
+    ["travel","A1.1","Minulla on matkalaukku.","I have a suitcase.","Tôi có một chiếc vali."],
+    ["travel","A1.1","Tässä on passini.","Here is my passport.","Đây là hộ chiếu của tôi."],
+    ["travel","A1.1","Lentokone lähtee aamulla.","The plane leaves in the morning.","Máy bay khởi hành vào buổi sáng."],
+    ["travel","A1.1","Minä istun lentokoneessa.","I sit on the plane.","Tôi ngồi trên máy bay."],
+    ["travel","A1.1","Missä minun hotellini on?","Where is my hotel?","Khách sạn của tôi ở đâu?"],
+    ["travel","A1.1","Haluan yhden huoneen.","I want one room.","Tôi muốn một phòng."],
+    ["travel","A1.1","Matka on mukava.","The trip is nice.","Chuyến đi thật vui."],
+       // =================================
+    // 11. TRAVEL — MATKAILU A1.2
+    // =================================
+
+    ["travel","A1.2","Lähdemme lomalle lauantaina.","We leave for holiday on Saturday.","Chúng tôi đi nghỉ vào thứ Bảy."],
+    ["travel","A1.2","Ostan lentolipun verkosta.","I buy a flight ticket online.","Tôi mua vé máy bay trên mạng."],
+    ["travel","A1.2","Lentokentällä on paljon ihmisiä.","There are many people at the airport.","Có nhiều người ở sân bay."],
+    ["travel","A1.2","Minun lentoni lähtee kello kahdeksan.","My flight leaves at eight o'clock.","Chuyến bay của tôi khởi hành lúc tám giờ."],
+    ["travel","A1.2","Me saavumme Pariisiin illalla.","We arrive in Paris in the evening.","Chúng tôi đến Paris vào buổi tối."],
+    ["travel","A1.2","Otan taksin hotellille.","I take a taxi to the hotel.","Tôi đi taxi đến khách sạn."],
+    ["travel","A1.2","Hotelli on lähellä keskustaa.","The hotel is near the city centre.","Khách sạn gần trung tâm thành phố."],
+    ["travel","A1.2","Varaamme huoneen kahdeksi yöksi.","We book a room for two nights.","Chúng tôi đặt phòng hai đêm."],
+    ["travel","A1.2","Haluamme nähdä kaupungin nähtävyydet.","We want to see the city's sights.","Chúng tôi muốn tham quan các địa điểm nổi tiếng của thành phố."],
+    ["travel","A1.2","Ostamme matkamuistoja perheellemme.","We buy souvenirs for our family.","Chúng tôi mua quà lưu niệm cho gia đình."]
 
 ].map(([topic, level, fi, en, vi]) => ({
     topic,
