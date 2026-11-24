@@ -463,7 +463,7 @@ const dictationLessons = [
     ["shopping","A2","Ostan usein tuotteita, jotka ovat tarjouksessa.","I often buy products that are on sale.","Tôi thường mua những sản phẩm đang giảm giá."],
     ["shopping","A2","Käytän kestokassia muovipussin sijasta.","I use a reusable bag instead of a plastic bag.","Tôi dùng túi tái sử dụng thay cho túi nhựa."],
     ["shopping","A2","Jos tuote on viallinen, voin pyytää hyvitystä.","If a product is faulty, I can ask for a refund.","Nếu sản phẩm bị lỗi, tôi có thể yêu cầu hoàn tiền."],
-    ["shopping","A2","Tarkistan viimeisen käyttöpäivän ennen ostamista.","I check the expiry date before buying.","Tôi kiểm tra hạn sử dụng trước khi mua."]
+    ["shopping","A2","Tarkistan viimeisen käyttöpäivän ennen ostamista.","I check the expiry date before buying.","Tôi kiểm tra hạn sử dụng trước khi mua."],
     
     // MATKAILU — PARIS (15 sentences)
     ["travel", "A1.2", "Pekka ja minä lähdemme tänään Ranskaan.", "Pekka and I are leaving for France today.", "Pekka và tôi hôm nay khởi hành đi Pháp."],
