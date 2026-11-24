@@ -1564,7 +1564,7 @@ const stories = [
 },
 {
     id: 1021,
-    level: "A1.2",
+    level: "A1",
     title: "Matka Pariisiin",
     vietnameseTitle: "Du lịch Paris",
     englishTitle: "A Trip to Paris",
