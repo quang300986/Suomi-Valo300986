@@ -140,6 +140,7 @@ let currentVocabularyIndex = 0;
 
 /* 3. TOPICS */
 
+
 const dictationTopics = [
     { id: "greetings", fi: "Tervehdykset", en: "Greetings", vi: "Chào hỏi" },
     { id: "family", fi: "Perhe", en: "Family", vi: "Gia đình" },
@@ -148,7 +149,8 @@ const dictationTopics = [
     { id: "work", fi: "Työ ja ammatti", en: "Work and profession", vi: "Công việc và nghề nghiệp" },
     { id: "daily", fi: "Arkipäivä", en: "Daily life", vi: "Sinh hoạt hằng ngày" },
     { id: "weather", fi: "Sää", en: "Weather", vi: "Thời tiết" },
-    { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" }
+    { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" },
+    { id: "travel", fi: "Matkailu – Pariisi", en: "Travel – Paris", vi: "Du lịch – Paris" }
 ];
 
 
