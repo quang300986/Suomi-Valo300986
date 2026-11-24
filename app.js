@@ -481,7 +481,7 @@ const dictationLessons = [
     ["travel", "A1.2", "Me yövymme Elisen ja Fabianin kotona.", "We stay overnight at Elise and Fabian's home.", "Chúng tôi ngủ lại nhà của Elise và Fabian."],
     ["travel", "A1.2", "He asuvat Etelä-Pariisissa.", "They live in South Paris.", "Họ sống ở phía Nam Paris."],
     ["travel", "A1.2", "Me emme löydä taloa heti, joten Pekka soittaa Eliselle.", "We don't find the house immediately, so Pekka calls Elise.", "Chúng tôi không tìm thấy ngôi nhà ngay, vì vậy Pekka gọi điện cho Elise."],
-    ["travel", "A1.2", "Elise kertoo, missä talo on.", "Elise tells us where the house is.", "Elise nói cho chúng tôi biết ngôi nhà ở đâu."]
+    ["travel", "A1.2", "Elise kertoo, missä talo on.", "Elise tells us where the house is.", "Elise nói cho chúng tôi biết ngôi nhà ở đâu."],
 
 ].map(([topic, level, fi, en, vi]) => ({
     topic,
