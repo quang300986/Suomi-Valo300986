@@ -854,7 +854,9 @@ case "vocabularyLevels":
 case "vocabularyCard":
     showVocabularyCard();
     break;
-
+case "verbTypes":
+    showVerbTypes();
+    break;
         case "module":
             showModule(currentModule);
             break;
@@ -1285,6 +1287,33 @@ function showModule(name) {
     scrollToLesson();
 }
 
+function showVerbTypes() {
+    currentScreen = "verbTypes";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "verbs";
+
+    lesson.innerHTML = `
+        <h2>🔤 VERBIT – ĐỘNG TỪ</h2>
+        <p>Valitse verbityyppi / Chọn nhóm động từ</p>
+
+        <div class="verb-types">
+            ${[1, 2, 3, 4, 5, 6].map(type => `
+                <button onclick="openVerbType(${type})">
+                    Verbityyppi ${type}
+                    <small>
+                        ${type === 1 ? "100 động từ" : "Coming soon"}
+                    </small>
+                </button>
+            `).join("")}
+        </div>
+
+        <button onclick="showHome()">← Home</button>
+    `;
+
+    scrollToLesson();
+}
+
 
 function showVocabularyTopics() {
     currentScreen = "vocabularyTopics";
@@ -1516,6 +1545,7 @@ function speakVocabulary() {
 /* 17. OPEN MENU */
 
 
+
 function openLesson(name) {
     if (name === "dictation") {
         selectedTopic = null;
@@ -1536,24 +1566,22 @@ function openLesson(name) {
         showVocabularyTopics();
         return;
     }
+
     if (name === "stories") {
-    selectedStoryLevel = null;
-    activeStories = [];
-    currentStoryIndex = 0;
+        selectedStoryLevel = null;
+        activeStories = [];
+        currentStoryIndex = 0;
 
-    showStoryLevels();
-    return;
+        showStoryLevels();
+        return;
     }
-    const allowedModules = [
-        "grammar",
-        "listening",
-        "yki"
-    ];
 
-    if (!allowedModules.includes(name)) return;
-
-    showModule(name);
+    if (name === "verbs") {
+        showVerbTypes();
+        return;
+    }
 }
+
 
 
 /* 18. MAKE FUNCTIONS AVAILABLE TO HTML */
@@ -1740,4 +1768,333 @@ function speakStorySentence(index) {
             { once: true }
         );
     }
+
+// ============================================
+// VERBIT - SUOMI VALO300986
+// VERBITYYPPI 1 - 80 VERBS
+// ============================================
+
+const verbWords = [
+    ["aivastaa", "hắt hơi", "to sneeze", "aivasta", "aivasta"],
+    ["ajaa", "lái xe", "to drive", "aja", "aja"],
+    ["alkaa", "bắt đầu", "to begin", "alka", "ala"],
+    ["allekirjoittaa", "ký tên", "to sign", "allekirjoitta", "allekirjoita"],
+    ["aloittaa", "khởi đầu", "to start", "aloitta", "aloita"],
+    ["soutaa", "chèo thuyền", "to row", "souta", "souda"],
+    ["antaa", "cho, đưa", "to give", "anta", "anna"],
+    ["asentaa", "lắp đặt", "to install", "asenta", "asenna"],
+    ["asua", "sống, cư trú", "to live", "asu", "asu"],
+    ["auttaa", "giúp đỡ", "to help", "autta", "auta"],
+    ["ehtiä", "kịp, có đủ thời gian", "to have time", "ehti", "ehdi"],
+    ["eksyä", "bị lạc", "to get lost", "eksy", "eksy"],
+    ["elää", "sống", "to live", "elä", "elä"],
+    ["esittäytyä", "tự giới thiệu", "to introduce oneself", "esittäyty", "esittäydy"],
+    ["etsiä", "tìm kiếm", "to search for", "etsi", "etsi"],
+    ["haistaa", "ngửi", "to smell", "haista", "haista"],
+    ["hakea", "đi lấy, tìm kiếm", "to fetch, seek", "hake", "hae"],
+    ["harrastaa", "có sở thích", "to have as a hobby", "harrasta", "harrasta"],
+    ["heittää", "ném", "to throw", "heittä", "heitä"],
+    ["hiihtää", "trượt tuyết", "to ski", "hiihtä", "hiihdä"],
+    ["hoitaa", "chăm sóc, xử lý", "to take care of, manage", "hoita", "hoida"],
+    ["huutaa", "la hét, gọi to", "to shout", "huuta", "huuda"],
+    ["istua", "ngồi", "to sit", "istu", "istu"],
+    ["istuttaa", "trồng", "to plant", "istutta", "istuta"],
+    ["itkeä", "khóc", "to cry", "itke", "itke"],
+    ["sanoa", "nói", "to say", "sano", "sano"],
+    ["jakaa", "chia, phân phát", "to share, distribute", "jaka", "jaa"],
+    ["jaksaa", "có sức, đủ sức", "to have the energy", "jaksa", "jaksa"],
+    ["jatkaa", "tiếp tục", "to continue", "jatka", "jatka"],
+    ["jatkua", "tiếp diễn", "to continue", "jatku", "jatku"],
+    ["jättää", "để lại, bỏ lại", "to leave behind", "jättä", "jätä"],
+    ["kaataa", "đổ, làm đổ", "to pour, knock down", "kaata", "kaada"],
+    ["kaatua", "ngã, đổ", "to fall over", "kaatu", "kaadu"],
+    ["kaivaa", "đào", "to dig", "kaiva", "kaiva"],
+    ["kalastaa", "đánh cá, câu cá", "to fish", "kalasta", "kalasta"],
+    ["kantaa", "mang, vác", "to carry", "kanta", "kanna"],
+    ["kasvaa", "lớn lên, phát triển", "to grow", "kasva", "kasva"],
+    ["katsoa", "xem, nhìn", "to watch, look", "katso", "katso"],
+    ["keittää", "luộc, đun sôi", "to boil", "keittä", "keitä"],
+    ["kertoa", "kể, nói", "to tell", "kerto", "kerro"],
+    ["kestää", "kéo dài, chịu đựng", "to last, endure", "kestä", "kestä"],
+    ["kiinnostua", "trở nên quan tâm", "to become interested", "kiinnostu", "kiinnostu"],
+    ["kiirehtiä", "vội vàng", "to hurry", "kiirehti", "kiirehdi"],
+    ["kiittää", "cảm ơn", "to thank", "kiittä", "kiitä"],
+    ["kirjoittaa", "viết", "to write", "kirjoitta", "kirjoita"],
+    ["kysyä", "hỏi", "to ask", "kysy", "kysy"],
+    ["käyttää", "sử dụng", "to use", "käyttä", "käytä"],
+    ["laittaa", "đặt, cho vào", "to put", "laitta", "laita"],
+    ["laskea", "đếm, tính", "to count", "laske", "laske"],
+    ["laulaa", "hát", "to sing", "laula", "laula"],
+    ["leikkiä", "chơi", "to play", "leikki", "leiki"],
+    ["leipoa", "làm bánh", "to bake", "leipo", "leivo"],
+    ["lentää", "bay", "to fly", "lentä", "lennä"],
+    ["lopettaa", "kết thúc, ngừng", "to stop, finish", "lopetta", "lopeta"],
+    ["lukea", "đọc", "to read", "luke", "lue"],
+    ["lähettää", "gửi", "to send", "lähettä", "lähetä"],
+    ["lähteä", "rời đi, khởi hành", "to leave, depart", "lähte", "lähde"],
+    ["lämmittää", "làm nóng, sưởi ấm", "to heat", "lämmittä", "lämmitä"],
+    ["löytyä", "được tìm thấy", "to be found", "löyty", "löydy"],
+    ["löytää", "tìm thấy", "to find", "löytä", "löydä"],
+    ["maistaa", "nếm", "to taste", "maista", "maista"],
+    ["maistua", "có vị", "to taste, taste like", "maistu", "maistu"],
+    ["maksaa", "trả tiền, có giá", "to pay, cost", "maksa", "maksa"],
+    ["matkustaa", "du lịch, đi lại", "to travel", "matkusta", "matkusta"],
+    ["metsästää", "đi săn", "to hunt", "metsästä", "metsästä"],
+    ["muistaa", "nhớ", "to remember", "muista", "muista"],
+    ["muuttaa", "chuyển nhà, thay đổi", "to move, change", "muutta", "muuta"],
+    ["nauraa", "cười", "to laugh", "naura", "naura"],
+    ["nauttia", "thưởng thức, tận hưởng", "to enjoy", "nautti", "nauti"],
+    ["nostaa", "nâng lên", "to lift, raise", "nosta", "nosta"],
+    ["nukkua", "ngủ", "to sleep", "nukku", "nuku"],
+    ["näkyä", "hiện ra, có thể nhìn thấy", "to be visible", "näky", "näy"],
+    ["näyttää", "cho xem, trông có vẻ", "to show, seem", "näyttä", "näytä"],
+    ["odottaa", "chờ đợi", "to wait", "odotta", "odota"],
+    ["oksentaa", "nôn", "to vomit", "oksenta", "oksenna"],
+    ["opettaa", "dạy", "to teach", "opetta", "opeta"],
+    ["oppia", "học được", "to learn", "oppi", "opi"],
+    ["ostaa", "mua", "to buy", "osta", "osta"],
+    ["ottaa", "lấy, nhận", "to take", "otta", "ota"],
+    ["painaa", "ấn, nhấn", "to press", "paina", "paina"]
+].map(([fi, vi, en, stemStrong, stemWeak]) => ({
+    type: 1,
+    fi,
+    vi,
+    en,
+    stemStrong,
+    stemWeak
+}));
+
+let currentVerbIndex = 0;
+let currentVerbType = 1;
+
+// Mở một nhóm động từ
+function openVerbType(type) {
+    currentVerbType = type;
+
+    if (type !== 1) {
+        const lesson = getElement("lesson");
+        currentScreen = "verbComingSoon";
+        lesson.dataset.type = "verbs";
+
+        lesson.innerHTML = `
+            <div style="padding:24px;text-align:center;">
+                <h2>Verbityyppi ${type}</h2>
+                <p>Coming soon</p>
+                <button onclick="showVerbTypes()">← Back</button>
+            </div>
+        `;
+
+        scrollToLesson();
+        return;
+    }
+
+    showVerbList();
+}
+
+// Hiển thị danh sách động từ
+function showVerbList() {
+    currentScreen = "verbList";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "verbs";
+
+    lesson.innerHTML = `
+        <div style="padding:16px;">
+            <button onclick="showVerbTypes()">← Takaisin</button>
+
+            <h2>Verbityyppi 1</h2>
+            <p>80 động từ - 80 verbs</p>
+
+            <div style="
+                display:grid;
+                grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+                gap:10px;
+                margin-top:16px;
+            ">
+                ${verbWords.map((word, index) => `
+                    <button
+                        onclick="openVerbCard(${index})"
+                        style="
+                            padding:13px 10px;
+                            border-radius:12px;
+                            border:1px solid #ddd;
+                            background:white;
+                            color:#222;
+                            cursor:pointer;
+                            text-align:left;
+                        "
+                    >
+                        <strong>${index + 1}. ${word.fi}</strong>
+                        <br>
+                        <small>${word.vi}</small>
+                    </button>
+                `).join("")}
+            </div>
+        </div>
+    `;
+
+    scrollToLesson();
+}
+
+// Hiển thị chi tiết một động từ
+function openVerbCard(index) {
+    if (index < 0 || index >= verbWords.length) return;
+
+    currentVerbIndex = index;
+    showVerbCard();
+}
+
+function showVerbCard() {
+    currentScreen = "verbCard";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "verbs";
+
+    const word = verbWords[currentVerbIndex];
+
+    lesson.innerHTML = `
+        <div style="
+            max-width:600px;
+            margin:auto;
+            padding:20px;
+            text-align:center;
+        ">
+            <button onclick="showVerbList()" style="float:left;">
+                ← Danh sách
+            </button>
+
+            <div style="clear:both;padding-top:24px;">
+                <p>Verbityyppi 1</p>
+
+                <h1 style="font-size:36px;margin:12px 0;">
+                    ${word.fi}
+                </h1>
+
+                <h2 style="font-size:24px;color:#16845b;">
+                    ${word.vi}
+                </h2>
+
+                <p style="font-size:18px;color:#666;">
+                    ${word.en}
+                </p>
+
+                <button
+                    onclick="speakVerbFinnish('${word.fi}')"
+                    style="padding:12px 20px;margin:16px;border-radius:12px;"
+                >
+                    🔊 Kuuntele
+                </button>
+
+                <div style="
+                    text-align:left;
+                    background:#f3f5f7;
+                    padding:18px;
+                    border-radius:14px;
+                    margin-top:20px;
+                ">
+                    <h3>Vartalot - Thân động từ</h3>
+
+                    <p>
+                        <strong>Vahva vartalo:</strong>
+                        ${word.stemStrong}
+                    </p>
+
+                    <p>
+                        <strong>Heikko vartalo:</strong>
+                        ${word.stemWeak}
+                    </p>
+
+                    <hr>
+
+                    <p>
+                        <strong>Minä:</strong>
+                        ${word.stemWeak}n
+                    </p>
+
+                    <p>
+                        <strong>Hän:</strong>
+                        ${word.stemStrong}
+                    </p>
+                </div>
+
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    gap:12px;
+                    margin-top:24px;
+                ">
+                    <button
+                        onclick="previousVerb()"
+                        ${currentVerbIndex === 0 ? "disabled" : ""}
+                    >
+                        ← Edellinen
+                    </button>
+
+                    <span>${currentVerbIndex + 1} / ${verbWords.length}</span>
+
+                    <button
+                        onclick="nextVerb()"
+                        ${currentVerbIndex === verbWords.length - 1 ? "disabled" : ""}
+                    >
+                        Seuraava →
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    scrollToLesson();
+}
+
+// Động từ trước
+function previousVerb() {
+    if (currentVerbIndex > 0) {
+        currentVerbIndex--;
+        showVerbCard();
+    }
+}
+
+// Động từ tiếp theo
+function nextVerb() {
+    if (currentVerbIndex < verbWords.length - 1) {
+        currentVerbIndex++;
+        showVerbCard();
+    }
+}
+
+// Phát âm tiếng Phần Lan - ưu tiên giọng Satu
+function speakVerbFinnish(text) {
+    if (!("speechSynthesis" in window)) {
+        alert("Trình duyệt không hỗ trợ đọc văn bản.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const voices = window.speechSynthesis.getVoices();
+
+    const finnishVoices = voices.filter(voice =>
+        voice.lang.toLowerCase().startsWith("fi")
+    );
+
+    const satuVoice = finnishVoices.find(voice =>
+        voice.name.toLowerCase().includes("satu")
+    );
+
+    utterance.lang = "fi-FI";
+    utterance.rate = 0.85;
+
+    if (satuVoice) {
+        utterance.voice = satuVoice;
+    } else if (finnishVoices.length > 0) {
+        utterance.voice = finnishVoices[0];
+    }
+
+    window.speechSynthesis.speak(utterance);
+}
+
+// Kiểm tra dữ liệu
+console.log("Verbit loaded:", verbWords.length);
+   
 }
