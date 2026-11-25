@@ -1295,7 +1295,7 @@ function showVerbTypes() {
 
     lesson.innerHTML = `
         <h2>🔤 VERBIT – ĐỘNG TỪ</h2>
-        <p>Valitse verbityyppi / Chọn nhóm động từ</p>
+        <p>Valitse verbityyppi / Choose a verb type / Chọn nhóm động từ</p>
 
         <div class="verb-types">
             ${[1, 2, 3, 4, 5, 6].map(type => `
@@ -2011,10 +2011,6 @@ function showVerbCard() {
                         ${word.stemWeak}n
                     </p>
 
-                    <p>
-                        <strong>Hän:</strong>
-                        ${word.stemStrong}
-                    </p>
                 </div>
 
                 <div style="
