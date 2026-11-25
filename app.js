@@ -2388,6 +2388,67 @@ const verbType3Data = [
     example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
 }));
 
+
+// ============================================
+// VERBIT - VERBITYYPPI 4 - 50 VERBS
+// ============================================
+
+const verbType4Data = [
+    ["avata", "mở", "to open", "avaa", "avaan", "Minä avaan ikkunan.", "Tôi mở cửa sổ.", "I open the window."],
+    ["haluta", "muốn", "to want", "halua", "haluan", "Minä haluan oppia suomea.", "Tôi muốn học tiếng Phần Lan.", "I want to learn Finnish."],
+    ["osata", "biết, có kỹ năng", "to know how to", "osaa", "osaan", "Minä osaan vähän suomea.", "Tôi biết một chút tiếng Phần Lan.", "I know a little Finnish."],
+    ["pelätä", "sợ", "to fear, be afraid of", "pelkää", "pelkään", "Minä pelkään pimeää.", "Tôi sợ bóng tối.", "I am afraid of the dark."],
+    ["herätä", "thức dậy", "to wake up", "herää", "herään", "Minä herään kello seitsemän.", "Tôi thức dậy lúc bảy giờ.", "I wake up at seven."],
+    ["tavata", "gặp", "to meet", "tapaa", "tapaan", "Minä tapaan ystävän tänään.", "Hôm nay tôi gặp một người bạn.", "I am meeting a friend today."],
+    ["siivota", "dọn dẹp", "to clean", "siivoa", "siivoan", "Minä siivoan keittiön.", "Tôi dọn dẹp nhà bếp.", "I clean the kitchen."],
+    ["luvata", "hứa", "to promise", "lupaa", "lupaan", "Minä lupaan auttaa sinua.", "Tôi hứa giúp bạn.", "I promise to help you."],
+    ["vastata", "trả lời", "to answer", "vastaa", "vastaan", "Minä vastaan kysymykseen.", "Tôi trả lời câu hỏi.", "I answer the question."],
+    ["huomata", "nhận thấy", "to notice", "huomaa", "huomaan", "Minä huomaan virheen.", "Tôi nhận ra lỗi sai.", "I notice a mistake."],
+    ["pudota", "rơi, té xuống", "to fall, drop", "putoa", "putoan", "Pallo putoaa lattialle.", "Quả bóng rơi xuống sàn.", "The ball falls onto the floor."],
+    ["kadota", "biến mất, thất lạc", "to disappear, get lost", "katoa", "katoan", "Avaimet katoavat usein.", "Chìa khóa thường bị thất lạc.", "The keys often go missing."],
+    ["levätä", "nghỉ ngơi", "to rest", "lepää", "lepään", "Minä lepään kotona.", "Tôi nghỉ ngơi ở nhà.", "I rest at home."],
+    ["hypätä", "nhảy", "to jump", "hyppää", "hyppään", "Minä hyppään korkealle.", "Tôi nhảy cao.", "I jump high."],
+    ["pakata", "đóng gói, xếp hành lý", "to pack", "pakkaa", "pakkaan", "Minä pakkaan laukun.", "Tôi đóng gói túi.", "I pack the bag."],
+    ["maalata", "sơn, vẽ", "to paint", "maalaa", "maalaan", "Minä maalaan seinän.", "Tôi sơn bức tường.", "I paint the wall."],
+    ["pelata", "chơi (thể thao/trò chơi)", "to play (a game or sport)", "pelaa", "pelaan", "Minä pelaan jalkapalloa.", "Tôi chơi bóng đá.", "I play football."],
+    ["kerätä", "thu thập, hái", "to collect, gather", "kerää", "kerään", "Minä kerään marjoja.", "Tôi hái quả mọng.", "I pick berries."],
+    ["erota", "chia tay; rời khỏi", "to separate; resign", "eroa", "eroan", "Minä eroan työstä.", "Tôi nghỉ việc.", "I resign from my job."],
+    ["kohdata", "đối mặt, gặp", "to encounter, face", "kohtaa", "kohtaan", "Minä kohtaan uuden haasteen.", "Tôi đối mặt với thử thách mới.", "I face a new challenge."],
+    ["tykätä", "thích", "to like", "tykkää", "tykkään", "Minä tykkään kahvista.", "Tôi thích cà phê.", "I like coffee."],
+    ["ruveta", "bắt đầu làm gì", "to start doing something", "rupea", "rupean", "Minä rupean opiskelemaan.", "Tôi bắt đầu học.", "I start studying."],
+    ["kammata", "chải tóc", "to comb", "kampaa", "kampaan", "Minä kampaan hiukseni.", "Tôi chải tóc.", "I comb my hair."],
+    ["hajota", "hỏng, vỡ, tan rã", "to break down; fall apart", "hajoa", "hajoan", "Vanha kone hajoaa.", "Máy cũ bị hỏng.", "The old machine breaks down."],
+    ["varata", "đặt trước, dành chỗ", "to reserve, book", "varaa", "varaan", "Minä varaan ajan lääkärille.", "Tôi đặt lịch hẹn với bác sĩ.", "I book a doctor’s appointment."],
+    ["lainata", "mượn; cho mượn", "to borrow; lend", "lainaa", "lainaan", "Minä lainaan kirjan kirjastosta.", "Tôi mượn sách ở thư viện.", "I borrow a book from the library."],
+    ["korjata", "sửa chữa", "to repair, fix", "korjaa", "korjaan", "Minä korjaan polkupyörän.", "Tôi sửa xe đạp.", "I repair the bicycle."],
+    ["kelvata", "được chấp nhận; phù hợp", "to be acceptable; do", "kelpaa", "kelpaan", "Tämä ruoka kelpaa minulle.", "Món ăn này phù hợp với tôi.", "This food is fine for me."],
+    ["kerrata", "ôn tập, nhắc lại", "to review, repeat", "kertaa", "kertaan", "Minä kertaan uusia sanoja.", "Tôi ôn lại từ mới.", "I review new words."],
+    ["tähdätä", "nhắm, hướng tới", "to aim", "tähtää", "tähtään", "Minä tähtään hyvään tulokseen.", "Tôi hướng tới kết quả tốt.", "I aim for a good result."],
+    ["palkata", "thuê, tuyển dụng", "to hire", "palkkaa", "palkkaan", "Yritys palkkaa uuden työntekijän.", "Công ty tuyển một nhân viên mới.", "The company hires a new employee."],
+    ["kuvata", "mô tả; quay/chụp", "to describe; film", "kuvaa", "kuvaan", "Minä kuvaan maisemaa.", "Tôi chụp phong cảnh.", "I photograph the scenery."],
+    ["arvata", "đoán", "to guess", "arvaa", "arvaan", "Minä arvaan vastauksen.", "Tôi đoán câu trả lời.", "I guess the answer."],
+    ["mitata", "đo", "to measure", "mittaa", "mittaan", "Minä mittaan huoneen.", "Tôi đo căn phòng.", "I measure the room."],
+    ["palata", "quay trở lại", "to return", "palaa", "palaan", "Minä palaan kotiin illalla.", "Tôi trở về nhà vào buổi tối.", "I return home in the evening."],
+    ["pilata", "làm hỏng", "to spoil, ruin", "pilaa", "pilaan", "Älä pilaa ruokaa.", "Đừng làm hỏng thức ăn.", "Don’t spoil the food."],
+    ["selata", "lướt, xem qua", "to browse, flip through", "selaa", "selaan", "Minä selaan kirjaa.", "Tôi lật xem quyển sách.", "I browse through the book."],
+    ["liimata", "dán bằng keo", "to glue", "liimaa", "liimaan", "Minä liimaan kuvan paperiin.", "Tôi dán bức ảnh vào giấy.", "I glue the picture onto the paper."],
+    ["jahdata", "đuổi bắt, săn đuổi", "to chase", "jahtaa", "jahdaan", "Poliisi jahtaa varasta.", "Cảnh sát truy đuổi tên trộm.", "The police chase the thief."],
+    ["tuhota", "phá hủy", "to destroy", "tuhoa", "tuhoan", "Tuli tuhoaa rakennuksen.", "Lửa phá hủy tòa nhà.", "Fire destroys the building."],
+    ["kirota", "chửi rủa", "to swear, curse", "kiroa", "kiroan", "Hän kiroaa kovaa ääneen.", "Anh ấy chửi thề rất to.", "He swears loudly."],
+    ["kaivata", "nhớ, mong", "to miss, long for", "kaipaa", "kaipaan", "Minä kaipaan perhettäni.", "Tôi nhớ gia đình mình.", "I miss my family."],
+    ["kasata", "xếp chồng, lắp ráp", "to pile up, assemble", "kasaa", "kasaan", "Minä kasaan hyllyn.", "Tôi lắp ráp cái kệ.", "I assemble the shelf."],
+    ["raivata", "dọn sạch, phát quang", "to clear", "raivaa", "raivaan", "Me raivaamme pihaa.", "Chúng tôi dọn sạch sân.", "We clear the yard."],
+    ["kiusata", "trêu chọc, bắt nạt", "to tease, bully", "kiusaa", "kiusaan", "Älä kiusaa muita.", "Đừng bắt nạt người khác.", "Do not bully others."],
+    ["tilata", "đặt hàng", "to order", "tilaa", "tilaan", "Minä tilaan ruokaa.", "Tôi đặt đồ ăn.", "I order food."],
+    ["suunnata", "hướng về", "to head toward, direct", "suuntaa", "suuntaan", "Minä suuntaan asemalle.", "Tôi đi về phía nhà ga.", "I head toward the station."],
+    ["harjata", "chải; quét", "to brush", "harjaa", "harjaan", "Minä harjaan hampaat.", "Tôi đánh răng.", "I brush my teeth."],
+    ["kuivata", "làm khô, lau khô", "to dry", "kuivaa", "kuivaan", "Minä kuivaan astiat.", "Tôi lau khô bát đĩa.", "I dry the dishes."],
+    ["perata", "làm sạch cá; sơ chế", "to gut, clean (fish)", "perkaa", "perkaan", "Minä perkaan kalan.", "Tôi làm sạch cá.", "I gut the fish."]
+].map(([fi, vi, en, stem, mina, exampleFi, exampleVi, exampleEn]) => ({
+    type: 4, fi, vi, en, stemStrong: stem, stemWeak: stem, mina,
+    example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
+}));
+
 let currentVerbIndex = 0;
 let currentVerbType = 1;
 
@@ -2396,7 +2457,7 @@ function openVerbType(type) {
     currentVerbType = type;
     currentVerbIndex = 0;
 
-    if (type === 1 || type === 2 || type === 3) {
+    if (type === 1 || type === 2 || type === 3 || type === 4) {
         showVerbList();
         return;
     }
@@ -2417,6 +2478,7 @@ function openVerbType(type) {
 }
 
 function getActiveVerbWords() {
+    if (currentVerbType === 4) return verbType4Data;
     if (currentVerbType === 3) return verbType3Data;
     if (currentVerbType === 2) return verbType2Data;
     return verbWords;
@@ -2487,16 +2549,16 @@ function showVerbCard() {
 
     const activeWords = getActiveVerbWords();
     const word = activeWords[currentVerbIndex];
-    const example = (currentVerbType === 2 || currentVerbType === 3)
+    const example = (currentVerbType === 2 || currentVerbType === 3 || currentVerbType === 4)
         ? word.example
         : (verbExamples[currentVerbIndex] || { fi: "", vi: "", en: "" });
 
-    const stemSection = (currentVerbType === 2 || currentVerbType === 3)
+    const stemSection = (currentVerbType === 2 || currentVerbType === 3 || currentVerbType === 4)
         ? `<p><strong>Vartalo:</strong> ${word.stemStrong}</p>`
         : `<p><strong>Vahva vartalo:</strong> ${word.stemStrong}</p>
            <p><strong>Heikko vartalo:</strong> ${word.stemWeak}</p>`;
 
-    const minaForm = (currentVerbType === 2 || currentVerbType === 3) ? word.mina : `${word.stemWeak}n`;
+    const minaForm = (currentVerbType === 2 || currentVerbType === 3 || currentVerbType === 4) ? word.mina : `${word.stemWeak}n`;
 
     lesson.innerHTML = `
         <div style="
