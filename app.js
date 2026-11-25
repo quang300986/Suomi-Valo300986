@@ -1864,6 +1864,409 @@ const verbWords = [
     stemWeak
 }));
 
+const verbExamples = [
+    {
+        "fi": "Minä aivastan usein.",
+        "vi": "Tôi thường hắt hơi.",
+        "en": "I often sneeze."
+    },
+    {
+        "fi": "Minä ajan autoa.",
+        "vi": "Tôi lái ô tô.",
+        "en": "I drive a car."
+    },
+    {
+        "fi": "Minä alan opiskella suomea.",
+        "vi": "Tôi bắt đầu học tiếng Phần Lan.",
+        "en": "I start studying Finnish."
+    },
+    {
+        "fi": "Minä allekirjoitan paperin.",
+        "vi": "Tôi ký vào giấy tờ.",
+        "en": "I sign the document."
+    },
+    {
+        "fi": "Minä aloitan työn kello kahdeksan.",
+        "vi": "Tôi bắt đầu công việc lúc tám giờ.",
+        "en": "I start work at eight."
+    },
+    {
+        "fi": "Minä soudan järvellä.",
+        "vi": "Tôi chèo thuyền trên hồ.",
+        "en": "I row on the lake."
+    },
+    {
+        "fi": "Minä annan sinulle kirjan.",
+        "vi": "Tôi đưa cho bạn một quyển sách.",
+        "en": "I give you a book."
+    },
+    {
+        "fi": "Minä asennan uuden ohjelman.",
+        "vi": "Tôi cài đặt chương trình mới.",
+        "en": "I install a new program."
+    },
+    {
+        "fi": "Minä asun Porissa.",
+        "vi": "Tôi sống ở Pori.",
+        "en": "I live in Pori."
+    },
+    {
+        "fi": "Minä autan ystävääni.",
+        "vi": "Tôi giúp bạn tôi.",
+        "en": "I help my friend."
+    },
+    {
+        "fi": "Minä ehdin bussiin.",
+        "vi": "Tôi kịp chuyến xe buýt.",
+        "en": "I make it to the bus."
+    },
+    {
+        "fi": "Minä eksyn helposti uudessa kaupungissa.",
+        "vi": "Tôi dễ bị lạc ở thành phố mới.",
+        "en": "I get lost easily in a new city."
+    },
+    {
+        "fi": "Minä elän Suomessa.",
+        "vi": "Tôi sống ở Phần Lan.",
+        "en": "I live in Finland."
+    },
+    {
+        "fi": "Minä esittäydyn kurssilla.",
+        "vi": "Tôi tự giới thiệu ở khóa học.",
+        "en": "I introduce myself in the course."
+    },
+    {
+        "fi": "Minä etsin avaimia.",
+        "vi": "Tôi tìm chìa khóa.",
+        "en": "I am looking for the keys."
+    },
+    {
+        "fi": "Minä haistan kahvin.",
+        "vi": "Tôi ngửi thấy mùi cà phê.",
+        "en": "I smell the coffee."
+    },
+    {
+        "fi": "Minä haen lapset koulusta.",
+        "vi": "Tôi đón các con từ trường.",
+        "en": "I pick up the children from school."
+    },
+    {
+        "fi": "Minä harrastan kalastusta.",
+        "vi": "Tôi có sở thích câu cá.",
+        "en": "I have fishing as a hobby."
+    },
+    {
+        "fi": "Minä heitän pallon.",
+        "vi": "Tôi ném quả bóng.",
+        "en": "I throw the ball."
+    },
+    {
+        "fi": "Minä hiihdän talvella.",
+        "vi": "Tôi trượt tuyết vào mùa đông.",
+        "en": "I ski in winter."
+    },
+    {
+        "fi": "Minä hoidan puutarhaa.",
+        "vi": "Tôi chăm sóc khu vườn.",
+        "en": "I take care of the garden."
+    },
+    {
+        "fi": "Minä huudan apua.",
+        "vi": "Tôi gọi to để xin giúp đỡ.",
+        "en": "I shout for help."
+    },
+    {
+        "fi": "Minä istun tuolilla.",
+        "vi": "Tôi ngồi trên ghế.",
+        "en": "I sit on a chair."
+    },
+    {
+        "fi": "Minä istutan kukkia.",
+        "vi": "Tôi trồng hoa.",
+        "en": "I plant flowers."
+    },
+    {
+        "fi": "Minä itken joskus elokuvissa.",
+        "vi": "Đôi khi tôi khóc khi xem phim.",
+        "en": "I sometimes cry at movies."
+    },
+    {
+        "fi": "Minä sanon kiitos.",
+        "vi": "Tôi nói cảm ơn.",
+        "en": "I say thank you."
+    },
+    {
+        "fi": "Minä jaan ruoan kahteen osaan.",
+        "vi": "Tôi chia thức ăn thành hai phần.",
+        "en": "I divide the food into two parts."
+    },
+    {
+        "fi": "Minä jaksan kävellä pitkään.",
+        "vi": "Tôi đủ sức đi bộ lâu.",
+        "en": "I have the energy to walk for a long time."
+    },
+    {
+        "fi": "Minä jatkan opiskelua huomenna.",
+        "vi": "Ngày mai tôi tiếp tục học.",
+        "en": "I continue studying tomorrow."
+    },
+    {
+        "fi": "Minä jatkan työtä iltapäivällä.",
+        "vi": "Tôi tiếp tục công việc vào buổi chiều.",
+        "en": "I continue working in the afternoon."
+    },
+    {
+        "fi": "Minä jätän takin kotiin.",
+        "vi": "Tôi để áo khoác ở nhà.",
+        "en": "I leave my coat at home."
+    },
+    {
+        "fi": "Minä kaadan vettä lasiin.",
+        "vi": "Tôi rót nước vào cốc.",
+        "en": "I pour water into a glass."
+    },
+    {
+        "fi": "Minä kaadun joskus talvella.",
+        "vi": "Đôi khi tôi bị ngã vào mùa đông.",
+        "en": "I sometimes fall over in winter."
+    },
+    {
+        "fi": "Minä kaivan maata puutarhassa.",
+        "vi": "Tôi đào đất trong vườn.",
+        "en": "I dig soil in the garden."
+    },
+    {
+        "fi": "Minä kalastan joella.",
+        "vi": "Tôi câu cá ở sông.",
+        "en": "I fish by the river."
+    },
+    {
+        "fi": "Minä kannan laukkua.",
+        "vi": "Tôi mang chiếc túi.",
+        "en": "I carry a bag."
+    },
+    {
+        "fi": "Minä kasvan aikuiseksi.",
+        "vi": "Tôi trưởng thành.",
+        "en": "I grow into an adult."
+    },
+    {
+        "fi": "Minä katson televisiota.",
+        "vi": "Tôi xem ti-vi.",
+        "en": "I watch television."
+    },
+    {
+        "fi": "Minä keitän perunoita.",
+        "vi": "Tôi luộc khoai tây.",
+        "en": "I boil potatoes."
+    },
+    {
+        "fi": "Minä kerron tarinan.",
+        "vi": "Tôi kể một câu chuyện.",
+        "en": "I tell a story."
+    },
+    {
+        "fi": "Minä kestän kylmää säätä.",
+        "vi": "Tôi chịu được thời tiết lạnh.",
+        "en": "I can tolerate cold weather."
+    },
+    {
+        "fi": "Minä kiinnostun Suomen historiasta.",
+        "vi": "Tôi trở nên quan tâm đến lịch sử Phần Lan.",
+        "en": "I become interested in Finnish history."
+    },
+    {
+        "fi": "Minä kiirehdin bussille.",
+        "vi": "Tôi vội đi đến trạm xe buýt.",
+        "en": "I hurry to the bus."
+    },
+    {
+        "fi": "Minä kiitän opettajaa.",
+        "vi": "Tôi cảm ơn giáo viên.",
+        "en": "I thank the teacher."
+    },
+    {
+        "fi": "Minä kirjoitan viestin.",
+        "vi": "Tôi viết một tin nhắn.",
+        "en": "I write a message."
+    },
+    {
+        "fi": "Minä kysyn opettajalta.",
+        "vi": "Tôi hỏi giáo viên.",
+        "en": "I ask the teacher."
+    },
+    {
+        "fi": "Minä käytän tietokonetta.",
+        "vi": "Tôi sử dụng máy tính.",
+        "en": "I use a computer."
+    },
+    {
+        "fi": "Minä laitan kirjan pöydälle.",
+        "vi": "Tôi đặt quyển sách lên bàn.",
+        "en": "I put the book on the table."
+    },
+    {
+        "fi": "Minä lasken rahat.",
+        "vi": "Tôi đếm tiền.",
+        "en": "I count the money."
+    },
+    {
+        "fi": "Minä laulan suomeksi.",
+        "vi": "Tôi hát bằng tiếng Phần Lan.",
+        "en": "I sing in Finnish."
+    },
+    {
+        "fi": "Minä leikin lasten kanssa.",
+        "vi": "Tôi chơi với trẻ em.",
+        "en": "I play with the children."
+    },
+    {
+        "fi": "Minä leivon pullaa.",
+        "vi": "Tôi làm bánh mì ngọt.",
+        "en": "I bake sweet buns."
+    },
+    {
+        "fi": "Minä lennän Helsinkiin.",
+        "vi": "Tôi bay đến Helsinki.",
+        "en": "I fly to Helsinki."
+    },
+    {
+        "fi": "Minä lopetan työn kello neljä.",
+        "vi": "Tôi kết thúc công việc lúc bốn giờ.",
+        "en": "I finish work at four."
+    },
+    {
+        "fi": "Minä luen kirjaa.",
+        "vi": "Tôi đọc sách.",
+        "en": "I read a book."
+    },
+    {
+        "fi": "Minä lähetän sähköpostin.",
+        "vi": "Tôi gửi email.",
+        "en": "I send an email."
+    },
+    {
+        "fi": "Minä lähden kotiin.",
+        "vi": "Tôi đi về nhà.",
+        "en": "I leave for home."
+    },
+    {
+        "fi": "Avain löytyy laukusta.",
+        "vi": "Chìa khóa được tìm thấy trong túi.",
+        "en": "The key is found in the bag."
+    },
+    {
+        "fi": "Minä löydyn valokuvasta.",
+        "vi": "Tôi xuất hiện trong bức ảnh.",
+        "en": "I can be found in the photograph."
+    },
+    {
+        "fi": "Minä löydän avaimen.",
+        "vi": "Tôi tìm thấy chìa khóa.",
+        "en": "I find the key."
+    },
+    {
+        "fi": "Minä maistan keittoa.",
+        "vi": "Tôi nếm món súp.",
+        "en": "I taste the soup."
+    },
+    {
+        "fi": "Keitto maistuu hyvältä.",
+        "vi": "Món súp có vị ngon.",
+        "en": "The soup tastes good."
+    },
+    {
+        "fi": "Minä maksan laskun.",
+        "vi": "Tôi thanh toán hóa đơn.",
+        "en": "I pay the bill."
+    },
+    {
+        "fi": "Minä matkustan junalla.",
+        "vi": "Tôi đi du lịch bằng tàu hỏa.",
+        "en": "I travel by train."
+    },
+    {
+        "fi": "Minä metsästän syksyllä.",
+        "vi": "Tôi đi săn vào mùa thu.",
+        "en": "I hunt in autumn."
+    },
+    {
+        "fi": "Minä muistan tämän päivän.",
+        "vi": "Tôi nhớ ngày hôm nay.",
+        "en": "I remember this day."
+    },
+    {
+        "fi": "Minä muutan uuteen asuntoon.",
+        "vi": "Tôi chuyển đến căn hộ mới.",
+        "en": "I move to a new apartment."
+    },
+    {
+        "fi": "Minä nauran paljon.",
+        "vi": "Tôi cười nhiều.",
+        "en": "I laugh a lot."
+    },
+    {
+        "fi": "Minä nautin musiikista.",
+        "vi": "Tôi thưởng thức âm nhạc.",
+        "en": "I enjoy music."
+    },
+    {
+        "fi": "Minä nostan laatikon.",
+        "vi": "Tôi nâng chiếc hộp lên.",
+        "en": "I lift the box."
+    },
+    {
+        "fi": "Minä nukun hyvin.",
+        "vi": "Tôi ngủ ngon.",
+        "en": "I sleep well."
+    },
+    {
+        "fi": "Minä näyn kuvassa.",
+        "vi": "Tôi xuất hiện trong ảnh.",
+        "en": "I am visible in the picture."
+    },
+    {
+        "fi": "Minä näytän sinulle kuvan.",
+        "vi": "Tôi cho bạn xem một bức ảnh.",
+        "en": "I show you a picture."
+    },
+    {
+        "fi": "Minä odotan bussia.",
+        "vi": "Tôi chờ xe buýt.",
+        "en": "I wait for the bus."
+    },
+    {
+        "fi": "Minä oksennan, koska olen sairas.",
+        "vi": "Tôi bị nôn vì tôi bị ốm.",
+        "en": "I vomit because I am ill."
+    },
+    {
+        "fi": "Minä opetan suomea.",
+        "vi": "Tôi dạy tiếng Phần Lan.",
+        "en": "I teach Finnish."
+    },
+    {
+        "fi": "Minä opin uusia sanoja.",
+        "vi": "Tôi học được những từ mới.",
+        "en": "I learn new words."
+    },
+    {
+        "fi": "Minä ostan maitoa.",
+        "vi": "Tôi mua sữa.",
+        "en": "I buy milk."
+    },
+    {
+        "fi": "Minä otan kupin kahvia.",
+        "vi": "Tôi lấy một tách cà phê.",
+        "en": "I take a cup of coffee."
+    },
+    {
+        "fi": "Minä painan nappia.",
+        "vi": "Tôi nhấn nút.",
+        "en": "I press the button."
+    }
+];
+
 let currentVerbIndex = 0;
 let currentVerbType = 1;
 
@@ -1926,7 +2329,9 @@ function showVerbList() {
                     >
                         <strong>${index + 1}. ${word.fi}</strong>
                         <br>
-                        <small>${word.vi}</small>
+                        <small>🇻🇳 ${word.vi}</small>
+                        <br>
+                        <small>🇬🇧 ${word.en}</small>
                     </button>
                 `).join("")}
             </div>
@@ -2010,6 +2415,13 @@ function showVerbCard() {
                         <strong>Minä:</strong>
                         ${word.stemWeak}n
                     </p>
+
+                    <hr>
+
+                    <h3>Esimerkki – Ví dụ</h3>
+                    <p><strong>🇫🇮 ${verbExamples[currentVerbIndex].fi}</strong></p>
+                    <p>🇻🇳 ${verbExamples[currentVerbIndex].vi}</p>
+                    <p>🇬🇧 ${verbExamples[currentVerbIndex].en}</p>
 
                 </div>
 
