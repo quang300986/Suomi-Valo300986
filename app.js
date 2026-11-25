@@ -2097,4 +2097,3 @@ function speakVerbFinnish(text) {
 // Kiểm tra dữ liệu
 console.log("Verbit loaded:", verbWords.length);
    
-}
