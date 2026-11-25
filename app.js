@@ -1302,7 +1302,7 @@ function showVerbTypes() {
                 <button onclick="openVerbType(${type})">
                     Verbityyppi ${type}
                     <small>
-                        ${type === 1 ? "80 động từ" : (type === 2 || type === 3) ? "50 động từ" : "Coming soon"}
+                        ${type === 1 ? "80 động từ" : (type === 2 || type === 3 || type === 4) ? "50 động từ" : "Coming soon"}
                     </small>
                 </button>
             `).join("")}
