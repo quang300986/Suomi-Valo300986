@@ -1302,7 +1302,7 @@ function showVerbTypes() {
                 <button onclick="openVerbType(${type})">
                     Verbityyppi ${type}
                     <small>
-                        ${type === 1 ? "100 động từ" : "Coming soon"}
+                        ${type === 1 ? "80 động từ" : type === 2 ? "50 động từ" : "Coming soon"}
                     </small>
                 </button>
             `).join("")}
@@ -2267,31 +2267,96 @@ const verbExamples = [
     }
 ];
 
+
+// ============================================
+// VERBITYYPPI 2 - 50 VERBS
+// ============================================
+const verbType2Data = [
+    ["syödä", "ăn", "to eat", "syö", "Minä syön", "Minä syön aamupalaa.", "Tôi ăn sáng.", "I eat breakfast."],
+    ["juoda", "uống", "to drink", "juo", "Minä juon", "Minä juon vettä.", "Tôi uống nước.", "I drink water."],
+    ["saada", "nhận, được", "to get, receive", "saa", "Minä saan", "Minä saan viestin.", "Tôi nhận được tin nhắn.", "I get a message."],
+    ["käydä", "đi, ghé; thăm", "to go, visit", "käy", "Minä käyn", "Minä käyn kaupassa.", "Tôi đi cửa hàng.", "I go to the shop."],
+    ["voida", "có thể", "can, be able to", "voi", "Minä voin", "Minä voin auttaa sinua.", "Tôi có thể giúp bạn.", "I can help you."],
+    ["tehdä", "làm", "to do, make", "tee", "Minä teen", "Minä teen ruokaa.", "Tôi nấu ăn.", "I make food."],
+    ["nähdä", "nhìn thấy", "to see", "näe", "Minä näen", "Minä näen ystäväni.", "Tôi nhìn thấy bạn mình.", "I see my friend."],
+    ["tuoda", "mang đến", "to bring", "tuo", "Minä tuon", "Minä tuon kirjan kotiin.", "Tôi mang quyển sách về nhà.", "I bring the book home."],
+    ["viedä", "mang đi, đưa", "to take, bring", "vie", "Minä vien", "Minä vien lapset kouluun.", "Tôi đưa các con đến trường.", "I take the children to school."],
+    ["myydä", "bán", "to sell", "myy", "Minä myyn", "Minä myyn vanhan auton.", "Tôi bán chiếc xe cũ.", "I sell the old car."],
+    ["lyödä", "đánh, đập", "to hit", "lyö", "Minä lyön", "Minä lyön palloa.", "Tôi đánh bóng.", "I hit the ball."],
+    ["jäädä", "ở lại, bị lại", "to stay, remain", "jää", "Minä jään", "Minä jään kotiin tänään.", "Hôm nay tôi ở nhà.", "I stay at home today."],
+    ["uida", "bơi", "to swim", "ui", "Minä uin", "Minä uin kesällä järvessä.", "Mùa hè tôi bơi ở hồ.", "I swim in the lake in summer."],
+    ["soida", "reo, vang lên", "to ring, sound", "soi", "Minä soin", "Puhelin soi aamulla.", "Điện thoại reo vào buổi sáng.", "The phone rings in the morning."],
+    ["luoda", "tạo ra", "to create", "luo", "Minä luon", "Minä luon uuden tiedoston.", "Tôi tạo một tệp mới.", "I create a new file."],
+    ["arvioida", "đánh giá, ước lượng", "to evaluate, estimate", "arvioi", "Minä arvioin", "Minä arvioin työn hinnan.", "Tôi ước tính giá công việc.", "I estimate the cost of the work."],
+    ["analysoida", "phân tích", "to analyze", "analysoi", "Minä analysoin", "Minä analysoin tuloksia.", "Tôi phân tích kết quả.", "I analyze the results."],
+    ["ideoida", "lên ý tưởng", "to come up with ideas", "ideoi", "Minä ideoin", "Me ideoimme yhdessä.", "Chúng tôi cùng nhau lên ý tưởng.", "We come up with ideas together."],
+    ["kopioida", "sao chép", "to copy", "kopioi", "Minä kopioin", "Minä kopioin tekstin.", "Tôi sao chép văn bản.", "I copy the text."],
+    ["videoida", "quay video", "to record video", "videoi", "Minä videoin", "Minä videoin tapahtuman.", "Tôi quay video sự kiện.", "I record the event."],
+    ["reagoida", "phản ứng", "to react", "reagoi", "Minä reagoin", "Minä reagoin nopeasti.", "Tôi phản ứng nhanh.", "I react quickly."],
+    ["huomioida", "chú ý, lưu ý", "to take into account", "huomioi", "Minä huomioin", "Minä huomioin kaikki ohjeet.", "Tôi lưu ý tất cả hướng dẫn.", "I take all the instructions into account."],
+    ["markkinoida", "tiếp thị", "to market", "markkinoi", "Minä markkinoin", "Yritys markkinoi uutta tuotetta.", "Công ty tiếp thị sản phẩm mới.", "The company markets a new product."],
+    ["kommunikoida", "giao tiếp", "to communicate", "kommunikoi", "Minä kommunikoin", "Minä kommunikoin suomeksi.", "Tôi giao tiếp bằng tiếng Phần Lan.", "I communicate in Finnish."],
+    ["operoida", "phẫu thuật; vận hành", "to operate", "operoi", "Minä operoin", "Lääkäri operoi potilasta.", "Bác sĩ phẫu thuật cho bệnh nhân.", "The doctor operates on the patient."],
+    ["rekisteröidä", "đăng ký", "to register", "rekisteröi", "Minä rekisteröin", "Minä rekisteröin auton.", "Tôi đăng ký chiếc xe.", "I register the car."],
+    ["priorisoida", "ưu tiên", "to prioritize", "priorisoi", "Minä priorisoin", "Minä priorisoin tärkeät tehtävät.", "Tôi ưu tiên những nhiệm vụ quan trọng.", "I prioritize important tasks."],
+    ["organisoida", "tổ chức, sắp xếp", "to organize", "organisoi", "Minä organisoin", "Minä organisoin kokouksen.", "Tôi tổ chức cuộc họp.", "I organize the meeting."],
+    ["digitalisoida", "số hóa", "to digitize", "digitalisoi", "Minä digitalisoin", "Kirjasto digitalisoi vanhoja kuvia.", "Thư viện số hóa những bức ảnh cũ.", "The library digitizes old photos."],
+    ["realisoida", "hiện thực hóa", "to realize", "realisoi", "Minä realisoin", "Tiimi realisoi uuden suunnitelman.", "Nhóm hiện thực hóa kế hoạch mới.", "The team realizes the new plan."],
+    ["idealisoida", "lý tưởng hóa", "to idealize", "idealisoi", "Minä idealisoin", "Älä idealisoi menneisyyttä.", "Đừng lý tưởng hóa quá khứ.", "Do not idealize the past."],
+    ["imitoida", "bắt chước", "to imitate", "imitoi", "Minä imitoin", "Lapsi imitoi opettajaa.", "Đứa trẻ bắt chước giáo viên.", "The child imitates the teacher."],
+    ["aktivoida", "kích hoạt", "to activate", "aktivoi", "Minä aktivoin", "Minä aktivoin uuden kortin.", "Tôi kích hoạt thẻ mới.", "I activate the new card."],
+    ["passivoida", "làm thụ động", "to make passive", "passivoi", "Minä passivoin", "Järjestelmä passivoi vanhan tunnuksen.", "Hệ thống vô hiệu hóa tài khoản cũ.", "The system deactivates the old account."],
+    ["optimoida", "tối ưu hóa", "to optimize", "optimoi", "Minä optimoin", "Minä optimoin työpäiväni.", "Tôi tối ưu hóa ngày làm việc của mình.", "I optimize my workday."],
+    ["validoida", "xác nhận tính hợp lệ", "to validate", "validoi", "Minä validoin", "Ohjelma validoi tiedot.", "Chương trình xác nhận dữ liệu.", "The program validates the data."],
+    ["demonstroida", "minh họa, trình diễn", "to demonstrate", "demonstroi", "Minä demonstroin", "Opettaja demonstroi tehtävän.", "Giáo viên minh họa bài tập.", "The teacher demonstrates the exercise."],
+    ["varioida", "biến đổi, thay đổi", "to vary", "varioi", "Minä varioin", "Minä varioin harjoituksia.", "Tôi thay đổi các bài tập.", "I vary the exercises."],
+    ["evakuoida", "sơ tán", "to evacuate", "evakuoi", "Minä evakuoin", "Viranomaiset evakuoivat rakennuksen.", "Nhà chức trách sơ tán tòa nhà.", "The authorities evacuate the building."],
+    ["tatuoida", "xăm", "to tattoo", "tatuoi", "Minä tatuoin", "Hän tatuoi kuvan ihoon.", "Người ấy xăm hình lên da.", "They tattoo an image on the skin."],
+    ["ennakoida", "dự đoán, lường trước", "to anticipate", "ennakoi", "Minä ennakoin", "Minä ennakoin ongelmat.", "Tôi lường trước các vấn đề.", "I anticipate the problems."],
+    ["aliarvioida", "đánh giá thấp", "to underestimate", "aliarvioi", "Minä aliarvioin", "Älä aliarvioi tehtävää.", "Đừng đánh giá thấp nhiệm vụ.", "Do not underestimate the task."],
+    ["yliarvioida", "đánh giá quá cao", "to overestimate", "yliarvioi", "Minä yliarvioin", "Minä yliarvioin ajan tarpeen.", "Tôi đánh giá quá cao thời gian cần thiết.", "I overestimate the time needed."],
+    ["kommentoida", "bình luận", "to comment", "kommentoi", "Minä kommentoin", "Minä kommentoin uutista.", "Tôi bình luận về tin tức.", "I comment on the news."],
+    ["raportoida", "báo cáo", "to report", "raportoi", "Minä raportoin", "Minä raportoin tulokset.", "Tôi báo cáo kết quả.", "I report the results."],
+    ["informoida", "thông báo, cung cấp thông tin", "to inform", "informoi", "Minä informoin", "Minä informoin esihenkilöä.", "Tôi thông báo cho người quản lý.", "I inform the supervisor."],
+    ["tilastoida", "thống kê", "to compile statistics", "tilastoi", "Minä tilastoin", "Kaupunki tilastoi asukkaat.", "Thành phố thống kê cư dân.", "The city compiles statistics about residents."],
+    ["varastoida", "lưu kho", "to store", "varastoi", "Minä varastoin", "Me varastoimme tavarat.", "Chúng tôi lưu kho hàng hóa.", "We store the goods."],
+    ["paketoida", "đóng gói", "to package", "paketoi", "Minä paketoin", "Minä paketoin lahjan.", "Tôi gói món quà.", "I wrap the gift."],
+    ["diagnosoida", "chẩn đoán", "to diagnose", "diagnosoi", "Minä diagnosoin", "Lääkäri diagnosoi sairauden.", "Bác sĩ chẩn đoán bệnh.", "The doctor diagnoses the illness."]
+].map(([fi, vi, en, stem, mina, exampleFi, exampleVi, exampleEn]) => ({
+    type: 2, fi, vi, en, stemStrong: stem, stemWeak: stem, mina,
+    example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
+}));
+
 let currentVerbIndex = 0;
 let currentVerbType = 1;
 
 // Mở một nhóm động từ
 function openVerbType(type) {
     currentVerbType = type;
+    currentVerbIndex = 0;
 
-    if (type !== 1) {
-        const lesson = getElement("lesson");
-        currentScreen = "verbComingSoon";
-        lesson.dataset.type = "verbs";
-
-        lesson.innerHTML = `
-            <div style="padding:24px;text-align:center;">
-                <h2>Verbityyppi ${type}</h2>
-                <p>Coming soon</p>
-                <button onclick="showVerbTypes()">← Back</button>
-            </div>
-        `;
-
-        scrollToLesson();
+    if (type === 1 || type === 2) {
+        showVerbList();
         return;
     }
 
-    showVerbList();
+    const lesson = getElement("lesson");
+    currentScreen = "verbComingSoon";
+    lesson.dataset.type = "verbs";
+
+    lesson.innerHTML = `
+        <div style="padding:24px;text-align:center;">
+            <h2>Verbityyppi ${type}</h2>
+            <p>Coming soon</p>
+            <button onclick="showVerbTypes()">← Back</button>
+        </div>
+    `;
+
+    scrollToLesson();
+}
+
+function getActiveVerbWords() {
+    return currentVerbType === 2 ? verbType2Data : verbWords;
 }
 
 // Hiển thị danh sách động từ
@@ -2300,13 +2365,14 @@ function showVerbList() {
 
     const lesson = getElement("lesson");
     lesson.dataset.type = "verbs";
+    const activeWords = getActiveVerbWords();
 
     lesson.innerHTML = `
         <div style="padding:16px;">
             <button onclick="showVerbTypes()">← Takaisin</button>
 
-            <h2>Verbityyppi 1</h2>
-            <p>80 động từ - 80 verbs</p>
+            <h2>Verbityyppi ${currentVerbType}</h2>
+            <p>${activeWords.length} động từ - ${activeWords.length} verbs</p>
 
             <div style="
                 display:grid;
@@ -2314,7 +2380,7 @@ function showVerbList() {
                 gap:10px;
                 margin-top:16px;
             ">
-                ${verbWords.map((word, index) => `
+                ${activeWords.map((word, index) => `
                     <button
                         onclick="openVerbCard(${index})"
                         style="
@@ -2343,7 +2409,8 @@ function showVerbList() {
 
 // Hiển thị chi tiết một động từ
 function openVerbCard(index) {
-    if (index < 0 || index >= verbWords.length) return;
+    const activeWords = getActiveVerbWords();
+    if (index < 0 || index >= activeWords.length) return;
 
     currentVerbIndex = index;
     showVerbCard();
@@ -2355,7 +2422,18 @@ function showVerbCard() {
     const lesson = getElement("lesson");
     lesson.dataset.type = "verbs";
 
-    const word = verbWords[currentVerbIndex];
+    const activeWords = getActiveVerbWords();
+    const word = activeWords[currentVerbIndex];
+    const example = currentVerbType === 2
+        ? word.example
+        : (verbExamples[currentVerbIndex] || { fi: "", vi: "", en: "" });
+
+    const stemSection = currentVerbType === 2
+        ? `<p><strong>Vartalo:</strong> ${word.stemStrong}</p>`
+        : `<p><strong>Vahva vartalo:</strong> ${word.stemStrong}</p>
+           <p><strong>Heikko vartalo:</strong> ${word.stemWeak}</p>`;
+
+    const minaForm = currentVerbType === 2 ? word.mina : `${word.stemWeak}n`;
 
     lesson.innerHTML = `
         <div style="
@@ -2369,7 +2447,7 @@ function showVerbCard() {
             </button>
 
             <div style="clear:both;padding-top:24px;">
-                <p>Verbityyppi 1</p>
+                <p>Verbityyppi ${currentVerbType}</p>
 
                 <h1 style="font-size:36px;margin:12px 0;">
                     ${word.fi}
@@ -2398,31 +2476,13 @@ function showVerbCard() {
                     margin-top:20px;
                 ">
                     <h3>Vartalot - Thân động từ</h3>
-
-                    <p>
-                        <strong>Vahva vartalo:</strong>
-                        ${word.stemStrong}
-                    </p>
-
-                    <p>
-                        <strong>Heikko vartalo:</strong>
-                        ${word.stemWeak}
-                    </p>
-
+                    ${stemSection}
                     <hr>
-
-                    <p>
-                        <strong>Minä:</strong>
-                        ${word.stemWeak}n
-                    </p>
-
-                    <hr>
-
+                    <p><strong>Minä:</strong> ${minaForm}</p>
                     <h3>Esimerkki – Ví dụ</h3>
-                    <p><strong>🇫🇮 ${verbExamples[currentVerbIndex].fi}</strong></p>
-                    <p>🇻🇳 ${verbExamples[currentVerbIndex].vi}</p>
-                    <p>🇬🇧 ${verbExamples[currentVerbIndex].en}</p>
-
+                    <p><strong>🇫🇮 ${example.fi}</strong></p>
+                    <p>🇻🇳 ${example.vi}</p>
+                    <p>🇬🇧 ${example.en}</p>
                 </div>
 
                 <div style="
@@ -2438,11 +2498,11 @@ function showVerbCard() {
                         ← Edellinen
                     </button>
 
-                    <span>${currentVerbIndex + 1} / ${verbWords.length}</span>
+                    <span>${currentVerbIndex + 1} / ${activeWords.length}</span>
 
                     <button
                         onclick="nextVerb()"
-                        ${currentVerbIndex === verbWords.length - 1 ? "disabled" : ""}
+                        ${currentVerbIndex === activeWords.length - 1 ? "disabled" : ""}
                     >
                         Seuraava →
                     </button>
@@ -2464,7 +2524,7 @@ function previousVerb() {
 
 // Động từ tiếp theo
 function nextVerb() {
-    if (currentVerbIndex < verbWords.length - 1) {
+    if (currentVerbIndex < getActiveVerbWords().length - 1) {
         currentVerbIndex++;
         showVerbCard();
     }
