@@ -1768,7 +1768,7 @@ function speakStorySentence(index) {
             { once: true }
         );
     }
-
+}
 // ============================================
 // VERBIT - SUOMI VALO300986
 // VERBITYYPPI 1 - 80 VERBS
