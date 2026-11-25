@@ -1302,7 +1302,7 @@ function showVerbTypes() {
                 <button onclick="openVerbType(${type})">
                     Verbityyppi ${type}
                     <small>
-                        ${type === 1 ? "80 động từ" : type === 2 ? "50 động từ" : "Coming soon"}
+                        ${type === 1 ? "80 động từ" : (type === 2 || type === 3) ? "50 động từ" : "Coming soon"}
                     </small>
                 </button>
             `).join("")}
@@ -2327,6 +2327,67 @@ const verbType2Data = [
     example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
 }));
 
+
+// ============================================
+// VERBIT - VERBITYYPPI 3 - 50 VERBS
+// ============================================
+
+const verbType3Data = [
+    ["ajatella", "nghĩ, suy nghĩ", "to think", "ajattel", "ajattelen", "Minä ajattelen perhettäni.", "Tôi nghĩ về gia đình mình.", "I think about my family."],
+    ["kävellä", "đi bộ", "to walk", "kävel", "kävelen", "Minä kävelen kouluun.", "Tôi đi bộ đến trường.", "I walk to school."],
+    ["opiskella", "học tập", "to study", "opiskel", "opiskelen", "Minä opiskelen suomea.", "Tôi học tiếng Phần Lan.", "I study Finnish."],
+    ["kuunnella", "lắng nghe", "to listen", "kuuntel", "kuuntelen", "Minä kuuntelen musiikkia.", "Tôi nghe nhạc.", "I listen to music."],
+    ["keskustella", "trò chuyện, thảo luận", "to discuss, talk", "keskustel", "keskustelen", "Minä keskustelen opettajan kanssa.", "Tôi trò chuyện với giáo viên.", "I talk with the teacher."],
+    ["harjoitella", "luyện tập", "to practise", "harjoittel", "harjoittelen", "Minä harjoittelen suomen kieltä.", "Tôi luyện tập tiếng Phần Lan.", "I practise Finnish."],
+    ["esitellä", "giới thiệu, trình bày", "to introduce, present", "esittel", "esittelen", "Minä esittelen ystäväni.", "Tôi giới thiệu bạn của mình.", "I introduce my friend."],
+    ["soitella", "gọi điện; chơi nhạc", "to call; play music", "soittel", "soittelen", "Minä soittelen ystävälleni.", "Tôi gọi điện cho bạn.", "I call my friend."],
+    ["jutella", "nói chuyện", "to chat", "juttel", "juttelen", "Minä juttelen naapurin kanssa.", "Tôi nói chuyện với hàng xóm.", "I chat with the neighbour."],
+    ["katsella", "ngắm, xem", "to watch, look at", "katsel", "katselen", "Minä katselen televisiota.", "Tôi xem ti vi.", "I watch television."],
+    ["kuvitella", "tưởng tượng", "to imagine", "kuvittel", "kuvittelen", "Minä kuvittelen tulevaisuutta.", "Tôi tưởng tượng về tương lai.", "I imagine the future."],
+    ["suunnitella", "lên kế hoạch", "to plan", "suunnittel", "suunnittelen", "Minä suunnittelen matkaa.", "Tôi lên kế hoạch cho chuyến đi.", "I plan a trip."],
+    ["työskennellä", "làm việc", "to work", "työskentel", "työskentelen", "Minä työskentelen Porissa.", "Tôi làm việc ở Pori.", "I work in Pori."],
+    ["palvella", "phục vụ", "to serve", "palvel", "palvelen", "Minä palvelen asiakkaita.", "Tôi phục vụ khách hàng.", "I serve customers."],
+    ["pestä", "rửa, giặt", "to wash", "pes", "pesen", "Minä pesen käteni.", "Tôi rửa tay.", "I wash my hands."],
+    ["nousta", "đứng dậy; thức dậy", "to get up, rise", "nous", "nousen", "Minä nousen kello seitsemän.", "Tôi thức dậy lúc bảy giờ.", "I get up at seven."],
+    ["juosta", "chạy", "to run", "juoks", "juoksen", "Minä juoksen puistossa.", "Tôi chạy trong công viên.", "I run in the park."],
+    ["tulla", "đến", "to come", "tul", "tulen", "Minä tulen kotiin illalla.", "Tôi về nhà vào buổi tối.", "I come home in the evening."],
+    ["mennä", "đi", "to go", "men", "menen", "Minä menen kauppaan.", "Tôi đi đến cửa hàng.", "I go to the shop."],
+    ["panna", "đặt, để", "to put", "pan", "panen", "Minä panen kirjan pöydälle.", "Tôi đặt quyển sách lên bàn.", "I put the book on the table."],
+    ["olla", "là, ở", "to be", "ol", "olen", "Minä olen kotona.", "Tôi ở nhà.", "I am at home."],
+    ["purra", "cắn", "to bite", "pur", "puren", "Koira puree lelua.", "Con chó cắn đồ chơi.", "The dog bites the toy."],
+    ["kuolla", "chết", "to die", "kuol", "kuolen", "Kasvi kuolee ilman vettä.", "Cây sẽ chết nếu không có nước.", "A plant dies without water."],
+    ["päästä", "được vào; thoát/đến được", "to get to, gain access", "pääs", "pääsen", "Minä pääsen tänään aikaisin kotiin.", "Hôm nay tôi có thể về nhà sớm.", "I can get home early today."],
+    ["tapella", "đánh nhau, cãi vã", "to fight, quarrel", "tappel", "tappelen", "Lapset eivät saa tapella.", "Trẻ em không được đánh nhau.", "Children must not fight."],
+    ["ommella", "may, khâu", "to sew", "ompel", "ompelen", "Minä ompelen napin paitaan.", "Tôi khâu chiếc cúc vào áo.", "I sew a button onto the shirt."],
+    ["valmistella", "chuẩn bị", "to prepare", "valmistel", "valmistelen", "Minä valmistelen päivällistä.", "Tôi chuẩn bị bữa tối.", "I prepare dinner."],
+    ["muistella", "nhớ lại, hồi tưởng", "to reminisce", "muistel", "muistelen", "Minä muistelen lapsuuttani.", "Tôi nhớ lại tuổi thơ của mình.", "I remember my childhood."],
+    ["ihmetellä", "ngạc nhiên, thắc mắc", "to wonder", "ihmettel", "ihmettelen", "Minä ihmettelen tätä asiaa.", "Tôi thắc mắc về việc này.", "I wonder about this matter."],
+    ["maistella", "nếm thử", "to taste", "maistel", "maistelen", "Minä maistelen uutta ruokaa.", "Tôi nếm thử món ăn mới.", "I taste the new food."],
+    ["kysellä", "hỏi han, hỏi nhiều", "to ask around", "kysel", "kyselen", "Minä kyselen neuvoa.", "Tôi hỏi xin lời khuyên.", "I ask for advice."],
+    ["vastailla", "trả lời nhiều lần", "to answer repeatedly", "vastail", "vastailen", "Minä vastailen viesteihin.", "Tôi trả lời các tin nhắn.", "I reply to messages."],
+    ["huudella", "gọi to, la hét", "to shout", "huutel", "huutelen", "Minä huutelen ystävälleni pihalta.", "Trẻ em gọi to ngoài sân.", "The children shout in the yard."],
+    ["taistella", "chiến đấu, đấu tranh", "to fight, struggle", "taistel", "taistelen", "Minä taistelen vaikeuksia vastaan.", "Tôi đấu tranh chống lại khó khăn.", "I struggle against difficulties."],
+    ["varoitella", "cảnh báo, nhắc nhở", "to warn repeatedly", "varoittel", "varoittelen", "Minä varoittelen ystävääni vaarasta.", "Tôi cảnh báo bạn mình về nguy hiểm.", "I warn my friend about the danger."],
+    ["matkustella", "đi du lịch đây đó", "to travel around", "matkustel", "matkustelen", "Minä matkustelen kesällä.", "Tôi đi du lịch vào mùa hè.", "I travel around in summer."],
+    ["rakennella", "xây dựng, làm thử", "to build, put together", "rakentel", "rakentelen", "Minä rakentelen pientä hyllyä.", "Tôi đang lắp một chiếc kệ nhỏ.", "I am putting together a small shelf."],
+    ["kirjoitella", "viết lách", "to write now and then", "kirjoittel", "kirjoittelen", "Minä kirjoittelen päiväkirjaa.", "Tôi thỉnh thoảng viết nhật ký.", "I write in my diary from time to time."],
+    ["lueskella", "đọc thư thả", "to read casually", "lueskel", "lueskelen", "Minä lueskelen kirjaa illalla.", "Tôi đọc sách thư thả vào buổi tối.", "I read a book in the evening."],
+    ["lauleskella", "ngân nga hát", "to hum, sing casually", "lauleskel", "lauleskelen", "Minä lauleskelen kotona.", "Tôi ngân nga hát ở nhà.", "I hum at home."],
+    ["hymyillä", "mỉm cười", "to smile", "hymyil", "hymyilen", "Minä hymyilen ystävälleni.", "Tôi mỉm cười với bạn.", "I smile at my friend."],
+    ["palella", "bị lạnh", "to feel cold", "palel", "palelen", "Minä palelen ulkona.", "Tôi cảm thấy lạnh ở ngoài trời.", "I feel cold outside."],
+    ["vaihdella", "thay đổi, luân phiên", "to vary, alternate", "vaihtel", "vaihtelen", "Minä vaihtelen työvuoroja.", "Thời tiết thường thay đổi.", "The weather often varies."],
+    ["haaveilla", "mơ ước", "to dream, daydream", "haaveil", "haaveilen", "Minä haaveilen lomasta.", "Tôi mơ về kỳ nghỉ.", "I dream about a holiday."],
+    ["keräillä", "sưu tầm", "to collect", "keräil", "keräilen", "Minä keräilen postimerkkejä.", "Tôi sưu tầm tem.", "I collect stamps."],
+    ["pyydellä", "xin, yêu cầu nhiều lần", "to ask for repeatedly", "pyytel", "pyytelen", "Minä pyytelen anteeksi.", "Tôi liên tục xin lỗi.", "I keep apologising."],
+    ["valitella", "than phiền", "to complain", "valittel", "valittelen", "Minä valittelen huonoa säätä.", "Tôi than phiền về thời tiết xấu.", "I complain about the bad weather."],
+    ["tunnustella", "sờ, thăm dò", "to feel, examine by touch", "tunnustel", "tunnustelen", "Minä tunnustelen kangasta.", "Tôi sờ thử tấm vải.", "I feel the fabric."],
+    ["vihellellä", "huýt sáo", "to whistle", "viheltel", "viheltelen", "Minä viheltelen kävellessäni.", "Tôi huýt sáo khi đi bộ.", "I whistle while walking."],
+    ["pudistella", "rũ, lắc", "to shake, dust off", "pudistel", "pudistelen", "Minä pudistelen mattoa.", "Tôi giũ tấm thảm.", "I shake out the rug."]
+].map(([fi, vi, en, stem, mina, exampleFi, exampleVi, exampleEn]) => ({
+    type: 3, fi, vi, en, stemStrong: stem, stemWeak: stem, mina,
+    example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
+}));
+
 let currentVerbIndex = 0;
 let currentVerbType = 1;
 
@@ -2335,7 +2396,7 @@ function openVerbType(type) {
     currentVerbType = type;
     currentVerbIndex = 0;
 
-    if (type === 1 || type === 2) {
+    if (type === 1 || type === 2 || type === 3) {
         showVerbList();
         return;
     }
@@ -2356,7 +2417,9 @@ function openVerbType(type) {
 }
 
 function getActiveVerbWords() {
-    return currentVerbType === 2 ? verbType2Data : verbWords;
+    if (currentVerbType === 3) return verbType3Data;
+    if (currentVerbType === 2) return verbType2Data;
+    return verbWords;
 }
 
 // Hiển thị danh sách động từ
@@ -2424,16 +2487,16 @@ function showVerbCard() {
 
     const activeWords = getActiveVerbWords();
     const word = activeWords[currentVerbIndex];
-    const example = currentVerbType === 2
+    const example = (currentVerbType === 2 || currentVerbType === 3)
         ? word.example
         : (verbExamples[currentVerbIndex] || { fi: "", vi: "", en: "" });
 
-    const stemSection = currentVerbType === 2
+    const stemSection = (currentVerbType === 2 || currentVerbType === 3)
         ? `<p><strong>Vartalo:</strong> ${word.stemStrong}</p>`
         : `<p><strong>Vahva vartalo:</strong> ${word.stemStrong}</p>
            <p><strong>Heikko vartalo:</strong> ${word.stemWeak}</p>`;
 
-    const minaForm = currentVerbType === 2 ? word.mina : `${word.stemWeak}n`;
+    const minaForm = (currentVerbType === 2 || currentVerbType === 3) ? word.mina : `${word.stemWeak}n`;
 
     lesson.innerHTML = `
         <div style="
