@@ -875,9 +875,851 @@ function showHome() {
     lesson.innerHTML = `
         <h2>🇫🇮 Aloitetaan!</h2>
         <p>${getText("choose")}</p>
+        <button onclick="showReading()">📚 Lukeminen / Reading</button>
     `;
 }
 
+
+
+/* LUKEMINEN: Kysymykset ja vastaukset */
+const readingQuestions = [
+    [
+        "Kuka sinä olet?",
+        "Minä olen Quang.",
+        "Bạn là ai?",
+        "Tôi là Quang.",
+        "Who are you?",
+        "I am Quang."
+    ],
+    [
+        "Mikä sinun nimesi on?",
+        "Minun nimeni on Quang.",
+        "Tên bạn là gì?",
+        "Tên tôi là Quang.",
+        "What is your name?",
+        "My name is Quang."
+    ],
+    [
+        "Mikä sinun etunimesi on?",
+        "Minun etunimeni on Quang.",
+        "Tên riêng của bạn là gì?",
+        "Tên riêng của tôi là Quang.",
+        "What is your first name?",
+        "My first name is Quang."
+    ],
+    [
+        "Miten se kirjoitetaan?",
+        "Se kirjoitetaan Q-U-A-N-G.",
+        "Tên đó viết như thế nào?",
+        "Tên đó viết là Q-U-A-N-G.",
+        "How is it spelled?",
+        "It is spelled Q-U-A-N-G."
+    ],
+    [
+        "Mikä sinun sukunimesi on?",
+        "Minun sukunimeni on Tran.",
+        "Họ của bạn là gì?",
+        "Họ của tôi là Trần.",
+        "What is your surname?",
+        "My surname is Tran."
+    ],
+    [
+        "Oletko sinä Quang?",
+        "Kyllä, olen.",
+        "Bạn có phải là Quang không?",
+        "Vâng, đúng vậy.",
+        "Are you Quang?",
+        "Yes, I am."
+    ],
+    [
+        "Mitä sinulle kuuluu?",
+        "Kiitos, hyvää kuuluu. Entä sinulle?",
+        "Bạn khỏe không?",
+        "Cảm ơn, tôi khỏe. Còn bạn?",
+        "How are you?",
+        "I'm fine, thank you. And you?"
+    ],
+    [
+        "Miten menee?",
+        "Ihan hyvin, kiitos.",
+        "Mọi việc thế nào?",
+        "Khá tốt, cảm ơn.",
+        "How's it going?",
+        "Pretty well, thanks."
+    ],
+    [
+        "Millainen sinä olet?",
+        "Olen rauhallinen ja ystävällinen.",
+        "Bạn là người như thế nào?",
+        "Tôi điềm tĩnh và thân thiện.",
+        "What are you like?",
+        "I am calm and friendly."
+    ],
+    [
+        "Minkälainen sinä olet?",
+        "Olen ahkera ja rauhallinen.",
+        "Bạn là người như thế nào?",
+        "Tôi chăm chỉ và điềm tĩnh.",
+        "What kind of person are you?",
+        "I am hardworking and calm."
+    ],
+    [
+        "Kuinka vanha sinä olet?",
+        "Olen 40-vuotias.",
+        "Bạn bao nhiêu tuổi?",
+        "Tôi 40 tuổi.",
+        "How old are you?",
+        "I am 40 years old."
+    ],
+    [
+        "Minkä ikäinen sinä olet?",
+        "Olen 40-vuotias.",
+        "Bạn bao nhiêu tuổi?",
+        "Tôi 40 tuổi.",
+        "How old are you?",
+        "I am 40 years old."
+    ],
+    [
+        "Missä kuussa sinun syntymäpäiväsi on?",
+        "Minun syntymäpäiväni on syyskuussa.",
+        "Sinh nhật bạn vào tháng mấy?",
+        "Sinh nhật tôi vào tháng 9.",
+        "In which month is your birthday?",
+        "My birthday is in September."
+    ],
+    [
+        "Mistä sinä olet kotoisin?",
+        "Olen kotoisin Vietnamista.",
+        "Bạn đến từ đâu?",
+        "Tôi đến từ Việt Nam.",
+        "Where are you from?",
+        "I am from Vietnam."
+    ],
+    [
+        "Minkä maalainen sinä olet?",
+        "Olen vietnamilainen.",
+        "Bạn là người nước nào?",
+        "Tôi là người Việt Nam.",
+        "What nationality are you?",
+        "I am Vietnamese."
+    ],
+    [
+        "Missä sinä asut?",
+        "Asun Porissa.",
+        "Bạn sống ở đâu?",
+        "Tôi sống ở Pori.",
+        "Where do you live?",
+        "I live in Pori."
+    ],
+    [
+        "Milloin sinä tulit Suomeen?",
+        "Tulin Suomeen maaliskuussa.",
+        "Bạn đến Phần Lan khi nào?",
+        "Tôi đến Phần Lan vào tháng 3.",
+        "When did you come to Finland?",
+        "I came to Finland in March."
+    ],
+    [
+        "Millainen Suomi on?",
+        "Suomi on kaunis ja rauhallinen maa.",
+        "Phần Lan là đất nước như thế nào?",
+        "Phần Lan là đất nước đẹp và yên bình.",
+        "What is Finland like?",
+        "Finland is a beautiful and peaceful country."
+    ],
+    [
+        "Mikä sinun osoitteesi on?",
+        "En halua kertoa osoitettani tässä.",
+        "Địa chỉ của bạn là gì?",
+        "Tôi không muốn chia sẻ địa chỉ ở đây.",
+        "What is your address?",
+        "I don't want to share my address here."
+    ],
+    [
+        "Mikä sinun postinumerosi on?",
+        "Postinumeroni on 28100.",
+        "Mã bưu chính của bạn là gì?",
+        "Mã bưu chính của tôi là 28100.",
+        "What is your postal code?",
+        "My postal code is 28100."
+    ],
+    [
+        "Mikä sinun postitoimipaikkasi on?",
+        "Postitoimipaikkani on Pori.",
+        "Địa điểm bưu chính của bạn là gì?",
+        "Địa điểm bưu chính của tôi là Pori.",
+        "What is your postal town?",
+        "My postal town is Pori."
+    ],
+    [
+        "Mikä sinun sähköpostiosoitteesi on?",
+        "Sähköpostiosoitteeni on quang@example.com.",
+        "Email của bạn là gì?",
+        "Email của tôi là quang@example.com.",
+        "What is your email address?",
+        "My email address is quang@example.com."
+    ],
+    [
+        "Mikä sinun puhelinnumerosi on?",
+        "En halua kertoa puhelinnumeroani tässä.",
+        "Số điện thoại của bạn là gì?",
+        "Tôi không muốn chia sẻ số điện thoại ở đây.",
+        "What is your phone number?",
+        "I don't want to share my phone number here."
+    ],
+    [
+        "Mikä sinun henkilötunnuksesi on?",
+        "En kerro henkilötunnustani muille.",
+        "Mã định danh cá nhân của bạn là gì?",
+        "Tôi không tiết lộ mã định danh cá nhân.",
+        "What is your personal identity code?",
+        "I do not share my personal identity code."
+    ],
+    [
+        "Mikä sinun äidinkielesi on?",
+        "Äidinkieleni on vietnam.",
+        "Tiếng mẹ đẻ của bạn là gì?",
+        "Tiếng mẹ đẻ của tôi là tiếng Việt.",
+        "What is your mother tongue?",
+        "My mother tongue is Vietnamese."
+    ],
+    [
+        "Mitä muita kieliä sinä puhut?",
+        "Puhun vähän suomea ja englantia.",
+        "Bạn nói thêm những ngôn ngữ nào?",
+        "Tôi nói một chút tiếng Phần Lan và tiếng Anh.",
+        "What other languages do you speak?",
+        "I speak a little Finnish and English."
+    ],
+    [
+        "Puhutko englantia, suomea tai ruotsia?",
+        "Puhun vähän suomea ja englantia, mutta en ruotsia.",
+        "Bạn có nói tiếng Anh, Phần Lan hoặc Thụy Điển không?",
+        "Tôi nói một chút tiếng Phần Lan và tiếng Anh, nhưng không nói tiếng Thụy Điển.",
+        "Do you speak English, Finnish or Swedish?",
+        "I speak a little Finnish and English, but not Swedish."
+    ],
+    [
+        "Mikä sinun ammattisi on?",
+        "Olen lääkäri, mutta opiskelen nyt suomea.",
+        "Nghề nghiệp của bạn là gì?",
+        "Tôi là bác sĩ, nhưng hiện đang học tiếng Phần Lan.",
+        "What is your profession?",
+        "I am a doctor, but I am studying Finnish now."
+    ],
+    [
+        "Oletko sinä töissä?",
+        "En ole tällä hetkellä töissä.",
+        "Bạn hiện đang đi làm không?",
+        "Hiện tại tôi không đi làm.",
+        "Are you working?",
+        "I am not working at the moment."
+    ],
+    [
+        "Onko sinulla ammatti?",
+        "Kyllä, olen lääkäri.",
+        "Bạn có nghề nghiệp không?",
+        "Có, tôi là bác sĩ.",
+        "Do you have a profession?",
+        "Yes, I am a doctor."
+    ],
+    [
+        "Oletko sinä opiskelija?",
+        "Kyllä, opiskelen suomea.",
+        "Bạn có phải là học sinh/sinh viên không?",
+        "Có, tôi học tiếng Phần Lan.",
+        "Are you a student?",
+        "Yes, I study Finnish."
+    ],
+    [
+        "Mikä päivä tänään on?",
+        "Tänään on torstai.",
+        "Hôm nay là thứ mấy?",
+        "Hôm nay là thứ Năm.",
+        "What day is it today?",
+        "Today is Thursday."
+    ],
+    [
+        "Monesko päivä tänään on?",
+        "Tänään on kahdeskymmeneskuudes päivä.",
+        "Hôm nay là ngày bao nhiêu?",
+        "Hôm nay là ngày 26.",
+        "What is today's date?",
+        "Today is the twenty-sixth."
+    ],
+    [
+        "Millainen sää tänään on?",
+        "Tänään sataa lunta.",
+        "Thời tiết hôm nay thế nào?",
+        "Hôm nay có tuyết rơi.",
+        "What's the weather like today?",
+        "It is snowing today."
+    ],
+    [
+        "Kuinka monta astetta tänään on?",
+        "Ulkona on kaksi astetta pakkasta.",
+        "Hôm nay nhiệt độ bao nhiêu độ?",
+        "Ngoài trời âm 2 độ.",
+        "How many degrees is it today?",
+        "It is minus two degrees outside."
+    ],
+    [
+        "Paljonko kello on?",
+        "Kello on kahdeksan.",
+        "Bây giờ là mấy giờ?",
+        "Bây giờ là 8 giờ.",
+        "What time is it?",
+        "It is eight o'clock."
+    ],
+    [
+        "Mitä kello on?",
+        "Kello on puoli yhdeksän.",
+        "Bây giờ là mấy giờ?",
+        "Bây giờ là 8 giờ 30.",
+        "What time is it?",
+        "It is half past eight."
+    ],
+    [
+        "Mihin aikaan sinä heräät?",
+        "Herään kello seitsemän.",
+        "Bạn thức dậy lúc mấy giờ?",
+        "Tôi thức dậy lúc 7 giờ.",
+        "What time do you wake up?",
+        "I wake up at seven."
+    ],
+    [
+        "Mihin aikaan sinä syöt aamupalaa?",
+        "Syön aamupalaa kello puoli kahdeksan.",
+        "Bạn ăn sáng lúc mấy giờ?",
+        "Tôi ăn sáng lúc 7 giờ 30.",
+        "What time do you eat breakfast?",
+        "I eat breakfast at half past seven."
+    ],
+    [
+        "Mihin aikaan sinä lähdet kurssille?",
+        "Lähden kurssille kello kahdeksan.",
+        "Bạn đi học lúc mấy giờ?",
+        "Tôi đi học lúc 8 giờ.",
+        "What time do you leave for the course?",
+        "I leave for the course at eight."
+    ],
+    [
+        "Mihin aikaan kurssi alkaa?",
+        "Kurssi alkaa kello yhdeksän.",
+        "Khóa học bắt đầu lúc mấy giờ?",
+        "Khóa học bắt đầu lúc 9 giờ.",
+        "What time does the course start?",
+        "The course starts at nine."
+    ],
+    [
+        "Mihin aikaan kurssi loppuu?",
+        "Kurssi loppuu kello kaksi.",
+        "Khóa học kết thúc lúc mấy giờ?",
+        "Khóa học kết thúc lúc 2 giờ.",
+        "What time does the course end?",
+        "The course ends at two."
+    ],
+    [
+        "Millainen tämä kurssi on?",
+        "Tämä kurssi on mielenkiintoinen ja hyödyllinen.",
+        "Khóa học này như thế nào?",
+        "Khóa học này thú vị và hữu ích.",
+        "What is this course like?",
+        "This course is interesting and useful."
+    ],
+    [
+        "Onko tämä kurssi hyvä?",
+        "Kyllä, tämä kurssi on hyvä.",
+        "Khóa học này có tốt không?",
+        "Có, khóa học này tốt.",
+        "Is this course good?",
+        "Yes, this course is good."
+    ],
+    [
+        "Miksi sinä olet tällä kurssilla?",
+        "Olen tällä kurssilla, koska haluan oppia suomea.",
+        "Tại sao bạn tham gia khóa học này?",
+        "Tôi học khóa này vì muốn học tiếng Phần Lan.",
+        "Why are you on this course?",
+        "I am on this course because I want to learn Finnish."
+    ],
+    [
+        "Millainen sinun opettajasi on?",
+        "Opettajani on ystävällinen ja mukava.",
+        "Giáo viên của bạn như thế nào?",
+        "Giáo viên của tôi thân thiện và dễ mến.",
+        "What is your teacher like?",
+        "My teacher is friendly and nice."
+    ],
+    [
+        "Mihin aikaan sinä syöt lounasta?",
+        "Syön lounasta kello yksitoista.",
+        "Bạn ăn trưa lúc mấy giờ?",
+        "Tôi ăn trưa lúc 11 giờ.",
+        "What time do you eat lunch?",
+        "I eat lunch at eleven."
+    ],
+    [
+        "Mihin aikaan sinä olet kotona?",
+        "Olen kotona kello neljä.",
+        "Bạn ở nhà lúc mấy giờ?",
+        "Tôi ở nhà lúc 4 giờ.",
+        "What time are you at home?",
+        "I am at home at four."
+    ],
+    [
+        "Mihin aikaan sinä menet kauppaan?",
+        "Menen kauppaan iltapäivällä.",
+        "Bạn đi cửa hàng lúc mấy giờ?",
+        "Tôi đi cửa hàng vào buổi chiều.",
+        "What time do you go to the shop?",
+        "I go to the shop in the afternoon."
+    ],
+    [
+        "Mihin aikaan sinä laitat ruokaa?",
+        "Laitan ruokaa kello viisi.",
+        "Bạn nấu ăn lúc mấy giờ?",
+        "Tôi nấu ăn lúc 5 giờ.",
+        "What time do you cook?",
+        "I cook at five."
+    ],
+    [
+        "Mihin aikaan sinä katsot televisiota?",
+        "Katson televisiota illalla.",
+        "Bạn xem TV lúc mấy giờ?",
+        "Tôi xem TV vào buổi tối.",
+        "What time do you watch television?",
+        "I watch television in the evening."
+    ],
+    [
+        "Mihin aikaan sinä tiskaat?",
+        "Tiskaan yleensä illallisen jälkeen.",
+        "Bạn rửa bát lúc mấy giờ?",
+        "Tôi thường rửa bát sau bữa tối.",
+        "What time do you wash the dishes?",
+        "I usually wash the dishes after dinner."
+    ],
+    [
+        "Mihin aikaan sinä menet nukkumaan?",
+        "Menen nukkumaan kello kymmenen.",
+        "Bạn đi ngủ lúc mấy giờ?",
+        "Tôi đi ngủ lúc 10 giờ.",
+        "What time do you go to bed?",
+        "I go to bed at ten."
+    ],
+    [
+        "Mitä sinä söit ja joit aamulla?",
+        "Söin leipää ja join kahvia.",
+        "Sáng nay bạn đã ăn và uống gì?",
+        "Tôi đã ăn bánh mì và uống cà phê.",
+        "What did you eat and drink this morning?",
+        "I ate bread and drank coffee."
+    ],
+    [
+        "Milloin sinun kotonasi siivotaan?",
+        "Meillä siivotaan yleensä lauantaina.",
+        "Nhà bạn thường dọn dẹp khi nào?",
+        "Nhà tôi thường dọn dẹp vào thứ Bảy.",
+        "When is your home cleaned?",
+        "We usually clean on Saturday."
+    ],
+    [
+        "Haluatko ostaa siivouspalvelun?",
+        "En tällä hetkellä, siivoan itse.",
+        "Bạn có muốn mua dịch vụ dọn dẹp không?",
+        "Hiện tại không, tôi tự dọn dẹp.",
+        "Would you like to buy a cleaning service?",
+        "Not now, I clean myself."
+    ],
+    [
+        "Mitä sinä teet viikonloppuna?",
+        "Lepään, käyn kaupassa ja ulkoilen.",
+        "Bạn làm gì vào cuối tuần?",
+        "Tôi nghỉ ngơi, đi cửa hàng và ra ngoài.",
+        "What do you do at the weekend?",
+        "I rest, go shopping and spend time outdoors."
+    ],
+    [
+        "Uitko meressä?",
+        "Kyllä, uin joskus kesällä.",
+        "Bạn có bơi ở biển không?",
+        "Có, đôi khi tôi bơi vào mùa hè.",
+        "Do you swim in the sea?",
+        "Yes, I sometimes swim in summer."
+    ],
+    [
+        "Luetko kirjoja?",
+        "Kyllä, luen joskus helppoja kirjoja.",
+        "Bạn có đọc sách không?",
+        "Có, đôi khi tôi đọc sách dễ.",
+        "Do you read books?",
+        "Yes, I sometimes read easy books."
+    ],
+    [
+        "Mikä kirjan nimi on?",
+        "Kirjan nimi on Suomen mestari.",
+        "Tên cuốn sách là gì?",
+        "Tên sách là Suomen mestari.",
+        "What is the name of the book?",
+        "The book is called Suomen mestari."
+    ],
+    [
+        "Mihin aikaan kirjasto on auki?",
+        "Kirjasto on auki kello yhdeksästä kuuteen.",
+        "Thư viện mở cửa lúc mấy giờ?",
+        "Thư viện mở cửa từ 9 giờ đến 6 giờ.",
+        "What time is the library open?",
+        "The library is open from nine to six."
+    ],
+    [
+        "Mikä kirjaston osoite on?",
+        "Kirjaston osoite on Gallen-Kallelankatu 12.",
+        "Địa chỉ thư viện là gì?",
+        "Địa chỉ thư viện là Gallen-Kallelankatu 12.",
+        "What is the library's address?",
+        "The library's address is Gallen-Kallelankatu 12."
+    ],
+    [
+        "Millainen kirjasto on?",
+        "Kirjasto on suuri, rauhallinen ja valoisa.",
+        "Thư viện như thế nào?",
+        "Thư viện rộng, yên tĩnh và sáng sủa.",
+        "What is the library like?",
+        "The library is large, quiet and bright."
+    ],
+    [
+        "Missä on selkokirjoja?",
+        "Selkokirjoja on kirjaston selkokirjahyllyssä.",
+        "Sách dễ đọc ở đâu?",
+        "Sách dễ đọc ở kệ sách dễ đọc trong thư viện.",
+        "Where are the easy-language books?",
+        "They are on the easy-language bookshelf."
+    ],
+    [
+        "Onko kirja helppo vai vaikea?",
+        "Kirja on melko helppo.",
+        "Cuốn sách dễ hay khó?",
+        "Cuốn sách khá dễ.",
+        "Is the book easy or difficult?",
+        "The book is quite easy."
+    ],
+    [
+        "Onko kirja uusi vai vanha?",
+        "Kirja on uusi.",
+        "Cuốn sách mới hay cũ?",
+        "Cuốn sách mới.",
+        "Is the book new or old?",
+        "The book is new."
+    ],
+    [
+        "Voinko lainata tämän kirjan?",
+        "Kyllä, voit lainata sen kirjastokortilla.",
+        "Tôi có thể mượn cuốn sách này không?",
+        "Có, bạn có thể mượn bằng thẻ thư viện.",
+        "Can I borrow this book?",
+        "Yes, you can borrow it with a library card."
+    ],
+    [
+        "Kuinka pitkä laina-aika on?",
+        "Laina-aika on neljä viikkoa.",
+        "Thời hạn mượn sách bao lâu?",
+        "Thời hạn mượn là 4 tuần.",
+        "How long is the loan period?",
+        "The loan period is four weeks."
+    ],
+    [
+        "Voinko palauttaa kirjat?",
+        "Kyllä, voit palauttaa kirjat kirjastoon.",
+        "Tôi có thể trả sách không?",
+        "Có, bạn có thể trả sách ở thư viện.",
+        "Can I return the books?",
+        "Yes, you can return the books to the library."
+    ],
+    [
+        "Missä on palautusautomaatti?",
+        "Palautusautomaatti on kirjaston sisäänkäynnin lähellä.",
+        "Máy trả sách ở đâu?",
+        "Máy trả sách ở gần lối vào thư viện.",
+        "Where is the return machine?",
+        "The return machine is near the library entrance."
+    ],
+    [
+        "Onko sinulla reppu mukana?",
+        "Kyllä, minulla on reppu mukana.",
+        "Bạn có mang ba lô theo không?",
+        "Có, tôi có mang ba lô.",
+        "Do you have your backpack with you?",
+        "Yes, I have my backpack with me."
+    ],
+    [
+        "Mitä sinulla on mukana?",
+        "Minulla on mukana puhelin, avaimet ja lompakko.",
+        "Bạn mang theo những gì?",
+        "Tôi mang theo điện thoại, chìa khóa và ví.",
+        "What do you have with you?",
+        "I have my phone, keys and wallet with me."
+    ],
+    [
+        "Käytkö keskustassa joka päivä?",
+        "En, käyn keskustassa muutaman kerran viikossa.",
+        "Bạn có đến trung tâm mỗi ngày không?",
+        "Không, tôi đến trung tâm vài lần mỗi tuần.",
+        "Do you go to the city centre every day?",
+        "No, I go to the city centre a few times a week."
+    ],
+    [
+        "Kenen kanssa hän puhuu?",
+        "Hän puhuu opettajan kanssa.",
+        "Anh ấy/cô ấy nói chuyện với ai?",
+        "Anh ấy/cô ấy nói chuyện với giáo viên.",
+        "Who is he or she talking with?",
+        "He or she is talking with the teacher."
+    ],
+    [
+        "Jäätkö pois seuraavalla pysäkillä?",
+        "Kyllä, jään pois seuraavalla pysäkillä.",
+        "Bạn xuống ở trạm tiếp theo à?",
+        "Vâng, tôi xuống ở trạm tiếp theo.",
+        "Are you getting off at the next stop?",
+        "Yes, I am getting off at the next stop."
+    ],
+    [
+        "Mitä Kaisa tekee keittiössä?",
+        "Kaisa valmistaa ruokaa ja kattaa pöydän.",
+        "Kaisa làm gì trong bếp?",
+        "Kaisa chuẩn bị thức ăn và dọn bàn.",
+        "What does Kaisa do in the kitchen?",
+        "Kaisa prepares food and sets the table."
+    ],
+    [
+        "Mitä kodinkoneita keittiössäsi on?",
+        "Keittiössäni on jääkaappi, liesi, uuni ja mikroaaltouuni.",
+        "Trong bếp nhà bạn có thiết bị điện nào?",
+        "Trong bếp có tủ lạnh, bếp nấu, lò nướng và lò vi sóng.",
+        "What appliances are in your kitchen?",
+        "There is a fridge, stove, oven and microwave."
+    ],
+    [
+        "Mitä huonekaluja makuuhuoneessasi on?",
+        "Makuuhuoneessani on sänky, vaatekaappi ja yöpöytä.",
+        "Phòng ngủ của bạn có đồ nội thất gì?",
+        "Phòng ngủ có giường, tủ quần áo và bàn cạnh giường.",
+        "What furniture is in your bedroom?",
+        "There is a bed, wardrobe and bedside table."
+    ],
+    [
+        "Mitä huonekaluja lastenhuoneessasi on?",
+        "Lastenhuoneessa on sänky, kirjoituspöytä ja tuoli.",
+        "Phòng trẻ em có đồ nội thất gì?",
+        "Phòng trẻ em có giường, bàn học và ghế.",
+        "What furniture is in the children's room?",
+        "There is a bed, desk and chair."
+    ],
+    [
+        "Mitä tavaroita olohuoneessasi on?",
+        "Olohuoneessa on sohva, televisio, pöytä ja lamppu.",
+        "Phòng khách có những đồ vật gì?",
+        "Phòng khách có ghế sofa, TV, bàn và đèn.",
+        "What things are in your living room?",
+        "There is a sofa, television, table and lamp."
+    ],
+    [
+        "Mitä sana ovikello tarkoittaa?",
+        "Ovikello on laite, jota painetaan oven ulkopuolella.",
+        "Từ ovikello có nghĩa là gì?",
+        "Ovikello là chuông cửa, thiết bị được bấm ở ngoài cửa.",
+        "What does the word ovikello mean?",
+        "Ovikello means a doorbell."
+    ],
+    [
+        "Mitä sana porkkana tarkoittaa?",
+        "Porkkana on oranssi juures.",
+        "Từ porkkana có nghĩa là gì?",
+        "Porkkana là cà rốt, một loại củ màu cam.",
+        "What does the word porkkana mean?",
+        "Porkkana means carrot, an orange root vegetable."
+    ],
+    [
+        "Onko sinulla perhettä?",
+        "Kyllä, minulla on puoliso ja kaksi lasta.",
+        "Bạn có gia đình không?",
+        "Có, tôi có vợ/chồng và hai con.",
+        "Do you have a family?",
+        "Yes, I have a spouse and two children."
+    ],
+    [
+        "Onko sinulla sisaruksia?",
+        "Kyllä, minulla on yksi veli.",
+        "Bạn có anh chị em không?",
+        "Có, tôi có một người anh/em trai.",
+        "Do you have siblings?",
+        "Yes, I have one brother."
+    ],
+    [
+        "Mitä sinä harrastat?",
+        "Kävelen, luen ja opiskelen suomea.",
+        "Bạn có sở thích gì?",
+        "Tôi đi bộ, đọc sách và học tiếng Phần Lan.",
+        "What are your hobbies?",
+        "I walk, read and study Finnish."
+    ],
+    [
+        "Miten tulet kurssille?",
+        "Tulen kurssille bussilla.",
+        "Bạn đến lớp bằng gì?",
+        "Tôi đến lớp bằng xe buýt.",
+        "How do you come to the course?",
+        "I come by bus."
+    ],
+    [
+        "Kuinka kauan opiskelet suomea päivässä?",
+        "Opiskelen suomea noin kaksi tuntia päivässä.",
+        "Bạn học tiếng Phần Lan bao lâu mỗi ngày?",
+        "Tôi học khoảng hai tiếng mỗi ngày.",
+        "How long do you study Finnish each day?",
+        "I study Finnish for about two hours a day."
+    ],
+    [
+        "Miksi opiskelet suomea?",
+        "Opiskelen suomea, koska asun Suomessa.",
+        "Tại sao bạn học tiếng Phần Lan?",
+        "Tôi học tiếng Phần Lan vì tôi sống ở Phần Lan.",
+        "Why are you studying Finnish?",
+        "I study Finnish because I live in Finland."
+    ],
+    [
+        "Pidätkö suomalaisesta ruoasta?",
+        "Kyllä, pidän suomalaisesta ruoasta.",
+        "Bạn có thích đồ ăn Phần Lan không?",
+        "Có, tôi thích đồ ăn Phần Lan.",
+        "Do you like Finnish food?",
+        "Yes, I like Finnish food."
+    ],
+    [
+        "Mikä on lempiruokasi?",
+        "Lempiruokani on riisi ja kasvikset.",
+        "Món ăn yêu thích của bạn là gì?",
+        "Món yêu thích của tôi là cơm và rau.",
+        "What is your favourite food?",
+        "My favourite food is rice and vegetables."
+    ],
+    [
+        "Käytkö usein kirjastossa?",
+        "Käyn kirjastossa kerran viikossa.",
+        "Bạn có thường đến thư viện không?",
+        "Tôi đến thư viện mỗi tuần một lần.",
+        "Do you often go to the library?",
+        "I go to the library once a week."
+    ],
+    [
+        "Mitä teet, jos et ymmärrä sanaa?",
+        "Etsin sanan sanakirjasta ja kysyn opettajalta.",
+        "Bạn làm gì nếu không hiểu một từ?",
+        "Tôi tra từ điển và hỏi giáo viên.",
+        "What do you do if you don't understand a word?",
+        "I look it up and ask the teacher."
+    ],
+    [
+        "Voitko puhua hitaammin?",
+        "Totta kai, voin puhua hitaammin.",
+        "Bạn có thể nói chậm hơn không?",
+        "Tất nhiên, tôi có thể nói chậm hơn.",
+        "Can you speak more slowly?",
+        "Of course, I can speak more slowly."
+    ],
+    [
+        "Voitko toistaa, kiitos?",
+        "Totta kai. Voin toistaa.",
+        "Bạn có thể nhắc lại không?",
+        "Tất nhiên. Tôi có thể nhắc lại.",
+        "Can you repeat that, please?",
+        "Of course. I can repeat that."
+    ],
+    [
+        "Mitä teet tänään?",
+        "Tänään opiskelen suomea ja käyn kaupassa.",
+        "Hôm nay bạn làm gì?",
+        "Hôm nay tôi học tiếng Phần Lan và đi cửa hàng.",
+        "What are you doing today?",
+        "Today I am studying Finnish and going to the shop."
+    ],
+    [
+        "Mitä teit eilen?",
+        "Eilen olin kotona ja opiskelin.",
+        "Hôm qua bạn đã làm gì?",
+        "Hôm qua tôi ở nhà và học bài.",
+        "What did you do yesterday?",
+        "Yesterday I stayed at home and studied."
+    ],
+    [
+        "Mitä aiot tehdä huomenna?",
+        "Aion mennä kurssille ja opiskella.",
+        "Ngày mai bạn định làm gì?",
+        "Tôi định đi học và học bài.",
+        "What are you going to do tomorrow?",
+        "I am going to attend the course and study."
+    ],
+    [
+        "Voinko saada apua?",
+        "Kyllä, autan mielelläni.",
+        "Tôi có thể nhận được sự giúp đỡ không?",
+        "Có, tôi sẵn lòng giúp.",
+        "Can I get some help?",
+        "Yes, I am happy to help."
+    ]
+];
+
+let currentReadingIndex = 0;
+function showReading() {
+    currentScreen = "reading";
+    currentReadingIndex = 0;
+    renderReadingQuestion();
+}
+function renderReadingQuestion() {
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "reading";
+    const item = readingQuestions[currentReadingIndex];
+    if (!item) return;
+    lesson.innerHTML = `
+        <h2>📚 Lukeminen – Kysymykset ja vastaukset</h2>
+        <p>Question ${currentReadingIndex + 1} / ${readingQuestions.length}</p>
+        <div class="story-card">
+            <h3>🇫🇮 ${item[0]}</h3>
+            <p><strong>🇫🇮 ${item[1]}</strong></p>
+            <p>🇻🇳 ${item[2]}</p>
+            <p>🇻🇳 ${item[3]}</p>
+            <p>🇬🇧 ${item[4]}</p>
+            <p>🇬🇧 ${item[5]}</p>
+            <button onclick="speakReading(${currentReadingIndex}, 0)">🔊 Question</button>
+            <button onclick="speakReading(${currentReadingIndex}, 1)">🔊 Answer</button>
+        </div>
+        <button onclick="previousReading()" ${currentReadingIndex === 0 ? "disabled" : ""}>← Previous</button>
+        <button onclick="nextReading()" ${currentReadingIndex === readingQuestions.length - 1 ? "disabled" : ""}>Next →</button>
+        <button onclick="showHome()">⌂ Home</button>
+    `;
+    scrollToLesson();
+}
+function previousReading() { if (currentReadingIndex > 0) { currentReadingIndex--; renderReadingQuestion(); } }
+function nextReading() { if (currentReadingIndex < readingQuestions.length - 1) { currentReadingIndex++; renderReadingQuestion(); } }
+function speakReading(index, answer) {
+    const item = readingQuestions[index];
+    if (!item || !("speechSynthesis" in window)) return;
+    const textToSpeak = item[answer ? 1 : 0];
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    utterance.lang = "fi-FI";
+    utterance.rate = 0.82;
+    const voices = window.speechSynthesis.getVoices();
+    const finnishVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith("fi"));
+    const satuVoice = finnishVoices.find(v => v.name.toLowerCase().includes("satu"));
+    if (satuVoice) utterance.voice = satuVoice;
+    else if (finnishVoices.length) utterance.voice = finnishVoices[0];
+    window.speechSynthesis.speak(utterance);
+}
+window.showReading = showReading;
+window.previousReading = previousReading;
+window.nextReading = nextReading;
+window.speakReading = speakReading;
 
 /* 8. DICTATION TOPICS */
 
@@ -1294,15 +2136,15 @@ function showVerbTypes() {
     lesson.dataset.type = "verbs";
 
     lesson.innerHTML = `
-        <h2>🔤 VERBIT – ĐỘNG TỪ</h2>
-        <p>Valitse verbityyppi / Choose a verb type / Chọn nhóm động từ</p>
+        <h2>🔤 VERBIT</h2>
+        <p>Valitse verbityyppi / Choose a verb type</p>
 
         <div class="verb-types">
             ${[1, 2, 3, 4, 5, 6].map(type => `
                 <button onclick="openVerbType(${type})">
                     Verbityyppi ${type}
                     <small>
-                        ${type === 1 ? "80 động từ" : (type === 2 || type === 3 || type === 4) ? "50 động từ" : "Coming soon"}
+                        ${type === 1 ? "80 verbiä" : (type === 2 || type === 3 || type === 4) ? "50 verbiä" : "Coming soon"}
                     </small>
                 </button>
             `).join("")}
