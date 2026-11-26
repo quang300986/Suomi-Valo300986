@@ -886,19 +886,19 @@ function showHome() {
 const readingQuestions = [
     [
         "Kuka sinä olet?",
-        "Minä olen Quang.",
+        "Minä olen Valo.",
         "Bạn là ai?",
-        "Tôi là Quang.",
+        "Tôi là Valo.",
         "Who are you?",
-        "I am Quang."
+        "I am Valo."
     ],
     [
         "Mikä sinun nimesi on?",
-        "Minun nimeni on Quang.",
+        "Minun nimeni on Valo.",
         "Tên bạn là gì?",
-        "Tên tôi là Quang.",
+        "Tên tôi là Valo.",
         "What is your name?",
-        "My name is Quang."
+        "My name is Valo."
     ],
     [
         "Mikä sinun etunimesi on?",
@@ -1102,11 +1102,11 @@ const readingQuestions = [
     ],
     [
         "Mikä sinun ammattisi on?",
-        "Olen lääkäri, mutta opiskelen nyt suomea.",
+        "Olen lääkäri.",
         "Nghề nghiệp của bạn là gì?",
-        "Tôi là bác sĩ, nhưng hiện đang học tiếng Phần Lan.",
+        "Tôi là bác sĩ.",
         "What is your profession?",
-        "I am a doctor, but I am studying Finnish now."
+        "I am a doctor."
     ],
     [
         "Oletko sinä töissä?",
