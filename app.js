@@ -1673,7 +1673,16 @@ const readingQuestions = [
 let currentReadingIndex = 0;
 function showReading() {
     currentScreen = "reading";
-    currentReadingIndex = 0;
+
+    const savedIndex = Number(localStorage.getItem("readingLastIndex"));
+
+    currentReadingIndex =
+        Number.isInteger(savedIndex) &&
+        savedIndex >= 0 &&
+        savedIndex < readingQuestions.length
+            ? savedIndex
+            : 0;
+
     renderReadingQuestion();
 }
 function renderReadingQuestion() {
@@ -1681,6 +1690,7 @@ function renderReadingQuestion() {
     lesson.dataset.type = "reading";
     const item = readingQuestions[currentReadingIndex];
     if (!item) return;
+   localStorage.setItem("readingLastIndex", String(currentReadingIndex));
     lesson.innerHTML = `
         <h2>📚 Lukeminen – Kysymykset ja vastaukset</h2>
         <p>Question ${currentReadingIndex + 1} / ${readingQuestions.length}</p>
@@ -1696,6 +1706,15 @@ function renderReadingQuestion() {
         </div>
         <button onclick="previousReading()" ${currentReadingIndex === 0 ? "disabled" : ""}>← Previous</button>
         <button onclick="nextReading()" ${currentReadingIndex === readingQuestions.length - 1 ? "disabled" : ""}>Next →</button>
+        <input
+    type="number"
+    id="readingJumpInput"
+    min="1"
+    max="${readingQuestions.length}"
+    placeholder="Số câu"
+    style="width: 85px;"
+>
+<button onclick="jumpToReading()">Go</button>
         <button onclick="showHome()">⌂ Home</button>
     `;
     scrollToLesson();
@@ -1711,6 +1730,18 @@ function nextReading() {
         currentReadingIndex++;
         renderReadingQuestion();
     }
+}
+function jumpToReading() {
+    const input = document.getElementById("readingJumpInput");
+    const number = Number(input.value);
+
+    if (!Number.isInteger(number) || number < 1 || number > readingQuestions.length) {
+        alert("Enter a number from 1 to " + readingQuestions.length);
+        return;
+    }
+
+    currentReadingIndex = number - 1;
+    renderReadingQuestion();
 }
 function speakReading(index, answer) {
     const item = readingQuestions[index];
