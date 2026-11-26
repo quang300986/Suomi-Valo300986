@@ -875,10 +875,11 @@ function showHome() {
     lesson.innerHTML = `
         <h2>🇫🇮 Aloitetaan!</h2>
         <p>${getText("choose")}</p>
-        <button onclick="showReading()">📚 Lukeminen / Reading</button>
+        <button onclick="showReading()">📚 Lukeminen – Kysymykset ja vastaukset / Reading</button>
     `;
-}
 
+    scrollToLesson();
+}
 
 
 /* LUKEMINEN: Kysymykset ja vastaukset */
@@ -1699,8 +1700,18 @@ function renderReadingQuestion() {
     `;
     scrollToLesson();
 }
-function previousReading() { if (currentReadingIndex > 0) { currentReadingIndex--; renderReadingQuestion(); } }
-function nextReading() { if (currentReadingIndex < readingQuestions.length - 1) { currentReadingIndex++; renderReadingQuestion(); } }
+function previousReading() {
+    if (currentReadingIndex > 0) {
+        currentReadingIndex--;
+        renderReadingQuestion();
+    }
+}
+function nextReading() {
+    if (currentReadingIndex < readingQuestions.length - 1) {
+        currentReadingIndex++;
+        renderReadingQuestion();
+    }
+}
 function speakReading(index, answer) {
     const item = readingQuestions[index];
     if (!item || !("speechSynthesis" in window)) return;
@@ -1716,10 +1727,6 @@ function speakReading(index, answer) {
     else if (finnishVoices.length) utterance.voice = finnishVoices[0];
     window.speechSynthesis.speak(utterance);
 }
-window.showReading = showReading;
-window.previousReading = previousReading;
-window.nextReading = nextReading;
-window.speakReading = speakReading;
 
 /* 8. DICTATION TOPICS */
 
@@ -2422,6 +2429,11 @@ function openLesson(name) {
         showVerbTypes();
         return;
     }
+
+    if (name === "reading") {
+        showReading();
+        return;
+    }
 }
 
 
@@ -2431,6 +2443,10 @@ function openLesson(name) {
 window.setLanguage = setLanguage;
 window.openLesson = openLesson;
 window.showHome = showHome;
+window.showReading = showReading;
+window.previousReading = previousReading;
+window.nextReading = nextReading;
+window.speakReading = speakReading;
 
 window.showDictationTopics = showDictationTopics;
 window.selectDictationTopic = selectDictationTopic;
