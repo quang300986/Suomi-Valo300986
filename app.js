@@ -133,6 +133,9 @@ let activeLessons = [];
 let currentLesson = 0;
 let answerChecked = false;
 let dictationAttempts = 0;
+let activeDictationStories = [];
+let currentDictationStory = null;
+let isStoryDictation = false;
 let selectedVocabularyTopic = null;
 let selectedVocabularyLevel = null;
 let activeVocabularyWords = [];
@@ -150,7 +153,9 @@ const dictationTopics = [
     { id: "daily", fi: "Arkipäivä", en: "Daily life", vi: "Sinh hoạt hằng ngày" },
     { id: "weather", fi: "Sää", en: "Weather", vi: "Thời tiết" },
     { id: "shopping", fi: "Kauppa", en: "Shopping", vi: "Mua sắm" },
-    { id: "travel", fi: "Matkailu ", en: "Travel ", vi: "Du lịch " }
+    { id: "travel", fi: "Matkailu ", en: "Travel ", vi: "Du lịch " },
+    { id: "storiesA1", fi: "A1 tarinat", en: "A1 Stories", vi: "Truyện A1" },
+    { id: "storiesA2", fi: "A2 tarinat", en: "A2 Stories", vi: "Truyện A2" }
 ];
 
 
@@ -1126,11 +1131,11 @@ const readingQuestions = [
     ],
     [
         "Oletko sinä opiskelija?",
-        "Kyllä, minä olen opiskelija.",
+        "Kyllä, opiskelen suomea.",
         "Bạn có phải là học sinh/sinh viên không?",
-        "Đúng, tôi là sinh viên.",
+        "Có, tôi học tiếng Phần Lan.",
         "Are you a student?",
-        "Yes, I am a student".
+        "Yes, I study Finnish."
     ],
     [
         "Mikä päivä tänään on?",
@@ -1797,8 +1802,84 @@ function selectDictationTopic(topicId) {
     selectedLevel = null;
     activeLessons = [];
     currentLesson = 0;
+    currentDictationStory = null;
 
+    if (topicId === "storiesA1" || topicId === "storiesA2") {
+        isStoryDictation = true;
+        const storyLevel = topicId === "storiesA1" ? "A1" : "A2";
+        activeDictationStories = Array.isArray(window.stories)
+            ? window.stories.filter(story => story.level === storyLevel)
+            : [];
+        showDictationStoryList();
+        return;
+    }
+
+    isStoryDictation = false;
+    activeDictationStories = [];
     showDictationLevels();
+}
+
+function showDictationStoryList() {
+    currentScreen = "dictationStoryList";
+
+    const lesson = getElement("lesson");
+    lesson.dataset.type = "dictation";
+
+    const storyLevel = selectedTopic === "storiesA1" ? "A1" : "A2";
+    const heading = storyLevel === "A1" ? "A1 Stories / A1 tarinat" : "A2 Stories / A2 tarinat";
+
+    lesson.innerHTML = `
+        <h2>📖 ${heading}</h2>
+        <p>Choose a story to practise spelling. / Valitse tarina saneluharjoitukseen.</p>
+
+        <div class="topic-grid">
+            ${activeDictationStories.map((story, index) => `
+                <button onclick="selectDictationStory(${index})">
+                    🇫🇮 ${escapeHTML(story.title)}
+                    <br>
+                    🇻🇳 ${escapeHTML(story.vietnameseTitle || "")}
+                    <br>
+                    🇬🇧 ${escapeHTML(story.englishTitle || "")}
+                    <br>
+                    <small>${story.sentences.length} sentences</small>
+                </button>
+            `).join("")}
+        </div>
+
+        ${activeDictationStories.length === 0 ? `<p>No stories found. Check that stories.js is loaded.</p>` : ""}
+
+        <button onclick="showDictationTopics()">← Back to dictation topics</button>
+    `;
+
+    scrollToLesson();
+}
+
+function selectDictationStory(index) {
+    const story = activeDictationStories[index];
+    if (!story || !Array.isArray(story.sentences)) return;
+
+    currentDictationStory = story;
+    isStoryDictation = true;
+    activeLessons = story.sentences.map((sentence, sentenceIndex) => ({
+        topic: selectedTopic,
+        level: story.level,
+        fi: sentence.fi,
+        en: sentence.en,
+        vi: sentence.vi,
+        storyTitle: story.title,
+        storySentenceNumber: sentenceIndex + 1
+    }));
+
+    currentLesson = 0;
+    showDictation();
+}
+
+function backFromDictation() {
+    if (isStoryDictation) {
+        showDictationStoryList();
+    } else {
+        showDictationLevels();
+    }
 }
 
 
@@ -1866,7 +1947,7 @@ function showComingSoon() {
     lesson.innerHTML = `
         <h2>📚 ${getText("comingSoon")}</h2>
         <p>${getText("noLessons")}</p>
-        <button onclick="showDictationLevels()">
+        <button onclick="backFromDictation()">
             ← ${getText("back")}
         </button>
         <button onclick="showDictationTopics()">
@@ -1898,6 +1979,7 @@ function showDictation() {
 
     lesson.innerHTML = `
         <h2>🎧 ${t.dictation}</h2>
+        ${isStoryDictation && currentDictationStory ? `<h3>📖 ${escapeHTML(currentDictationStory.title)}</h3>` : ""}
 
         <p>
             ${t.exercise}
@@ -1930,7 +2012,7 @@ function showDictation() {
             ➜ ${t.next}
         </button>
 
-        <button onclick="showDictationLevels()">
+        <button onclick="backFromDictation()">
             ← ${t.back}
         </button>
     `;
@@ -2132,7 +2214,7 @@ function showCompleted() {
     lesson.innerHTML = `
         <h2>🎉 ${getText("completed")}</h2>
 
-        <button onclick="showDictationLevels()">
+        <button onclick="backFromDictation()">
             ← ${getText("back")}
         </button>
 
@@ -2432,6 +2514,9 @@ function openLesson(name) {
         selectedLevel = null;
         activeLessons = [];
         currentLesson = 0;
+        activeDictationStories = [];
+        currentDictationStory = null;
+        isStoryDictation = false;
 
         showDictationTopics();
         return;
@@ -2481,6 +2566,9 @@ window.speakReading = speakReading;
 
 window.showDictationTopics = showDictationTopics;
 window.selectDictationTopic = selectDictationTopic;
+window.showDictationStoryList = showDictationStoryList;
+window.selectDictationStory = selectDictationStory;
+window.backFromDictation = backFromDictation;
 window.showDictationLevels = showDictationLevels;
 window.selectDictationLevel = selectDictationLevel;
 
