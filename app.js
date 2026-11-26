@@ -2182,7 +2182,7 @@ function showVerbTypes() {
                 <button onclick="openVerbType(${type})">
                     Verbityyppi ${type}
                     <small>
-                        ${type === 1 ? "80 verbiä" : (type === 2 || type === 3 || type === 4) ? "50 verbiä" : "Coming soon"}
+                        ${type === 1 ? "80 verbiä" : (type === 2 || type === 3 || type === 4) ? "50 verbiä" : type === 5 ? "16 verbiä" : type === 6 ? "15 verbiä" : "Coming soon"}
                     </small>
                 </button>
             `).join("")}
@@ -3338,6 +3338,59 @@ const verbType4Data = [
     example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
 }));
 
+// ============================================
+// VERBIT - VERBITYYPPI 5 - 16 VERBS
+// Type 5: -ita/-itä -> -itse-
+// ============================================
+
+const verbType5Data = [
+    ["hallita", "kiểm soát; làm chủ", "to control; master", "hallitse", "hallitsen", "Minä hallitsen tätä ohjelmaa.", "Tôi làm chủ chương trình này.", "I can control this program."],
+    ["harkita", "cân nhắc", "to consider", "harkitse", "harkitsen", "Minä harkitsen uutta työtä.", "Tôi đang cân nhắc công việc mới.", "I am considering a new job."],
+    ["havaita", "nhận thấy; phát hiện", "to notice; detect", "havaitse", "havaitsen", "Minä havaitsen pienen virheen.", "Tôi nhận thấy một lỗi nhỏ.", "I notice a small mistake."],
+    ["hillitä", "kiềm chế", "to restrain; control", "hillitse", "hillitsen", "Minä hillitsen ääntäni.", "Tôi kiềm chế giọng nói của mình.", "I control my voice."],
+    ["häiritä", "làm phiền; quấy rầy", "to disturb; bother", "häiritse", "häiritsen", "En halua häiritä sinua.", "Tôi không muốn làm phiền bạn.", "I don't want to bother you."],
+    ["kyyditä", "chở ai bằng xe", "to give someone a ride", "kyyditse", "kyyditsen", "Minä kyyditsen ystävän asemalle.", "Tôi chở một người bạn đến nhà ga.", "I give a friend a ride to the station."],
+    ["mainita", "đề cập; nhắc đến", "to mention", "mainitse", "mainitsen", "Minä mainitsen tämän asian.", "Tôi đề cập đến việc này.", "I mention this matter."],
+    ["merkitä", "đánh dấu; có nghĩa là", "to mark; mean", "merkitse", "merkitsen", "Tämä sana merkitsee paljon.", "Từ này có ý nghĩa rất lớn.", "This word means a lot."],
+    ["punnita", "cân", "to weigh", "punnitse", "punnitsen", "Minä punnitsen omenat.", "Tôi cân những quả táo.", "I weigh the apples."],
+    ["palkita", "khen thưởng", "to reward", "palkitse", "palkitsen", "Koulu palkitsee hyvän oppilaan.", "Trường khen thưởng học sinh giỏi.", "The school rewards a good student."],
+    ["sijaita", "nằm ở; tọa lạc", "to be located", "sijaitse", "sijaitsen", "Koulu sijaitsee lähellä kotia.", "Trường học nằm gần nhà.", "The school is located near home."],
+    ["tarvita", "cần", "to need", "tarvitse", "tarvitsen", "Minä tarvitsen apua.", "Tôi cần sự giúp đỡ.", "I need help."],
+    ["tulkita", "diễn giải; phiên dịch", "to interpret", "tulkitse", "tulkitsen", "Minä tulkitsen tämän lauseen.", "Tôi diễn giải câu này.", "I interpret this sentence."],
+    ["tuomita", "kết án; lên án", "to sentence; condemn", "tuomitse", "tuomitsen", "Tuomari tuomitsee miehen.", "Thẩm phán kết án người đàn ông.", "The judge sentences the man."],
+    ["valita", "chọn; lựa chọn", "to choose; select", "valitse", "valitsen", "Minä valitsen tämän kirjan.", "Tôi chọn quyển sách này.", "I choose this book."],
+    ["ansaita", "kiếm được; xứng đáng", "to earn; deserve", "ansaitse", "ansaitsen", "Minä ansaitsen rahaa työllä.", "Tôi kiếm tiền bằng công việc.", "I earn money through work."]
+].map(([fi, vi, en, stem, mina, exampleFi, exampleVi, exampleEn]) => ({
+    type: 5, fi, vi, en, stemStrong: stem, stemWeak: stem, mina,
+    example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
+}));
+
+// ============================================
+// VERBIT - VERBITYYPPI 6 - 15 VERBS
+// Type 6: -eta/-etä -> -ene-
+// ============================================
+
+const verbType6Data = [
+    ["vanheta", "già đi; trở nên già", "to grow old", "vanhene", "vanhenen", "Ihmiset vanhenevat.", "Con người già đi.", "People grow old."],
+    ["lämmetä", "ấm lên; nóng lên", "to become warm", "lämpene", "lämpenen", "Sää lämpenee keväällä.", "Thời tiết ấm lên vào mùa xuân.", "The weather gets warmer in spring."],
+    ["kylmetä", "lạnh đi", "to become cold", "kylmene", "kylmenen", "Ilma kylmenee illalla.", "Không khí lạnh đi vào buổi tối.", "The air gets colder in the evening."],
+    ["pimetä", "tối đi; trời tối", "to get dark", "pimene", "pimenen", "Ulkona pimenee aikaisin.", "Ngoài trời tối sớm.", "It gets dark early outside."],
+    ["nuoreta", "trẻ lại; trẻ hơn", "to become younger", "nuorene", "nuorenen", "Hän näyttää nuorenevan.", "Trông người ấy có vẻ trẻ ra.", "He/she seems to be getting younger."],
+    ["laajeta", "mở rộng; rộng ra", "to widen; expand", "laajene", "laajenen", "Tie laajenee tässä.", "Con đường rộng ra ở đây.", "The road gets wider here."],
+    ["vaaleta", "nhạt màu; sáng màu hơn", "to become lighter", "vaalene", "vaalenen", "Hiukseni vaalenevat kesällä.", "Tóc tôi sáng màu hơn vào mùa hè.", "My hair gets lighter in summer."],
+    ["lyhetä", "ngắn lại", "to become shorter", "lyhene", "lyhenen", "Päivät lyhenevät syksyllä.", "Ngày ngắn lại vào mùa thu.", "The days get shorter in autumn."],
+    ["paeta", "trốn thoát; chạy trốn", "to flee; escape", "pakene", "pakenen", "Vanki pakenee.", "Tù nhân trốn thoát.", "The prisoner escapes."],
+    ["heiketä", "yếu đi; suy yếu", "to become weaker", "heikkene", "heikkenen", "Tuuli heikkenee illalla.", "Gió yếu đi vào buổi tối.", "The wind gets weaker in the evening."],
+    ["rohjeta", "dám", "to dare", "rohkene", "rohkenen", "En rohkene kysyä.", "Tôi không dám hỏi.", "I don't dare to ask."],
+    ["edetä", "tiến triển; tiến lên", "to progress; advance", "etene", "etenen", "Työ etenee hyvin.", "Công việc tiến triển tốt.", "The work is progressing well."],
+    ["pidetä", "dài ra", "to become longer", "pitene", "pitenen", "Päivät pitenevät keväällä.", "Ngày dài ra vào mùa xuân.", "The days get longer in spring."],
+    ["aueta", "mở ra; hé mở", "to open", "aukene", "aukenen", "Ovi aukenee hitaasti.", "Cánh cửa từ từ mở ra.", "The door opens slowly."],
+    ["vaieta", "im lặng; trở nên im lặng", "to become silent", "vaikene", "vaikenen", "Hän vaikenee.", "Người ấy im lặng.", "He/she becomes silent."]
+].map(([fi, vi, en, stem, mina, exampleFi, exampleVi, exampleEn]) => ({
+    type: 6, fi, vi, en, stemStrong: stem, stemWeak: stem, mina,
+    example: { fi: exampleFi, vi: exampleVi, en: exampleEn }
+}));
+
 let currentVerbIndex = 0;
 let currentVerbType = 1;
 
@@ -3346,7 +3399,7 @@ function openVerbType(type) {
     currentVerbType = type;
     currentVerbIndex = 0;
 
-    if (type === 1 || type === 2 || type === 3 || type === 4) {
+    if (type === 1 || type === 2 || type === 3 || type === 4 || type === 5 || type === 6) {
         showVerbList();
         return;
     }
@@ -3367,6 +3420,8 @@ function openVerbType(type) {
 }
 
 function getActiveVerbWords() {
+    if (currentVerbType === 6) return verbType6Data;
+    if (currentVerbType === 5) return verbType5Data;
     if (currentVerbType === 4) return verbType4Data;
     if (currentVerbType === 3) return verbType3Data;
     if (currentVerbType === 2) return verbType2Data;
@@ -3438,16 +3493,17 @@ function showVerbCard() {
 
     const activeWords = getActiveVerbWords();
     const word = activeWords[currentVerbIndex];
-    const example = (currentVerbType === 2 || currentVerbType === 3 || currentVerbType === 4)
+    const usesVerbTypeData = [2, 3, 4, 5, 6].includes(currentVerbType);
+    const example = usesVerbTypeData
         ? word.example
         : (verbExamples[currentVerbIndex] || { fi: "", vi: "", en: "" });
 
-    const stemSection = (currentVerbType === 2 || currentVerbType === 3 || currentVerbType === 4)
+    const stemSection = usesVerbTypeData
         ? `<p><strong>Vartalo:</strong> ${word.stemStrong}</p>`
         : `<p><strong>Vahva vartalo:</strong> ${word.stemStrong}</p>
            <p><strong>Heikko vartalo:</strong> ${word.stemWeak}</p>`;
 
-    const minaForm = (currentVerbType === 2 || currentVerbType === 3 || currentVerbType === 4) ? word.mina : `${word.stemWeak}n`;
+    const minaForm = usesVerbTypeData ? word.mina : `${word.stemWeak}n`;
 
     lesson.innerHTML = `
         <div style="
