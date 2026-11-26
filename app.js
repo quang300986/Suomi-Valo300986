@@ -1126,11 +1126,11 @@ const readingQuestions = [
     ],
     [
         "Oletko sinä opiskelija?",
-        "Kyllä, opiskelen suomea.",
+        "Kyllä, minä olen opiskelija.",
         "Bạn có phải là học sinh/sinh viên không?",
-        "Có, tôi học tiếng Phần Lan.",
+        "Đúng, tôi là sinh viên.",
         "Are you a student?",
-        "Yes, I study Finnish."
+        "Yes, I am a student".
     ],
     [
         "Mikä päivä tänään on?",
