@@ -1672,7 +1672,160 @@ const readingQuestions = [
         "Có, tôi sẵn lòng giúp.",
         "Can I get some help?",
         "Yes, I am happy to help."
+    ],
+    [
+        "Monelta sinä lähdet kotoa tänään?",
+        "Lähden kotoa kello kahdeksan.",
+        "Hôm nay bạn rời nhà lúc mấy giờ?",
+        "Tôi rời nhà lúc tám giờ.",
+        "What time are you leaving home today?",
+        "I am leaving home at eight o'clock."
+    ],
+    [
+        "Ymmärrätkö sinä suomea?",
+        "Kyllä, ymmärrän vähän suomea.",
+        "Bạn có hiểu tiếng Phần Lan không?",
+        "Có, tôi hiểu một chút tiếng Phần Lan.",
+        "Do you understand Finnish?",
+        "Yes, I understand a little Finnish."
+    ],
+    [
+        "Osaatko sinä soittaa pianoa?",
+        "En osaa soittaa pianoa.",
+        "Bạn có biết chơi đàn piano không?",
+        "Tôi không biết chơi đàn piano.",
+        "Can you play the piano?",
+        "I can't play the piano."
+    ],
+    [
+        "Kirjoitatko sinä kotitehtävät vihkoon?",
+        "Kyllä, kirjoitan kotitehtävät vihkoon.",
+        "Bạn có viết bài tập về nhà vào vở không?",
+        "Có, tôi viết bài tập về nhà vào vở.",
+        "Do you write your homework in your notebook?",
+        "Yes, I write my homework in my notebook."
+    ],
+    [
+        "Mitä Galimatiaksen pihalla rakentajat rakentavat?",
+        "Rakentajat rakentavat uutta taloa.",
+        "Những người thợ xây đang xây gì ở sân của Galimatias?",
+        "Những người thợ xây đang xây một ngôi nhà mới.",
+        "What are the builders building in Galimatias's yard?",
+        "The builders are building a new house."
+    ],
+    [
+        "Anna läpy!",
+        "Tässä tulee läpy!",
+        "Đập tay nào!",
+        "Đây, đập tay nhé!",
+        "Give me a high five!",
+        "Here comes a high five!"
+    ],
+    [
+        "Tiedätkö, missä napapiiri on?",
+        "Kyllä. Napapiiri kulkee Pohjois-Suomessa.",
+        "Bạn có biết vòng Bắc Cực nằm ở đâu không?",
+        "Có. Vòng Bắc Cực đi qua miền Bắc Phần Lan.",
+        "Do you know where the Arctic Circle is?",
+        "Yes. The Arctic Circle passes through northern Finland."
+    ],
+    [
+        "Sopiiko sinulle tauko kello 12?",
+        "Kyllä, se sopii minulle hyvin.",
+        "Bạn nghỉ giải lao lúc 12 giờ có được không?",
+        "Có, giờ đó rất phù hợp với tôi.",
+        "Does a break at 12 o'clock suit you?",
+        "Yes, that works well for me."
+    ],
+    [
+        "Sovitteko te tapahtumasta?",
+        "Kyllä, sovimme tapahtuman ajasta ja paikasta.",
+        "Các bạn đã thống nhất về sự kiện chưa?",
+        "Có, chúng tôi đã thống nhất thời gian và địa điểm của sự kiện.",
+        "Did you agree on the event?",
+        "Yes, we agreed on the time and place of the event."
+    ],
+    [
+        "Mitä sinä otat mukaan kouluun?",
+        "Otan mukaan kirjat, vihkon ja kynän.",
+        "Bạn mang gì đến trường?",
+        "Tôi mang theo sách, vở và bút.",
+        "What do you take with you to school?",
+        "I take books, a notebook and a pen."
+    ],
+    [
+        "Kuinka monta tuntia sinä nukut yöllä?",
+        "Nukun noin kahdeksan tuntia yössä.",
+        "Bạn ngủ bao nhiêu tiếng mỗi đêm?",
+        "Tôi ngủ khoảng tám tiếng mỗi đêm.",
+        "How many hours do you sleep at night?",
+        "I sleep about eight hours a night."
+    ],
+    [
+        "Mitä sinä katsot YouTubesta?",
+        "Katson YouTubesta suomen kielen opetusvideoita.",
+        "Bạn xem gì trên YouTube?",
+        "Tôi xem các video dạy tiếng Phần Lan trên YouTube.",
+        "What do you watch on YouTube?",
+        "I watch Finnish-language teaching videos on YouTube."
+    ],
+    [
+        "Mitä sinä piirrät?",
+        "Piirrän talon ja puun.",
+        "Bạn đang vẽ gì?",
+        "Tôi đang vẽ một ngôi nhà và một cái cây.",
+        "What are you drawing?",
+        "I'm drawing a house and a tree."
+    ],
+    [
+        "Miltä tapahtumatori tuntuu nyt?",
+        "Se tuntuu mukavalta ja vilkkaalta.",
+        "Quảng trường sự kiện bây giờ có cảm giác thế nào?",
+        "Nơi đó có cảm giác dễ chịu và nhộn nhịp.",
+        "How does the event square feel now?",
+        "It feels pleasant and lively."
+    ],
+    [
+        "Onko täällä lämmin vai viileä?",
+        "Täällä on vähän viileä.",
+        "Ở đây ấm hay mát?",
+        "Ở đây hơi mát.",
+        "Is it warm or cool here?",
+        "It is a little cool here."
+    ],
+    [
+        "Miltä tuntuu?",
+        "Minusta tuntuu hyvältä.",
+        "Cảm giác thế nào?",
+        "Tôi cảm thấy dễ chịu.",
+        "How does it feel?",
+        "I feel good."
+    ],
+    [
+        "Miltä uusi sohva tuntuu?",
+        "Uusi sohva tuntuu pehmeältä ja mukavalta.",
+        "Chiếc ghế sofa mới có cảm giác thế nào?",
+        "Chiếc ghế sofa mới mềm và thoải mái.",
+        "How does the new sofa feel?",
+        "The new sofa feels soft and comfortable."
+    ],
+    [
+        "Miltä suomen kieli tuntuu?",
+        "Suomen kieli tuntuu joskus vaikealta, mutta myös mielenkiintoiselta.",
+        "Tiếng Phần Lan có cảm giác thế nào?",
+        "Tiếng Phần Lan đôi khi có vẻ khó, nhưng cũng thú vị.",
+        "How does the Finnish language feel?",
+        "Finnish sometimes feels difficult, but also interesting."
+    ],
+    [
+        "Tunnetko sinä Alexander Stubbin? Entä Petteri Orpon?",
+        "Kyllä, tunnen molemmat. He ovat suomalaisia poliitikkoja.",
+        "Bạn có biết Alexander Stubb không? Còn Petteri Orpo thì sao?",
+        "Có, tôi biết cả hai. Họ là những chính trị gia Phần Lan.",
+        "Do you know Alexander Stubb? What about Petteri Orpo?",
+        "Yes, I know both. They are Finnish politicians."
     ]
+
 ];
 
 let currentReadingIndex = 0;
